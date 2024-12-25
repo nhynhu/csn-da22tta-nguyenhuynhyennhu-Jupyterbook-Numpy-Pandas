@@ -1,0 +1,1217 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Đọc và Ghi Dữ liệu ở Định dạng Văn bản &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TextFormat';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Định Dạng Dữ Liệu Nhị Phân" href="DataFormat.html" />
+    <link rel="prev" title="Nạp Dữ liệu, Lưu trữ và Định dạng Tệp" href="Format.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="My sample book - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="tongquan.html">Tổng quan về NumPy và Pandas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Numpy.html">NumPy Cơ Bản Mảng và Tính Toán Vector</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ndarray.html">Đối Tượng Mảng N Chiều NumPy: Một Đối Tượng Mảng Đa Chiều</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="Arithmetic.html">Các Phép Toán trên Mảng</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UniversalFunctions.html">Hàm Toàn Cục: Các Hàm Mảng Nhanh Theo Phần Tử</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="InputOutput.html">Nhập/Xuất Dữ Liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Khac.html">Đại Số Tuyến Tính với NumPy</a></li>
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Pandas.html">Pandas cơ bản</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures.html">Giới Thiệu Cấu Trúc Dữ Liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EssentialFunctionality.html">Các Chức Năng Cơ Bản</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DescriptiveStatistics.html">Thống Kê và Phân Tích Dữ Liệu</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Format.html">Nạp, Lưu Trữ và Định Dạng Dữ Liệu</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Đọc và Ghi Dữ Liệu Văn Bản</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataFormat.html">Định Dạng Dữ Liệu Nhị Phân</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="DataCleaning.html">Làm Sạch và Chuẩn Bị Dữ Liệu</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Handling.html">Xử Lý Dữ Liệu Thiếu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Transformation.html">Biến Đổi Dữ Liệu</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="StringManipulation.html">String Manipulation</a></li>
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="DataWrangling.html">Biến Đổi và Kết Hợp Dữ Liệu</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Indexing.html">Đánh Chỉ Mục Phân Cấp</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="Combining.html">Kết Hợp Dữ Liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Reshaping.html">Biến Đổi Dữ Liệu</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTextFormat.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/TextFormat.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Đọc và Ghi Dữ liệu ở Định dạng Văn bản</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuy-chon-va-xu-ly-du-lieu-van-ban">Tùy chọn và xử lý dữ liệu văn bản</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-du-doc-tep-csv-co-ban">Ví dụ: Đọc tệp CSV cơ bản</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xu-ly-du-lieu-phan-cap">Xử lý dữ liệu phân cấp</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#doc-tep-voi-dinh-dang-khong-co-dinh">Đọc tệp với định dạng không cố định</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bo-qua-dong-khong-mong-muon">Bỏ qua dòng không mong muốn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xu-ly-gia-tri-bi-thieu">Xử lý giá trị bị thiếu</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-6-2-mot-so-tham-so-cua-ham-read-csv-read-table">Bảng 6-2. Một số tham số của hàm <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>/<code class="docutils literal notranslate"><span class="pre">read_table</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doc-tep-van-ban-tung-phan">Đọc Tệp Văn Bản Từng Phần</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ghi-du-lieu-ra-dinh-dang-van-ban">Ghi Dữ Liệu ra Định Dạng Văn Bản</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lam-viec-voi-cac-dinh-dang-phan-cach">Làm Việc Với Các Định Dạng Phân Cách</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-6-3-tuy-chon-cua-dial-csv">Bảng 6-3. Tùy chọn của dial CSV</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#du-lieu-json">Dữ liệu JSON</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xml-va-html-web-scraping">XML và HTML: Web Scraping</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="doc-va-ghi-du-lieu-o-dinh-dang-van-ban">
+<h1>Đọc và Ghi Dữ liệu ở Định dạng Văn bản<a class="headerlink" href="#doc-va-ghi-du-lieu-o-dinh-dang-van-ban" title="Link to this heading">#</a></h1>
+<p><strong>pandas</strong> cung cấp nhiều hàm để đọc dữ liệu dạng bảng vào đối tượng DataFrame. Trong số này, <strong>read_csv</strong> và <strong>read_table</strong> là hai hàm thường được sử dụng nhất. Dưới đây là một số hàm đọc dữ liệu trong pandas:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Hàm</strong></p></th>
+<th class="head"><p><strong>Mô tả</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>read_csv</strong></p></td>
+<td><p>Đọc dữ liệu được phân tách từ tệp, URL hoặc đối tượng tương tự tệp; mặc định sử dụng dấu phẩy.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>read_table</strong></p></td>
+<td><p>Đọc dữ liệu được phân tách từ tệp, URL hoặc đối tượng tương tự tệp; mặc định sử dụng tab (‘\t’).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>read_fwf</strong></p></td>
+<td><p>Đọc dữ liệu theo định dạng cột có độ rộng cố định (không có dấu phân tách).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>read_clipboard</strong></p></td>
+<td><p>Đọc dữ liệu từ clipboard, tiện dụng khi sao chép bảng từ trang web.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>read_excel</strong></p></td>
+<td><p>Đọc dữ liệu bảng từ tệp Excel (XLS hoặc XLSX).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>read_hdf</strong></p></td>
+<td><p>Đọc tệp HDF5 được tạo bởi pandas.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>read_html</strong></p></td>
+<td><p>Đọc tất cả các bảng tìm thấy trong tài liệu HTML.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>read_json</strong></p></td>
+<td><p>Đọc dữ liệu từ chuỗi JSON.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>read_pickle</strong></p></td>
+<td><p>Đọc đối tượng được lưu trữ ở định dạng pickle của Python.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="tuy-chon-va-xu-ly-du-lieu-van-ban">
+<h2>Tùy chọn và xử lý dữ liệu văn bản<a class="headerlink" href="#tuy-chon-va-xu-ly-du-lieu-van-ban" title="Link to this heading">#</a></h2>
+<p>Các hàm đọc dữ liệu của pandas cho phép tùy chỉnh qua các tham số như:</p>
+<ol class="arabic simple">
+<li><p><strong>Indexing</strong>: Xác định cột làm chỉ mục hoặc tự động gán tên cột.</p></li>
+<li><p><strong>Chuyển đổi dữ liệu</strong>: Xác định cách xử lý dữ liệu bị thiếu và kiểu dữ liệu.</p></li>
+<li><p><strong>Xử lý ngày và thời gian</strong>: Gộp các cột ngày, giờ vào một cột duy nhất.</p></li>
+<li><p><strong>Đọc tệp lớn</strong>: Hỗ trợ đọc dữ liệu theo từng phần (<em>chunks</em>).</p></li>
+<li><p><strong>Dữ liệu không sạch</strong>: Bỏ qua dòng, nhận xét hoặc xử lý số có dấu phân cách hàng nghìn.</p></li>
+</ol>
+</section>
+<section id="vi-du-doc-tep-csv-co-ban">
+<h2>Ví dụ: Đọc tệp CSV cơ bản<a class="headerlink" href="#vi-du-doc-tep-csv-co-ban" title="Link to this heading">#</a></h2>
+<p>Giả sử bạn có một tệp CSV như sau:</p>
+<div class="highlight-plaintext notranslate"><div class="highlight"><pre><span></span>a,b,c,d,message
+1,2,3,4,hello
+5,6,7,8,world
+9,10,11,12,foo
+</pre></div>
+</div>
+<p>Sử dụng <strong>read_csv</strong> để đọc dữ liệu:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;examples/ex1.csv&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-plaintext notranslate"><div class="highlight"><pre><span></span>   a   b   c   d message
+0  1   2   3   4   hello
+1  5   6   7   8   world
+2  9  10  11  12     foo
+</pre></div>
+</div>
+<p>Nếu tệp không có dòng tiêu đề, pandas sẽ tự động gán tên cột mặc định hoặc có thể chỉ định tên cột cụ thể:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;examples/ex2.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Hoặc chỉ định tên cột:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;examples/ex2.csv&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;message&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Khi cần chỉ định một cột làm chỉ mục, sử dụng tham số <code class="docutils literal notranslate"><span class="pre">index_col</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;message&#39;</span><span class="p">]</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;examples/ex2.csv&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;message&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="xu-ly-du-lieu-phan-cap">
+<h2>Xử lý dữ liệu phân cấp<a class="headerlink" href="#xu-ly-du-lieu-phan-cap" title="Link to this heading">#</a></h2>
+<p>Đối với dữ liệu có chỉ mục phân cấp, có thể truyền danh sách tên cột hoặc số cột vào <code class="docutils literal notranslate"><span class="pre">index_col</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;examples/csv_mindex.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="doc-tep-voi-dinh-dang-khong-co-dinh">
+<h2>Đọc tệp với định dạng không cố định<a class="headerlink" href="#doc-tep-voi-dinh-dang-khong-co-dinh" title="Link to this heading">#</a></h2>
+<p>Với tệp có dấu phân tách không cố định (như khoảng trắng), sử dụng biểu thức chính quy:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;examples/ex3.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Trong trường hợp này, pandas sẽ tự động xử lý khi số lượng tên cột ít hơn số cột dữ liệu.</p>
+</section>
+<section id="bo-qua-dong-khong-mong-muon">
+<h2>Bỏ qua dòng không mong muốn<a class="headerlink" href="#bo-qua-dong-khong-mong-muon" title="Link to this heading">#</a></h2>
+<p>Có thể bỏ qua các dòng không cần thiết bằng cách sử dụng <code class="docutils literal notranslate"><span class="pre">skiprows</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;examples/ex4.csv&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="xu-ly-gia-tri-bi-thieu">
+<h2>Xử lý giá trị bị thiếu<a class="headerlink" href="#xu-ly-gia-tri-bi-thieu" title="Link to this heading">#</a></h2>
+<p>Khi dữ liệu có giá trị bị thiếu, pandas tự động nhận diện các giá trị phổ biến như <code class="docutils literal notranslate"><span class="pre">NA</span></code>, <code class="docutils literal notranslate"><span class="pre">NULL</span></code> hoặc có thể chỉ định tùy chỉnh:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;examples/ex5.csv&#39;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;NULL&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Đối với các cột cụ thể, sử dụng từ điển để gán giá trị thiếu:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sentinels</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;NA&#39;</span><span class="p">],</span> <span class="s1">&#39;something&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;two&#39;</span><span class="p">]}</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;examples/ex5.csv&#39;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="n">sentinels</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="bang-6-2-mot-so-tham-so-cua-ham-read-csv-read-table">
+<h3>Bảng 6-2. Một số tham số của hàm <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>/<code class="docutils literal notranslate"><span class="pre">read_table</span></code><a class="headerlink" href="#bang-6-2-mot-so-tham-so-cua-ham-read-csv-read-table" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tham số</p></th>
+<th class="head"><p>Mô tả</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">path</span></code></p></td>
+<td><p>Chuỗi chỉ định vị trí tệp trong hệ thống tệp, URL, hoặc đối tượng giống tệp.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sep</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">delimiter</span></code></p></td>
+<td><p>Chuỗi ký tự hoặc biểu thức chính quy để sử dụng để tách các trường trong mỗi hàng.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p>Số hàng để sử dụng làm tên cột; mặc định là 0 (hàng đầu tiên), nhưng nên là <code class="docutils literal notranslate"><span class="pre">None</span></code> nếu không có hàng tiêu đề.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">index_col</span></code></p></td>
+<td><p>Số cột hoặc tên cột để sử dụng làm chỉ mục hàng trong kết quả; có thể là một tên/số đơn hoặc danh sách chúng cho chỉ mục phân cấp.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">names</span></code></p></td>
+<td><p>Danh sách tên cột cho kết quả, kết hợp với <code class="docutils literal notranslate"><span class="pre">header=None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">skiprows</span></code></p></td>
+<td><p>Số hàng ở đầu tệp để bỏ qua hoặc danh sách các số hàng (bắt đầu từ 0) để bỏ qua.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">na_values</span></code></p></td>
+<td><p>Chuỗi các giá trị để thay thế bằng NA.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">comment</span></code></p></td>
+<td><p>Ký tự(hoặc ký tự) để tách nhận xét khỏi cuối dòng.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">parse_dates</span></code></p></td>
+<td><p>Cố gắng phân tích dữ liệu thành ngày giờ; mặc định là False. Nếu True, sẽ cố gắng phân tích tất cả các cột. Nếu không, có thể chỉ định danh sách các số cột hoặc tên cột để phân tích. Nếu phần tử của danh sách là tuple hoặc danh sách, sẽ kết hợp nhiều cột lại với nhau và phân tích thành ngày (ví dụ: nếu ngày/giờ được chia thành hai cột).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">keep_date_col</span></code></p></td>
+<td><p>Nếu kết hợp các cột để phân tích ngày, giữ các cột đã kết hợp; mặc định là False.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">converters</span></code></p></td>
+<td><p>Dict chứa số cột hoặc tên cột ánh xạ đến các hàm (ví dụ: <code class="docutils literal notranslate"><span class="pre">{'foo':</span> <span class="pre">f}</span></code> sẽ áp dụng hàm <code class="docutils literal notranslate"><span class="pre">f</span></code> cho tất cả các giá trị trong cột ‘foo’).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">dayfirst</span></code></p></td>
+<td><p>Khi phân tích các ngày có thể gây nhầm lẫn, coi đó là định dạng quốc tế (ví dụ: 7/6/2012 -&gt; 7 tháng 6, 2012); mặc định là False.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">date_parser</span></code></p></td>
+<td><p>Hàm để sử dụng để phân tích ngày.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">nrows</span></code></p></td>
+<td><p>Số hàng để đọc từ đầu tệp.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">iterator</span></code></p></td>
+<td><p>Trả về một đối tượng TextParser để đọc tệp theo phần.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">chunksize</span></code></p></td>
+<td><p>Kích thước các khối tệp cho việc lặp lại.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">skip_footer</span></code></p></td>
+<td><p>Số dòng để bỏ qua ở cuối tệp.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code></p></td>
+<td><p>In thông tin đầu ra của bộ phân tích cú pháp khác nhau, như số lượng giá trị bị thiếu được đặt vào các cột không phải số.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">encoding</span></code></p></td>
+<td><p>Mã hóa văn bản cho Unicode (ví dụ: ‘utf-8’ cho văn bản được mã hóa UTF-8).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">squeeze</span></code></p></td>
+<td><p>Nếu dữ liệu được phân tích chỉ chứa một cột, trả về một Series.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">thousands</span></code></p></td>
+<td><p>Dấu phân cách cho hàng nghìn (ví dụ: ‘,’ hoặc ‘.’).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="doc-tep-van-ban-tung-phan">
+<h3>Đọc Tệp Văn Bản Từng Phần<a class="headerlink" href="#doc-tep-van-ban-tung-phan" title="Link to this heading">#</a></h3>
+<p>Khi xử lý các tệp rất lớn hoặc tìm ra bộ tham số đúng để xử lý một tệp lớn, bạn có thể chỉ muốn đọc một phần nhỏ của tệp hoặc lặp qua các phần nhỏ hơn của tệp.</p>
+<p>Trước khi chúng ta xem một tệp lớn, hãy làm cho các cài đặt hiển thị của pandas gọn gàng hơn:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<p>Bây giờ chúng ta có:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;examples/ex6.csv&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>         <span class="n">one</span>       <span class="n">two</span>     <span class="n">three</span>      <span class="n">four</span> <span class="n">key</span>
+<span class="mi">0</span>   <span class="mf">0.467976</span> <span class="o">-</span><span class="mf">0.038649</span> <span class="o">-</span><span class="mf">0.295344</span> <span class="o">-</span><span class="mf">1.824726</span>   <span class="n">L</span>
+<span class="mi">1</span>  <span class="o">-</span><span class="mf">0.358893</span>  <span class="mf">1.404453</span>  <span class="mf">0.704965</span> <span class="o">-</span><span class="mf">0.200638</span>   <span class="n">B</span>
+<span class="mi">2</span>  <span class="o">-</span><span class="mf">0.501840</span>  <span class="mf">0.659254</span> <span class="o">-</span><span class="mf">0.421691</span> <span class="o">-</span><span class="mf">0.057688</span>   <span class="n">G</span>
+<span class="mi">3</span>   <span class="mf">0.204886</span>  <span class="mf">1.074134</span>  <span class="mf">1.388361</span> <span class="o">-</span><span class="mf">0.982404</span>   <span class="n">R</span>
+<span class="mi">4</span>   <span class="mf">0.354628</span> <span class="o">-</span><span class="mf">0.133116</span>  <span class="mf">0.283763</span> <span class="o">-</span><span class="mf">0.837063</span>   <span class="n">Q</span>
+<span class="o">...</span>       <span class="o">...</span>       <span class="o">...</span>       <span class="o">...</span>       <span class="o">...</span>  <span class="o">..</span>
+<span class="mi">9995</span>  <span class="mf">2.311896</span> <span class="o">-</span><span class="mf">0.417070</span> <span class="o">-</span><span class="mf">1.409599</span> <span class="o">-</span><span class="mf">0.515821</span>   <span class="n">L</span>
+<span class="mi">9996</span> <span class="o">-</span><span class="mf">0.479893</span> <span class="o">-</span><span class="mf">0.650419</span>  <span class="mf">0.745152</span> <span class="o">-</span><span class="mf">0.646038</span>   <span class="n">E</span>
+<span class="mi">9997</span>  <span class="mf">0.523331</span>  <span class="mf">0.787112</span>  <span class="mf">0.486066</span>  <span class="mf">1.093156</span>   <span class="n">K</span>
+<span class="mi">9998</span> <span class="o">-</span><span class="mf">0.362559</span>  <span class="mf">0.598894</span> <span class="o">-</span><span class="mf">1.843201</span>  <span class="mf">0.887292</span>   <span class="n">G</span>
+<span class="mi">9999</span> <span class="o">-</span><span class="mf">0.096376</span> <span class="o">-</span><span class="mf">1.012999</span> <span class="o">-</span><span class="mf">0.657431</span> <span class="o">-</span><span class="mf">0.573315</span>   <span class="n">O</span>
+<span class="p">[</span><span class="mi">10000</span> <span class="n">rows</span> <span class="n">x</span> <span class="mi">5</span> <span class="n">columns</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Nếu bạn chỉ muốn đọc một số lượng nhỏ các hàng (tránh đọc toàn bộ tệp), hãy chỉ định bằng nrows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;examples/ex6.csv&#39;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>        <span class="n">one</span>       <span class="n">two</span>     <span class="n">three</span>      <span class="n">four</span> <span class="n">key</span>
+<span class="mi">0</span>  <span class="mf">0.467976</span> <span class="o">-</span><span class="mf">0.038649</span> <span class="o">-</span><span class="mf">0.295344</span> <span class="o">-</span><span class="mf">1.824726</span>   <span class="n">L</span>
+<span class="mi">1</span> <span class="o">-</span><span class="mf">0.358893</span>  <span class="mf">1.404453</span>  <span class="mf">0.704965</span> <span class="o">-</span><span class="mf">0.200638</span>   <span class="n">B</span>
+<span class="mi">2</span> <span class="o">-</span><span class="mf">0.501840</span>  <span class="mf">0.659254</span> <span class="o">-</span><span class="mf">0.421691</span> <span class="o">-</span><span class="mf">0.057688</span>   <span class="n">G</span>
+<span class="mi">3</span>  <span class="mf">0.204886</span>  <span class="mf">1.074134</span>  <span class="mf">1.388361</span> <span class="o">-</span><span class="mf">0.982404</span>   <span class="n">R</span>
+<span class="mi">4</span>  <span class="mf">0.354628</span> <span class="o">-</span><span class="mf">0.133116</span>  <span class="mf">0.283763</span> <span class="o">-</span><span class="mf">0.837063</span>   <span class="n">Q</span>
+</pre></div>
+</div>
+<p>Để đọc tệp theo từng phần, hãy chỉ định chunksize là một số hàng:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">chunker</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;examples/ex6.csv&#39;</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">chunker</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Đối tượng TextParser được trả về bởi read_csv cho phép bạn lặp qua các phần của tệp theo chunksize. Ví dụ, chúng ta có thể lặp qua ex6.csv, tổng hợp số lần xuất hiện giá trị trong cột ‘key’ như sau:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">chunker</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;examples/ex6.csv&#39;</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">tot</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">piece</span> <span class="ow">in</span> <span class="n">chunker</span><span class="p">:</span>
+    <span class="n">tot</span> <span class="o">=</span> <span class="n">tot</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">piece</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(),</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">tot</span> <span class="o">=</span> <span class="n">tot</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tot</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">E</span>    <span class="mf">368.0</span>
+<span class="n">X</span>    <span class="mf">364.0</span>
+<span class="n">L</span>    <span class="mf">346.0</span>
+<span class="n">O</span>    <span class="mf">343.0</span>
+<span class="n">Q</span>    <span class="mf">340.0</span>
+<span class="n">M</span>    <span class="mf">338.0</span>
+<span class="n">J</span>    <span class="mf">337.0</span>
+<span class="n">F</span>    <span class="mf">335.0</span>
+<span class="n">K</span>    <span class="mf">334.0</span>
+<span class="n">H</span>    <span class="mf">330.0</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>TextParser cũng được trang bị phương thức get_chunk cho phép bạn đọc các phần có kích thước tùy ý.</p>
+</section>
+<section id="ghi-du-lieu-ra-dinh-dang-van-ban">
+<h3>Ghi Dữ Liệu ra Định Dạng Văn Bản<a class="headerlink" href="#ghi-du-lieu-ra-dinh-dang-van-ban" title="Link to this heading">#</a></h3>
+<p>Dữ liệu cũng có thể được xuất ra định dạng phân cách. Hãy xem xét một trong các tệp CSV đã đọc trước đó:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">41</span><span class="p">]:</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;examples/ex5.csv&#39;</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">42</span><span class="p">]:</span> <span class="n">data</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">42</span><span class="p">]:</span>
+  <span class="n">something</span>   <span class="n">a</span>   <span class="n">b</span>    <span class="n">c</span>    <span class="n">d</span> <span class="n">message</span>
+<span class="mi">0</span>       <span class="n">one</span>   <span class="mi">1</span>   <span class="mi">2</span>  <span class="mf">3.0</span>    <span class="mi">4</span>     <span class="n">NaN</span>
+<span class="mi">1</span>       <span class="n">two</span>   <span class="mi">5</span>   <span class="mi">6</span>  <span class="n">NaN</span>    <span class="mi">8</span>   <span class="n">world</span>
+<span class="mi">2</span>     <span class="n">three</span>   <span class="mi">9</span>  <span class="mi">10</span> <span class="mf">11.0</span>   <span class="mi">12</span>     <span class="n">foo</span>
+</pre></div>
+</div>
+<p>Sử dụng phương thức to_csv của DataFrame, chúng ta có thể ghi dữ liệu ra tệp phân cách bằng dấu phẩy:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">43</span><span class="p">]:</span> <span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;examples/out.csv&#39;</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">44</span><span class="p">]:</span> <span class="err">!</span><span class="n">cat</span> <span class="n">examples</span><span class="o">/</span><span class="n">out</span><span class="o">.</span><span class="n">csv</span>
+<span class="p">,</span><span class="n">something</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">message</span>
+<span class="mi">0</span><span class="p">,</span><span class="n">one</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">3.0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span>
+<span class="mi">1</span><span class="p">,</span><span class="n">two</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,,</span><span class="mi">8</span><span class="p">,</span><span class="n">world</span>
+<span class="mi">2</span><span class="p">,</span><span class="n">three</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">11.0</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="n">foo</span>
+</pre></div>
+</div>
+<p>Các dấu phân cách khác cũng có thể được sử dụng. (Viết ra sys.stdout để in kết quả văn bản ra console):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">45</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">46</span><span class="p">]:</span> <span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;|&#39;</span><span class="p">)</span>
+<span class="o">|</span><span class="n">something</span><span class="o">|</span><span class="n">a</span><span class="o">|</span><span class="n">b</span><span class="o">|</span><span class="n">c</span><span class="o">|</span><span class="n">d</span><span class="o">|</span><span class="n">message</span>
+<span class="mi">0</span><span class="o">|</span><span class="n">one</span><span class="o">|</span><span class="mi">1</span><span class="o">|</span><span class="mi">2</span><span class="o">|</span><span class="mf">3.0</span><span class="o">|</span><span class="mi">4</span><span class="o">|</span>
+<span class="mi">1</span><span class="o">|</span><span class="n">two</span><span class="o">|</span><span class="mi">5</span><span class="o">|</span><span class="mi">6</span><span class="o">||</span><span class="mi">8</span><span class="o">|</span><span class="n">world</span>
+<span class="mi">2</span><span class="o">|</span><span class="n">three</span><span class="o">|</span><span class="mi">9</span><span class="o">|</span><span class="mi">10</span><span class="o">|</span><span class="mf">11.0</span><span class="o">|</span><span class="mi">12</span><span class="o">|</span><span class="n">foo</span>
+</pre></div>
+</div>
+<p>Các giá trị bị thiếu xuất hiện dưới dạng chuỗi rỗng trong đầu ra. Bạn có thể muốn biểu thị chúng bằng một giá trị đặc biệt khác:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">47</span><span class="p">]:</span> <span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">na_rep</span><span class="o">=</span><span class="s1">&#39;NULL&#39;</span><span class="p">)</span>
+<span class="p">,</span><span class="n">something</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">message</span>
+<span class="mi">0</span><span class="p">,</span><span class="n">one</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">3.0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">NULL</span>
+<span class="mi">1</span><span class="p">,</span><span class="n">two</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="n">NULL</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="n">world</span>
+<span class="mi">2</span><span class="p">,</span><span class="n">three</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">11.0</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="n">foo</span>
+</pre></div>
+</div>
+<p>Với các tùy chọn khác không được chỉ định, cả nhãn hàng và cột đều được ghi. Cả hai đều có thể bị tắt:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">48</span><span class="p">]:</span> <span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">one</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">3.0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span>
+<span class="n">two</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,,</span><span class="mi">8</span><span class="p">,</span><span class="n">world</span>
+<span class="n">three</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">11.0</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="n">foo</span>
+</pre></div>
+</div>
+<p>Bạn cũng có thể chỉ ghi một phần tập hợp các cột, và theo thứ tự tùy chọn của bạn:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">49</span><span class="p">]:</span> <span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span>
+<span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">3.0</span>
+<span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span>
+<span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">11.0</span>
+</pre></div>
+</div>
+<p>Series cũng có phương thức to_csv:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">50</span><span class="p">]:</span> <span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;1/1/2000&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">51</span><span class="p">]:</span> <span class="n">ts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">dates</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">52</span><span class="p">]:</span> <span class="n">ts</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;examples/tseries.csv&#39;</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">53</span><span class="p">]:</span> <span class="err">!</span><span class="n">cat</span> <span class="n">examples</span><span class="o">/</span><span class="n">tseries</span><span class="o">.</span><span class="n">csv</span>
+<span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="p">,</span><span class="mi">0</span>
+<span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">02</span><span class="p">,</span><span class="mi">1</span>
+<span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">03</span><span class="p">,</span><span class="mi">2</span>
+<span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span><span class="p">,</span><span class="mi">3</span>
+<span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">05</span><span class="p">,</span><span class="mi">4</span>
+<span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">06</span><span class="p">,</span><span class="mi">5</span>
+<span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">07</span><span class="p">,</span><span class="mi">6</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="lam-viec-voi-cac-dinh-dang-phan-cach">
+<h2>Làm Việc Với Các Định Dạng Phân Cách<a class="headerlink" href="#lam-viec-voi-cac-dinh-dang-phan-cach" title="Link to this heading">#</a></h2>
+<p>Bạn có thể tải hầu hết các dạng dữ liệu dạng bảng từ đĩa bằng cách sử dụng các hàm như <code class="docutils literal notranslate"><span class="pre">pandas.read_table</span></code>. Tuy nhiên, trong một số trường hợp, có thể cần phải xử lý thủ công. Không hiếm khi nhận được một tệp với một hoặc nhiều dòng bị lỗi gây ra sự cố khi sử dụng <code class="docutils literal notranslate"><span class="pre">read_table</span></code>. Để minh họa các công cụ cơ bản, hãy xem xét một tệp CSV nhỏ:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">54</span><span class="p">]:</span> <span class="err">!</span><span class="n">cat</span> <span class="n">examples</span><span class="o">/</span><span class="n">ex7</span><span class="o">.</span><span class="n">csv</span>
+<span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span>
+<span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="s2">&quot;3&quot;</span>
+<span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="s2">&quot;3&quot;</span>
+</pre></div>
+</div>
+<p>Đối với bất kỳ tệp nào có dấu phân cách một ký tự, bạn có thể sử dụng module csv tích hợp của Python. Để sử dụng nó, hãy truyền bất kỳ tệp mở hoặc đối tượng giống tệp nào vào csv.reader:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;examples/ex7.csv&#39;</span><span class="p">)</span>
+<span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Lặp qua reader như một tệp trả về các tuple giá trị với bất kỳ ký tự dấu ngoặc nào đã được loại bỏ:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">56</span><span class="p">]:</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+ <span class="o">....</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Từ đó, bạn có thể thực hiện các thao tác cần thiết để đưa dữ liệu vào dạng bạn cần. Hãy làm theo từng bước. Đầu tiên, chúng ta đọc tệp vào một danh sách các dòng:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">57</span><span class="p">]:</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;examples/ex7.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+ <span class="o">....</span><span class="p">:</span> <span class="n">lines</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Sau đó, chúng ta tách các dòng thành dòng tiêu đề và các dòng dữ liệu:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">58</span><span class="p">]:</span> <span class="n">header</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+</pre></div>
+</div>
+<p>Sau đó, chúng ta có thể tạo một từ điển các cột dữ liệu bằng cách sử dụng một comprehension từ điển và biểu thức zip(*values), biểu thức này chuyển các hàng thành cột:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">59</span><span class="p">]:</span> <span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">h</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">h</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">values</span><span class="p">))}</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">60</span><span class="p">]:</span> <span class="n">data_dict</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">60</span><span class="p">]:</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">),</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">),</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">)}</span>
+</pre></div>
+</div>
+<p>Các tệp CSV có nhiều định dạng khác nhau. Để định nghĩa một định dạng mới với dấu phân cách khác, quy ước trích dẫn chuỗi, hoặc dấu kết thúc dòng khác, chúng ta định nghĩa một lớp con đơn giản của csv.Dialect:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">my_dialect</span><span class="p">(</span><span class="n">csv</span><span class="o">.</span><span class="n">Dialect</span><span class="p">):</span>
+    <span class="n">lineterminator</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+    <span class="n">delimiter</span> <span class="o">=</span> <span class="s1">&#39;;&#39;</span>
+    <span class="n">quotechar</span> <span class="o">=</span> <span class="s1">&#39;&quot;&#39;</span>
+    <span class="n">quoting</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_MINIMAL</span>
+<span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dialect</span><span class="o">=</span><span class="n">my_dialect</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Chúng ta cũng có thể cung cấp các tham số dial của CSV riêng lẻ dưới dạng từ khóa cho csv.reader mà không cần định nghĩa một lớp con:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;|&#39;</span><span class="p">)</span>
+<span class="n">Các</span> <span class="n">tùy</span> <span class="n">chọn</span> <span class="n">có</span> <span class="n">thể</span> <span class="n">có</span> <span class="p">(</span><span class="n">thuộc</span> <span class="n">tính</span> <span class="n">của</span> <span class="n">csv</span><span class="o">.</span><span class="n">Dialect</span><span class="p">)</span> <span class="n">và</span> <span class="n">công</span> <span class="n">dụng</span> <span class="n">của</span> <span class="n">chúng</span> <span class="n">có</span> <span class="n">thể</span> <span class="n">được</span> <span class="n">tìm</span> <span class="n">thấy</span> <span class="n">trong</span> <span class="n">Bảng</span> <span class="mi">6</span><span class="o">-</span><span class="mf">3.</span>
+</pre></div>
+</div>
+<section id="bang-6-3-tuy-chon-cua-dial-csv">
+<h3>Bảng 6-3. Tùy chọn của dial CSV<a class="headerlink" href="#bang-6-3-tuy-chon-cua-dial-csv" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tham số</p></th>
+<th class="head"><p>Mô tả</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">delimiter</span></code></p></td>
+<td><p>Chuỗi một ký tự để tách các trường; mặc định là ‘,’.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lineterminator</span></code></p></td>
+<td><p>Dấu kết thúc dòng để ghi; mặc định là ‘\r\n’. Bộ đọc bỏ qua điều này và nhận ra các dấu kết thúc dòng đa nền tảng.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">quotechar</span></code></p></td>
+<td><p>Ký tự trích dẫn cho các trường có ký tự đặc biệt (như dấu phân cách); mặc định là ‘”.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">quoting</span></code></p></td>
+<td><p>Quy ước trích dẫn. Các tùy chọn bao gồm <code class="docutils literal notranslate"><span class="pre">csv.QUOTE_ALL</span></code> (trích dẫn tất cả các trường), <code class="docutils literal notranslate"><span class="pre">csv.QUOTE_MINIMAL</span></code> (chỉ các trường có ký tự đặc biệt như dấu phân cách), <code class="docutils literal notranslate"><span class="pre">csv.QUOTE_NONNUMERIC</span></code>, và <code class="docutils literal notranslate"><span class="pre">csv.QUOTE_NONE</span></code> (không trích dẫn). Xem tài liệu Python để biết chi tiết đầy đủ. Mặc định là <code class="docutils literal notranslate"><span class="pre">QUOTE_MINIMAL</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">skipinitialspace</span></code></p></td>
+<td><p>Bỏ qua khoảng trắng sau mỗi dấu phân cách; mặc định là False.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">doublequote</span></code></p></td>
+<td><p>Cách xử lý ký tự trích dẫn bên trong trường; nếu True, nó được nhân đôi (xem tài liệu trực tuyến để biết chi tiết đầy đủ và hành vi).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">escapechar</span></code></p></td>
+<td><p>Chuỗi để thoát khỏi dấu phân cách nếu trích dẫn được đặt thành <code class="docutils literal notranslate"><span class="pre">csv.QUOTE_NONE</span></code>; bị vô hiệu hóa theo mặc định.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Đối với các tệp có dấu phân cách phức tạp hơn hoặc cố định nhiều ký tự, bạn sẽ không thể sử dụng module csv. Trong các trường hợp đó, bạn sẽ phải chia nhỏ dòng và làm sạch bằng cách sử dụng phương thức split của chuỗi hoặc phương thức biểu thức chính quy re.split.</p>
+<p>Để viết các tệp phân cách thủ công, bạn có thể sử dụng csv.writer. Nó chấp nhận một đối tượng tệp mở, có thể ghi và các tùy chọn định dạng và dial tương tự như csv.reader:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;mydata.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dialect</span><span class="o">=</span><span class="n">my_dialect</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">((</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">))</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">((</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">))</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">((</span><span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">))</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">((</span><span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;9&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="du-lieu-json">
+<h2>Dữ liệu JSON<a class="headerlink" href="#du-lieu-json" title="Link to this heading">#</a></h2>
+<p>JSON (JavaScript Object Notation) đã trở thành một trong những định dạng tiêu chuẩn để gửi dữ liệu qua yêu cầu HTTP giữa các trình duyệt web và các ứng dụng khác. Đây là một định dạng dữ liệu tự do hơn nhiều so với dạng văn bản bảng như CSV. Dưới đây là một ví dụ:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">{&quot;name&quot;: &quot;Wes&quot;,</span>
+<span class="s2"> &quot;places_lived&quot;: [&quot;United States&quot;, &quot;Spain&quot;, &quot;Germany&quot;],</span>
+<span class="s2"> &quot;pet&quot;: null,</span>
+<span class="s2"> &quot;siblings&quot;: [{&quot;name&quot;: &quot;Scott&quot;, &quot;age&quot;: 30, &quot;pets&quot;: [&quot;Zeus&quot;, &quot;Zuko&quot;]},</span>
+<span class="s2"> {&quot;name&quot;: &quot;Katie&quot;, &quot;age&quot;: 38,</span>
+<span class="s2"> &quot;pets&quot;: [&quot;Sixes&quot;, &quot;Stache&quot;, &quot;Cisco&quot;]}]</span>
+<span class="s2">}</span>
+<span class="s2">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>JSON rất gần với mã Python hợp lệ, ngoại trừ giá trị null của nó và một số khác biệt nhỏ khác (chẳng hạn như không cho phép dấu phẩy cuối trong danh sách). Các kiểu cơ bản bao gồm đối tượng (dict), mảng (list), chuỗi, số, boolean và null. Tất cả các khóa trong một đối tượng phải là chuỗi. Có một số thư viện Python để đọc và ghi dữ liệu JSON. Tôi sẽ sử dụng json ở đây, vì nó được tích hợp vào thư viện chuẩn của Python. Để chuyển đổi một chuỗi JSON sang dạng Python, hãy sử dụng json.loads:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Wes&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;pet&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+ <span class="s1">&#39;places_lived&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;United States&#39;</span><span class="p">,</span> <span class="s1">&#39;Spain&#39;</span><span class="p">,</span> <span class="s1">&#39;Germany&#39;</span><span class="p">],</span>
+ <span class="s1">&#39;siblings&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Scott&#39;</span><span class="p">,</span> <span class="s1">&#39;pets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Zeus&#39;</span><span class="p">,</span> <span class="s1">&#39;Zuko&#39;</span><span class="p">]},</span>
+              <span class="p">{</span><span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">38</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Katie&#39;</span><span class="p">,</span> <span class="s1">&#39;pets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Sixes&#39;</span><span class="p">,</span> <span class="s1">&#39;Stache&#39;</span><span class="p">,</span> <span class="s1">&#39;Cisco&#39;</span><span class="p">]}]}</span>
+</pre></div>
+</div>
+<p>Ngược lại, json.dumps chuyển đổi một đối tượng Python trở lại thành JSON:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">asjson</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Cách bạn chuyển đổi một đối tượng JSON hoặc danh sách các đối tượng thành DataFrame hoặc một cấu trúc dữ liệu khác để phân tích sẽ phụ thuộc vào bạn. Thuận tiện, bạn có thể truyền một danh sách các dict (trước đây là các đối tượng JSON) vào hàm khởi tạo DataFrame và chọn một tập con của các trường dữ liệu:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">siblings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;siblings&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">siblings</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">name</span>  <span class="n">age</span>
+<span class="mi">0</span>  <span class="n">Scott</span>   <span class="mi">30</span>
+<span class="mi">1</span>  <span class="n">Katie</span>   <span class="mi">38</span>
+</pre></div>
+</div>
+<p>Hàm pandas.read_json có thể tự động chuyển đổi các bộ dữ liệu JSON trong các sắp xếp cụ thể thành Series hoặc DataFrame. Ví dụ:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">cat</span> <span class="n">examples</span><span class="o">/</span><span class="n">example</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>Nội dung tệp:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="nt">&quot;a&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;b&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;c&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">},</span>
+<span class="w"> </span><span class="p">{</span><span class="nt">&quot;a&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;b&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;c&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">},</span>
+<span class="w"> </span><span class="p">{</span><span class="nt">&quot;a&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;b&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;c&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">}]</span>
+</pre></div>
+</div>
+<p>Các tùy chọn mặc định cho pandas.read_json giả định rằng mỗi đối tượng trong mảng JSON là một hàng trong bảng:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;examples/example.json&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>   <span class="n">a</span>  <span class="n">b</span>  <span class="n">c</span>
+<span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span>
+<span class="mi">1</span>  <span class="mi">4</span>  <span class="mi">5</span>  <span class="mi">6</span>
+<span class="mi">2</span>  <span class="mi">7</span>  <span class="mi">8</span>  <span class="mi">9</span>
+</pre></div>
+</div>
+<p>Nếu bạn cần xuất dữ liệu từ pandas sang JSON, một cách là sử dụng các phương thức to_json trên Series và DataFrame:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">to_json</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;records&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;a&quot;</span><span class="p">:{</span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="nt">&quot;2&quot;</span><span class="p">:</span><span class="mi">7</span><span class="p">},</span><span class="nt">&quot;b&quot;</span><span class="p">:{</span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="nt">&quot;2&quot;</span><span class="p">:</span><span class="mi">8</span><span class="p">},</span><span class="nt">&quot;c&quot;</span><span class="p">:{</span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="nt">&quot;2&quot;</span><span class="p">:</span><span class="mi">9</span><span class="p">}}</span>
+</pre></div>
+</div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="nt">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;b&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="nt">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">},{</span><span class="nt">&quot;a&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="nt">&quot;b&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="nt">&quot;c&quot;</span><span class="p">:</span><span class="mi">6</span><span class="p">},{</span><span class="nt">&quot;a&quot;</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="nt">&quot;b&quot;</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="nt">&quot;c&quot;</span><span class="p">:</span><span class="mi">9</span><span class="p">}]</span>
+</pre></div>
+</div>
+</section>
+<section id="xml-va-html-web-scraping">
+<h2>XML và HTML: Web Scraping<a class="headerlink" href="#xml-va-html-web-scraping" title="Link to this heading">#</a></h2>
+<p>Python có nhiều thư viện để đọc và ghi dữ liệu ở định dạng HTML và XML phổ biến. Các thư viện bao gồm lxml, Beautiful Soup và html5lib. Trong khi lxml thường nhanh hơn, các thư viện khác có thể xử lý tốt hơn các tệp HTML hoặc XML bị lỗi.</p>
+<p>pandas có một hàm tích hợp, <code class="docutils literal notranslate"><span class="pre">read_html</span></code>, sử dụng các thư viện như lxml và Beautiful Soup để tự động phân tích các bảng từ các tệp HTML thành các đối tượng DataFrame. Để minh họa cách hoạt động của hàm này, tôi đã tải một tệp HTML từ cơ quan chính phủ FDIC Hoa Kỳ hiển thị danh sách các ngân hàng bị phá sản. Đầu tiên, bạn cần cài đặt một số thư viện bổ sung mà <code class="docutils literal notranslate"><span class="pre">read_html</span></code> sử dụng:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>lxml
+pip<span class="w"> </span>install<span class="w"> </span>beautifulsoup4<span class="w"> </span>html5lib
+</pre></div>
+</div>
+<p>Nếu bạn không sử dụng conda, pip install lxml cũng có thể hoạt động.</p>
+<p>Hàm pandas.read_html có nhiều tùy chọn, nhưng mặc định nó tìm kiếm và cố gắng phân tích tất cả dữ liệu dạng bảng chứa trong các thẻ <table>. Kết quả là một danh sách các đối tượng DataFrame:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tables</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="s1">&#39;examples/fdic_failed_bank_list.html&#39;</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">tables</span><span class="p">)</span>
+<span class="n">failures</span> <span class="o">=</span> <span class="n">tables</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">failures</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-plaintext notranslate"><div class="highlight"><pre><span></span> Bank Name City ST CERT
+0 Allied Bank Mulberry AR 91
+1 The Woodbury Banking Company Woodbury GA 11297
+2 First CornerStone Bank King of Prussia PA 35312
+3 Trust Company Bank Memphis TN 9956
+4 North Milwaukee State Bank Milwaukee WI 20364
+ Acquiring Institution Closing Date Updated Date
+0 Today&#39;s Bank September 23, 2016 November 17, 2016
+1 United Bank August 19, 2016 November 17, 2016
+2 First-Citizens Bank &amp; Trust Company May 6, 2016 September 6, 2016
+3 The Bank of Fayette County April 29, 2016 September 6, 2016
+4 First-Citizens Bank &amp; Trust Company March 11, 2016 June 16, 2016
+</pre></div>
+</div>
+<p>Do failures có nhiều cột, pandas chèn một ký tự xuống dòng . Từ đây, chúng ta có thể thực hiện một số thao tác làm sạch và phân tích dữ liệu, như tính số lượng ngân hàng bị phá sản theo năm:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">close_timestamps</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">failures</span><span class="p">[</span><span class="s1">&#39;Closing Date&#39;</span><span class="p">])</span>
+<span class="n">close_timestamps</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-plaintext notranslate"><div class="highlight"><pre><span></span>2010    157
+2009    140
+2011     92
+2012     51
+2008     25
+...
+2004      4
+2001      4
+2007      3
+2003      3
+2000      2
+</pre></div>
+</div>
+<p>Name: Closing Date, Length: 15, dtype: int64</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Phân</span> <span class="n">tích</span> <span class="n">cú</span> <span class="n">pháp</span> <span class="n">XML</span> <span class="n">với</span> <span class="n">lxml</span><span class="o">.</span><span class="n">objectify</span>
+<span class="n">XML</span> <span class="p">(</span><span class="n">eXtensible</span> <span class="n">Markup</span> <span class="n">Language</span><span class="p">)</span> <span class="n">là</span> <span class="n">một</span> <span class="n">định</span> <span class="n">dạng</span> <span class="n">dữ</span> <span class="n">liệu</span> <span class="n">cấu</span> <span class="n">trúc</span> <span class="n">phổ</span> <span class="n">biến</span> <span class="n">khác</span> <span class="n">hỗ</span> <span class="n">trợ</span> <span class="n">dữ</span> <span class="n">liệu</span> <span class="n">phân</span> <span class="n">cấp</span><span class="p">,</span> <span class="n">lồng</span> <span class="n">nhau</span> <span class="n">với</span> <span class="n">siêu</span> <span class="n">dữ</span> <span class="n">liệu</span><span class="o">.</span> <span class="n">Cuốn</span> <span class="n">sách</span> <span class="n">bạn</span> <span class="n">đang</span> <span class="n">đọc</span> <span class="n">được</span> <span class="n">tạo</span> <span class="n">ra</span> <span class="n">từ</span> <span class="n">một</span> <span class="n">loạt</span> <span class="n">các</span> <span class="n">tài</span> <span class="n">liệu</span> <span class="n">XML</span> <span class="n">lớn</span><span class="o">.</span>
+
+<span class="n">Hàm</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_html</span><span class="p">,</span> <span class="n">sử</span> <span class="n">dụng</span> <span class="n">lxml</span> <span class="n">hoặc</span> <span class="n">Beautiful</span> <span class="n">Soup</span> <span class="n">để</span> <span class="n">phân</span> <span class="n">tích</span> <span class="n">dữ</span> <span class="n">liệu</span> <span class="n">từ</span> <span class="n">HTML</span><span class="o">.</span> <span class="n">XML</span> <span class="n">và</span> <span class="n">HTML</span> <span class="n">có</span> <span class="n">cấu</span> <span class="n">trúc</span> <span class="n">tương</span> <span class="n">tự</span> <span class="n">nhau</span><span class="p">,</span> <span class="n">nhưng</span> <span class="n">XML</span> <span class="n">tổng</span> <span class="n">quát</span> <span class="n">hơn</span><span class="o">.</span> <span class="n">Dưới</span> <span class="n">đây</span> <span class="n">là</span> <span class="n">ví</span> <span class="n">dụ</span> <span class="n">về</span> <span class="n">cách</span> <span class="n">sử</span> <span class="n">dụng</span> <span class="n">lxml</span> <span class="n">để</span> <span class="n">phân</span> <span class="n">tích</span> <span class="n">dữ</span> <span class="n">liệu</span> <span class="n">từ</span> <span class="n">định</span> <span class="n">dạng</span> <span class="n">XML</span> <span class="n">tổng</span> <span class="n">quát</span> <span class="n">hơn</span><span class="o">.</span>
+
+<span class="n">Cơ</span> <span class="n">quan</span> <span class="n">Giao</span> <span class="n">thông</span> <span class="n">Vận</span> <span class="n">tải</span> <span class="n">Metropolitan</span> <span class="n">New</span> <span class="n">York</span> <span class="p">(</span><span class="n">MTA</span><span class="p">)</span> <span class="n">công</span> <span class="n">bố</span> <span class="n">một</span> <span class="n">số</span> <span class="n">loạt</span> <span class="n">dữ</span> <span class="n">liệu</span> <span class="n">về</span> <span class="n">dịch</span> <span class="n">vụ</span> <span class="n">xe</span> <span class="n">buýt</span> <span class="n">và</span> <span class="n">tàu</span> <span class="n">hỏa</span> <span class="n">của</span> <span class="n">mình</span><span class="o">.</span> <span class="n">Chúng</span> <span class="n">ta</span> <span class="n">sẽ</span> <span class="n">xem</span> <span class="n">xét</span> <span class="n">dữ</span> <span class="n">liệu</span> <span class="n">hiệu</span> <span class="n">suất</span><span class="p">,</span> <span class="n">được</span> <span class="n">chứa</span> <span class="n">trong</span> <span class="n">một</span> <span class="n">tập</span> <span class="n">hợp</span> <span class="n">các</span> <span class="n">tệp</span> <span class="n">XML</span><span class="o">.</span> <span class="n">Mỗi</span> <span class="n">dịch</span> <span class="n">vụ</span> <span class="n">tàu</span> <span class="n">hỏa</span> <span class="n">hoặc</span> <span class="n">xe</span> <span class="n">buýt</span> <span class="n">có</span> <span class="n">một</span> <span class="n">tệp</span> <span class="n">khác</span> <span class="n">nhau</span> <span class="p">(</span><span class="n">như</span> <span class="n">Performance_MNR</span><span class="o">.</span><span class="n">xml</span> <span class="n">cho</span> <span class="n">Đường</span> <span class="n">sắt</span> <span class="n">Metro</span><span class="o">-</span><span class="n">North</span><span class="p">)</span> <span class="n">chứa</span> <span class="n">dữ</span> <span class="n">liệu</span> <span class="n">hàng</span> <span class="n">tháng</span> <span class="n">dưới</span> <span class="n">dạng</span> <span class="n">một</span> <span class="n">loạt</span> <span class="n">các</span> <span class="n">bản</span> <span class="n">ghi</span> <span class="n">XML</span> <span class="n">như</span> <span class="n">sau</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>xml
+<INDICATOR>
+&lt;INDICATOR_SEQ&gt;373889&lt;/INDICATOR_SEQ&gt;
+&lt;PARENT_SEQ&gt;&lt;/PARENT_SEQ&gt;
+&lt;AGENCY_NAME&gt;Metro-North Railroad&lt;/AGENCY_NAME&gt;
+&lt;INDICATOR_NAME&gt;Escalator Availability&lt;/INDICATOR_NAME&gt;
+<DESCRIPTION>Percent of the time that escalators are operational systemwide. The availability rate is based on physical observations performed the morning of regular business days only. This is a new indicator the agency began reporting in 2009.</DESCRIPTION>
+&lt;PERIOD_YEAR&gt;2011&lt;/PERIOD_YEAR&gt;
+&lt;PERIOD_MONTH&gt;12&lt;/PERIOD_MONTH&gt;
+<CATEGORY>Service Indicators</CATEGORY>
+<FREQUENCY>M</FREQUENCY>
+&lt;DESIRED_CHANGE&gt;U&lt;/DESIRED_CHANGE&gt;
+&lt;INDICATOR_UNIT&gt;%&lt;/INDICATOR_UNIT&gt;
+&lt;DECIMAL_PLACES&gt;1&lt;/DECIMAL_PLACES&gt;
+&lt;YTD_TARGET&gt;97.00&lt;/YTD_TARGET&gt;
+&lt;YTD_ACTUAL&gt;&lt;/YTD_ACTUAL&gt;
+&lt;MONTHLY_TARGET&gt;97.00&lt;/MONTHLY_TARGET&gt;
+&lt;MONTHLY_ACTUAL&gt;&lt;/MONTHLY_ACTUAL&gt;
+</INDICATOR></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Sử dụng lxml.objectify, chúng ta phân tích tệp và lấy tham chiếu đến nút gốc của tệp XML với getroot:
+
+```python
+from lxml import objectify
+path = &#39;examples/mta_perf/Performance_MNR.xml&#39;
+parsed = objectify.parse(open(path))
+root = parsed.getroot()
+</pre></div>
+</div>
+<p>root.INDICATOR trả về một generator tạo ra mỗi phần tử XML <INDICATOR>. Đối với mỗi bản ghi, chúng ta có thể tạo một dict tên thẻ (như YTD_ACTUAL) với các giá trị dữ liệu (loại trừ một số thẻ):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">skip_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;PARENT_SEQ&#39;</span><span class="p">,</span> <span class="s1">&#39;INDICATOR_SEQ&#39;</span><span class="p">,</span> <span class="s1">&#39;DESIRED_CHANGE&#39;</span><span class="p">,</span> <span class="s1">&#39;DECIMAL_PLACES&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">elt</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">INDICATOR</span><span class="p">:</span>
+    <span class="n">el_data</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">elt</span><span class="o">.</span><span class="n">getchildren</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">tag</span> <span class="ow">in</span> <span class="n">skip_fields</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">el_data</span><span class="p">[</span><span class="n">child</span><span class="o">.</span><span class="n">tag</span><span class="p">]</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">pyval</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">el_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Cuối cùng, chuyển đổi danh sách dict này thành một DataFrame:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">perf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">perf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-plaintext notranslate"><div class="highlight"><pre><span></span>Empty DataFrame
+Columns: []
+Index: []
+</pre></div>
+</div>
+<p>Dữ liệu XML có thể phức tạp hơn nhiều so với ví dụ này. Mỗi thẻ cũng có thể có siêu dữ liệu. Xem xét một thẻ liên kết HTML, cũng là XML hợp lệ:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+<span class="n">tag</span> <span class="o">=</span> <span class="s1">&#39;&lt;a href=&quot;http://www.google.com&quot;&gt;Google&lt;/a&gt;&#39;</span>
+<span class="n">root</span> <span class="o">=</span> <span class="n">objectify</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="n">tag</span><span class="p">))</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Bây giờ bạn có thể truy cập bất kỳ trường nào (như href) trong thẻ hoặc văn bản liên kết:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span>
+<span class="n">root</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;http://www.google.com&#39;</span>
+<span class="s1">&#39;Google&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Format.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Nạp Dữ liệu, Lưu trữ và Định dạng Tệp</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="DataFormat.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Định Dạng Dữ Liệu Nhị Phân</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuy-chon-va-xu-ly-du-lieu-van-ban">Tùy chọn và xử lý dữ liệu văn bản</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-du-doc-tep-csv-co-ban">Ví dụ: Đọc tệp CSV cơ bản</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xu-ly-du-lieu-phan-cap">Xử lý dữ liệu phân cấp</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#doc-tep-voi-dinh-dang-khong-co-dinh">Đọc tệp với định dạng không cố định</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bo-qua-dong-khong-mong-muon">Bỏ qua dòng không mong muốn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xu-ly-gia-tri-bi-thieu">Xử lý giá trị bị thiếu</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-6-2-mot-so-tham-so-cua-ham-read-csv-read-table">Bảng 6-2. Một số tham số của hàm <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>/<code class="docutils literal notranslate"><span class="pre">read_table</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doc-tep-van-ban-tung-phan">Đọc Tệp Văn Bản Từng Phần</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ghi-du-lieu-ra-dinh-dang-van-ban">Ghi Dữ Liệu ra Định Dạng Văn Bản</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lam-viec-voi-cac-dinh-dang-phan-cach">Làm Việc Với Các Định Dạng Phân Cách</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-6-3-tuy-chon-cua-dial-csv">Bảng 6-3. Tùy chọn của dial CSV</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#du-lieu-json">Dữ liệu JSON</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xml-va-html-web-scraping">XML và HTML: Web Scraping</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

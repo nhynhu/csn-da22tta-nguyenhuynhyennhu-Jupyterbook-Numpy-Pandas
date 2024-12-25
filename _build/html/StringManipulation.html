@@ -1,0 +1,1057 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>String Manipulation &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'StringManipulation';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Biến Đổi và Kết Hợp Dữ Liệu" href="DataWrangling.html" />
+    <link rel="prev" title="Biến Đổi Dữ Liệu" href="Transformation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="My sample book - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="tongquan.html">Tổng quan về NumPy và Pandas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Numpy.html">NumPy Cơ Bản Mảng và Tính Toán Vector</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ndarray.html">Đối Tượng Mảng N Chiều NumPy: Một Đối Tượng Mảng Đa Chiều</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="Arithmetic.html">Các Phép Toán trên Mảng</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UniversalFunctions.html">Hàm Toàn Cục: Các Hàm Mảng Nhanh Theo Phần Tử</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="InputOutput.html">Nhập/Xuất Dữ Liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Khac.html">Đại Số Tuyến Tính với NumPy</a></li>
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Pandas.html">Pandas cơ bản</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures.html">Giới Thiệu Cấu Trúc Dữ Liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EssentialFunctionality.html">Các Chức Năng Cơ Bản</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DescriptiveStatistics.html">Thống Kê và Phân Tích Dữ Liệu</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Format.html">Nạp, Lưu Trữ và Định Dạng Dữ Liệu</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="TextFormat.html">Đọc và Ghi Dữ Liệu Văn Bản</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataFormat.html">Định Dạng Dữ Liệu Nhị Phân</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="DataCleaning.html">Làm Sạch và Chuẩn Bị Dữ Liệu</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Handling.html">Xử Lý Dữ Liệu Thiếu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Transformation.html">Biến Đổi Dữ Liệu</a></li>
+
+
+
+
+
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">String Manipulation</a></li>
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="DataWrangling.html">Biến Đổi và Kết Hợp Dữ Liệu</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Indexing.html">Đánh Chỉ Mục Phân Cấp</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="Combining.html">Kết Hợp Dữ Liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Reshaping.html">Biến Đổi Dữ Liệu</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FStringManipulation.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/StringManipulation.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>String Manipulation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">String Manipulation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#string-object-methods">String Object Methods</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-7-3-cac-phuong-thuc-chuoi-tich-hop-cua-python">Bảng 7-3: Các phương thức chuỗi tích hợp của Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bieu-thuc-chinh-quy-regular-expressions">Biểu Thức Chính Quy (Regular Expressions)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-7-4-cac-phuong-thuc-regular-expression-regex-trong-python">Bảng 7-4: Các phương thức Regular Expression (Regex) trong Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-ham-chuoi-vector-hoa-trong-pandas">Các Hàm Chuỗi Vector hóa trong pandas</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-7-5-mot-so-phuong-thuc-chuoi-vector-hoa-trong-python">Bảng 7-5: Một số phương thức chuỗi vector hóa trong Python</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="string-manipulation">
+<h1>String Manipulation<a class="headerlink" href="#string-manipulation" title="Link to this heading">#</a></h1>
+<p>Python từ lâu đã là một ngôn ngữ phổ biến cho việc thao tác dữ liệu thô, phần nào nhờ vào tính dễ sử dụng trong việc xử lý chuỗi và văn bản. Hầu hết các thao tác văn bản được thực hiện dễ dàng với các phương thức có sẵn của đối tượng chuỗi. Đối với các thao tác phức tạp hơn về mẫu và thao tác văn bản, có thể cần sử dụng biểu thức chính quy (regular expressions). Pandas bổ sung vào danh sách này bằng cách cho phép áp dụng chuỗi và biểu thức chính quy một cách ngắn gọn trên toàn bộ mảng dữ liệu, đồng thời xử lý vấn đề dữ liệu bị thiếu.</p>
+</section>
+<section id="string-object-methods">
+<h1>String Object Methods<a class="headerlink" href="#string-object-methods" title="Link to this heading">#</a></h1>
+<p>Trong nhiều ứng dụng xâu chuỗi và kịch bản, các phương thức chuỗi tích hợp đã đủ. Ví dụ, một chuỗi phân tách bằng dấu phẩy có thể được chia thành các phần với split:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">val</span> <span class="o">=</span> <span class="s1">&#39;a,b, guido&#39;</span>
+<span class="n">val</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39; guido&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>split thường được kết hợp với strip để loại bỏ khoảng trắng (bao gồm cả dòng mới):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pieces</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">val</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)]</span>
+<span class="n">pieces</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;guido&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Các chuỗi con này có thể được nối lại với nhau bằng một dấu hai chấm bằng cách sử dụng phép cộng:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span> <span class="o">=</span> <span class="n">pieces</span>
+<span class="n">first</span> <span class="o">+</span> <span class="s1">&#39;::&#39;</span> <span class="o">+</span> <span class="n">second</span> <span class="o">+</span> <span class="s1">&#39;::&#39;</span> <span class="o">+</span> <span class="n">third</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;a::b::guido&#39;</span>
+</pre></div>
+</div>
+<p>Nhưng đây không phải là một phương pháp chung thực tế. Một cách nhanh hơn và Pythonic hơn là truyền một danh sách hoặc tuple vào phương thức join trên chuỗi ‘::’:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;::&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pieces</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;a::b::guido&#39;</span>
+</pre></div>
+</div>
+<p>Các phương thức khác liên quan đến việc xác định vị trí chuỗi con. Sử dụng từ khóa in của Python là cách tốt nhất để phát hiện chuỗi con, mặc dù index và find cũng có thể được sử dụng:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;guido&#39;</span> <span class="ow">in</span> <span class="n">val</span>
+<span class="n">val</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">val</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả lần lượt:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kc">True</span>
+<span class="mi">1</span>
+<span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>Lưu ý sự khác biệt giữa find và index là index sẽ đưa ra ngoại lệ nếu chuỗi không được tìm thấy (trong khi find trả về -1):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">val</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ne">ValueError</span><span class="p">:</span> <span class="n">substring</span> <span class="ow">not</span> <span class="n">found</span>
+</pre></div>
+</div>
+<p>Tương tự, count trả về số lần xuất hiện của một chuỗi con cụ thể:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">val</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>replace sẽ thay thế các lần xuất hiện của một mẫu bằng một mẫu khác. Nó thường được sử dụng để xóa các mẫu, bằng cách truyền vào một chuỗi rỗng:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">val</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;::&#39;</span><span class="p">)</span>
+<span class="n">val</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả lần lượt:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;a::b:: guido&#39;</span>
+<span class="s1">&#39;ab guido&#39;</span>
+</pre></div>
+</div>
+<p>Xem bảng dưới đây để biết danh sách một số phương thức chuỗi tích hợp của Python:</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="bang-7-3-cac-phuong-thuc-chuoi-tich-hop-cua-python">
+<h1>Bảng 7-3: Các phương thức chuỗi tích hợp của Python<a class="headerlink" href="#bang-7-3-cac-phuong-thuc-chuoi-tich-hop-cua-python" title="Link to this heading">#</a></h1>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Phương thức</strong></p></th>
+<th class="head"><p><strong>Mô tả</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">count</span></code></p></td>
+<td><p>Trả về số lần xuất hiện không trùng lặp của chuỗi con trong chuỗi.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">endswith</span></code></p></td>
+<td><p>Trả về <code class="docutils literal notranslate"><span class="pre">True</span></code> nếu chuỗi kết thúc bằng hậu tố.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">startswith</span></code></p></td>
+<td><p>Trả về <code class="docutils literal notranslate"><span class="pre">True</span></code> nếu chuỗi bắt đầu bằng tiền tố.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">join</span></code></p></td>
+<td><p>Sử dụng chuỗi làm dấu phân cách để nối một dãy các chuỗi khác.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">index</span></code></p></td>
+<td><p>Trả về vị trí của ký tự đầu tiên trong chuỗi con nếu tìm thấy trong chuỗi; đưa ra <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> nếu không tìm thấy.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">find</span></code></p></td>
+<td><p>Trả về vị trí của ký tự đầu tiên của lần xuất hiện đầu tiên của chuỗi con trong chuỗi; giống như <code class="docutils literal notranslate"><span class="pre">index</span></code>, nhưng trả về <code class="docutils literal notranslate"><span class="pre">-1</span></code> nếu không tìm thấy.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rfind</span></code></p></td>
+<td><p>Trả về vị trí của ký tự đầu tiên của lần xuất hiện cuối cùng của chuỗi con trong chuỗi; trả về <code class="docutils literal notranslate"><span class="pre">-1</span></code> nếu không tìm thấy.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">replace</span></code></p></td>
+<td><p>Thay thế các lần xuất hiện của chuỗi này bằng chuỗi khác.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">strip</span></code>, <code class="docutils literal notranslate"><span class="pre">rstrip</span></code>, <code class="docutils literal notranslate"><span class="pre">lstrip</span></code></p></td>
+<td><p>Loại bỏ khoảng trắng, bao gồm cả dòng mới; tương đương với <code class="docutils literal notranslate"><span class="pre">x.strip()</span></code> (và <code class="docutils literal notranslate"><span class="pre">rstrip</span></code>, <code class="docutils literal notranslate"><span class="pre">lstrip</span></code>, tương ứng).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">split</span></code></p></td>
+<td><p>Chia chuỗi thành danh sách các chuỗi con sử dụng dấu phân cách được truyền vào.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lower</span></code></p></td>
+<td><p>Chuyển đổi các ký tự chữ cái thành chữ thường.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">upper</span></code></p></td>
+<td><p>Chuyển đổi các ký tự chữ cái thành chữ hoa.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">casefold</span></code></p></td>
+<td><p>Chuyển đổi các ký tự thành chữ thường và chuẩn hóa các ký tự khu vực để so sánh chung.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ljust</span></code>, <code class="docutils literal notranslate"><span class="pre">rjust</span></code></p></td>
+<td><p>Canh trái hoặc canh phải, điền thêm khoảng trắng (hoặc ký tự khác) để đạt chiều rộng tối thiểu.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="bieu-thuc-chinh-quy-regular-expressions">
+<h2>Biểu Thức Chính Quy (Regular Expressions)<a class="headerlink" href="#bieu-thuc-chinh-quy-regular-expressions" title="Link to this heading">#</a></h2>
+<p>Biểu thức chính quy cung cấp một cách linh hoạt để tìm kiếm hoặc khớp các mẫu chuỗi phức tạp trong văn bản. Một biểu thức duy nhất, thường được gọi là regex, là một chuỗi được hình thành theo ngôn ngữ biểu thức chính quy. Mô-đun re tích hợp sẵn của Python chịu trách nhiệm áp dụng các biểu thức chính quy cho các chuỗi; dưới đây là một số ví dụ về cách sử dụng của nó.</p>
+<p>Các chức năng của mô-đun re chia thành ba loại: khớp mẫu, thay thế và phân tách. Tự nhiên, chúng đều có liên quan; một regex mô tả một mẫu để xác định trong văn bản, sau đó có thể được sử dụng cho nhiều mục đích khác nhau. Hãy xem một ví dụ đơn giản:</p>
+<p>Giả sử chúng ta muốn phân tách một chuỗi với một số lượng biến đổi của các ký tự khoảng trắng (tab, khoảng trắng và dòng mới). Regex mô tả một hoặc nhiều ký tự khoảng trắng là \s+:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;foo bar</span><span class="se">\t</span><span class="s2"> baz </span><span class="se">\t</span><span class="s2">qux&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;qux&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Khi gọi re.split(‘\s+’, text), biểu thức chính quy đầu tiên được biên dịch, và sau đó phương thức split của nó được gọi trên văn bản đã truyền vào. Bạn có thể tự biên dịch regex bằng re.compile, tạo thành một đối tượng regex có thể tái sử dụng:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">regex</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;\s+&#39;</span><span class="p">)</span>
+<span class="n">regex</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;qux&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Nếu bạn muốn lấy danh sách tất cả các mẫu khớp với regex, bạn có thể sử dụng phương thức findall:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">regex</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1"> &#39;</span><span class="p">,</span> <span class="s1">&#39; </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Để tránh việc thoát ký tự không mong muốn với \ trong biểu thức chính quy, hãy sử dụng chuỗi thô như r’C:\x’ thay vì tương đương ‘C:\x’.</p>
+<p>Tạo một đối tượng regex với re.compile được khuyến khích cao nếu bạn dự định áp dụng cùng một biểu thức cho nhiều chuỗi; làm như vậy sẽ tiết kiệm chu kỳ CPU.</p>
+<p>match và search có liên quan chặt chẽ đến findall. Trong khi findall trả về tất cả các khớp trong một chuỗi, search chỉ trả về khớp đầu tiên. Chặt chẽ hơn, match chỉ khớp ở đầu chuỗi. Như một ví dụ ít tầm thường hơn, hãy xem xét một khối văn bản và một biểu thức chính quy có thể xác định hầu hết các địa chỉ email:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Dave dave@google.com</span>
+<span class="s2">Steve steve@gmail.com</span>
+<span class="s2">Rob rob@gmail.com</span>
+<span class="s2">Ryan ryan@yahoo.com</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}&#39;</span>
+<span class="c1"># re.IGNORECASE làm cho regex không phân biệt chữ hoa chữ thường</span>
+<span class="n">regex</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Sử dụng findall trên văn bản tạo ra một danh sách các địa chỉ email:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">regex</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;dave@google.com&#39;</span><span class="p">,</span> <span class="s1">&#39;steve@gmail.com&#39;</span><span class="p">,</span> <span class="s1">&#39;rob@gmail.com&#39;</span><span class="p">,</span> <span class="s1">&#39;ryan@yahoo.com&#39;</span><span class="p">]</span>
+
+</pre></div>
+</div>
+<p>search trả về một đối tượng khớp đặc biệt cho địa chỉ email đầu tiên trong văn bản. Đối với regex trước đó, đối tượng khớp chỉ có thể cho chúng ta biết vị trí bắt đầu và kết thúc của mẫu trong chuỗi:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">regex</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">_sre</span><span class="o">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s1">&#39;dave@google.com&#39;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">start</span><span class="p">():</span><span class="n">m</span><span class="o">.</span><span class="n">end</span><span class="p">()]</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;dave@google.com&#39;</span>
+</pre></div>
+</div>
+<p>regex.match trả về None, vì nó chỉ khớp nếu mẫu xuất hiện ở đầu chuỗi:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">regex</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kc">None</span>
+</pre></div>
+</div>
+<p>Liên quan, sub sẽ trả về một chuỗi mới với các lần xuất hiện của mẫu được thay thế bằng một chuỗi mới:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">regex</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;REDACTED&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Dave</span> <span class="n">REDACTED</span>
+<span class="n">Steve</span> <span class="n">REDACTED</span>
+<span class="n">Rob</span> <span class="n">REDACTED</span>
+<span class="n">Ryan</span> <span class="n">REDACTED</span>
+</pre></div>
+</div>
+<p>Giả sử bạn muốn tìm địa chỉ email và đồng thời phân đoạn mỗi địa chỉ thành ba thành phần của nó: tên người dùng, tên miền và hậu tố miền. Để làm điều này, hãy đặt dấu ngoặc đơn xung quanh các phần của mẫu để phân đoạn:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;([A-Z0-9._%+-]+)@([A-Z0-9.-]+)\.([A-Z]{2,4})&#39;</span>
+<span class="n">regex</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Một đối tượng khớp được tạo ra bởi regex đã chỉnh sửa này trả về một bộ của các thành phần mẫu với phương thức groups của nó:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">regex</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;wesm@bright.net&#39;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="s1">&#39;wesm&#39;</span><span class="p">,</span> <span class="s1">&#39;bright&#39;</span><span class="p">,</span> <span class="s1">&#39;net&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>findall trả về một danh sách các bộ khi mẫu có nhóm:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">regex</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="s1">&#39;dave&#39;</span><span class="p">,</span> <span class="s1">&#39;google&#39;</span><span class="p">,</span> <span class="s1">&#39;com&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;steve&#39;</span><span class="p">,</span> <span class="s1">&#39;gmail&#39;</span><span class="p">,</span> <span class="s1">&#39;com&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;rob&#39;</span><span class="p">,</span> <span class="s1">&#39;gmail&#39;</span><span class="p">,</span> <span class="s1">&#39;com&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;ryan&#39;</span><span class="p">,</span> <span class="s1">&#39;yahoo&#39;</span><span class="p">,</span> <span class="s1">&#39;com&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>sub cũng có quyền truy cập vào các nhóm trong mỗi khớp sử dụng các ký hiệu đặc biệt như \1 và \2. Ký hiệu \1 tương ứng với nhóm khớp đầu tiên, \2 tương ứng với nhóm thứ hai, và cứ như vậy:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">regex</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Username: \1, Domain: \2, Suffix: \3&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Dave</span> <span class="n">Username</span><span class="p">:</span> <span class="n">dave</span><span class="p">,</span> <span class="n">Domain</span><span class="p">:</span> <span class="n">google</span><span class="p">,</span> <span class="n">Suffix</span><span class="p">:</span> <span class="n">com</span>
+<span class="n">Steve</span> <span class="n">Username</span><span class="p">:</span> <span class="n">steve</span><span class="p">,</span> <span class="n">Domain</span><span class="p">:</span> <span class="n">gmail</span><span class="p">,</span> <span class="n">Suffix</span><span class="p">:</span> <span class="n">com</span>
+<span class="n">Rob</span> <span class="n">Username</span><span class="p">:</span> <span class="n">rob</span><span class="p">,</span> <span class="n">Domain</span><span class="p">:</span> <span class="n">gmail</span><span class="p">,</span> <span class="n">Suffix</span><span class="p">:</span> <span class="n">com</span>
+<span class="n">Ryan</span> <span class="n">Username</span><span class="p">:</span> <span class="n">ryan</span><span class="p">,</span> <span class="n">Domain</span><span class="p">:</span> <span class="n">yahoo</span><span class="p">,</span> <span class="n">Suffix</span><span class="p">:</span> <span class="n">com</span>
+</pre></div>
+</div>
+<p>Có nhiều hơn nữa về biểu thức chính quy trong Python, phần lớn trong đó nằm ngoài phạm vi của cuốn sách. Bảng 7-4 cung cấp một tóm tắt ngắn gọn.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="bang-7-4-cac-phuong-thuc-regular-expression-regex-trong-python">
+<h1>Bảng 7-4: Các phương thức Regular Expression (Regex) trong Python<a class="headerlink" href="#bang-7-4-cac-phuong-thuc-regular-expression-regex-trong-python" title="Link to this heading">#</a></h1>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Phương thức</strong></p></th>
+<th class="head"><p><strong>Mô tả</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">findall</span></code></p></td>
+<td><p>Trả về tất cả các mẫu khớp không trùng lặp trong một chuỗi dưới dạng danh sách.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">finditer</span></code></p></td>
+<td><p>Giống như <code class="docutils literal notranslate"><span class="pre">findall</span></code>, nhưng trả về một iterator.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">match</span></code></p></td>
+<td><p>Khớp mẫu ở đầu chuỗi và tùy chọn phân đoạn các thành phần mẫu thành các nhóm. Nếu mẫu khớp, trả về một đối tượng khớp; nếu không, trả về <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">search</span></code></p></td>
+<td><p>Quét chuỗi để tìm khớp với mẫu. Trả về một đối tượng khớp nếu có; không giống như <code class="docutils literal notranslate"><span class="pre">match</span></code>, mẫu khớp có thể ở bất kỳ đâu trong chuỗi, không chỉ ở đầu.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">split</span></code></p></td>
+<td><p>Phân tách chuỗi thành các phần tại mỗi lần xuất hiện của mẫu.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sub</span></code>, <code class="docutils literal notranslate"><span class="pre">subn</span></code></p></td>
+<td><p>Thay thế tất cả (<code class="docutils literal notranslate"><span class="pre">sub</span></code>) hoặc <code class="docutils literal notranslate"><span class="pre">n</span></code> lần xuất hiện đầu tiên (<code class="docutils literal notranslate"><span class="pre">subn</span></code>) của mẫu trong chuỗi bằng biểu thức thay thế. Sử dụng các ký hiệu <code class="docutils literal notranslate"><span class="pre">\1</span></code>, <code class="docutils literal notranslate"><span class="pre">\2</span></code>, … để tham chiếu các phần tử nhóm khớp trong chuỗi thay thế.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="cac-ham-chuoi-vector-hoa-trong-pandas">
+<h2>Các Hàm Chuỗi Vector hóa trong pandas<a class="headerlink" href="#cac-ham-chuoi-vector-hoa-trong-pandas" title="Link to this heading">#</a></h2>
+<p>Việc làm sạch một tập dữ liệu lộn xộn để phân tích thường đòi hỏi nhiều thao tác và chuẩn hóa chuỗi. Để làm phức tạp hơn, một cột chứa các chuỗi đôi khi sẽ có dữ liệu thiếu:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Dave&#39;</span><span class="p">:</span> <span class="s1">&#39;dave@google.com&#39;</span><span class="p">,</span> <span class="s1">&#39;Steve&#39;</span><span class="p">:</span> <span class="s1">&#39;steve@gmail.com&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Rob&#39;</span><span class="p">:</span> <span class="s1">&#39;rob@gmail.com&#39;</span><span class="p">,</span> <span class="s1">&#39;Wes&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Dave</span>     <span class="n">dave</span><span class="nd">@google</span><span class="o">.</span><span class="n">com</span>
+<span class="n">Rob</span>      <span class="n">rob</span><span class="nd">@gmail</span><span class="o">.</span><span class="n">com</span>
+<span class="n">Steve</span>    <span class="n">steve</span><span class="nd">@gmail</span><span class="o">.</span><span class="n">com</span>
+<span class="n">Wes</span>      <span class="n">NaN</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
+</pre></div>
+</div>
+<p>Kiểm tra các giá trị thiếu:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Dave</span>     <span class="kc">False</span>
+<span class="n">Rob</span>      <span class="kc">False</span>
+<span class="n">Steve</span>    <span class="kc">False</span>
+<span class="n">Wes</span>      <span class="kc">True</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="nb">bool</span>
+</pre></div>
+</div>
+<p>Có thể áp dụng các phương thức chuỗi và biểu thức chính quy (bằng cách truyền vào một lambda hoặc hàm khác) cho từng giá trị bằng cách sử dụng data.map, nhưng nó sẽ thất bại trên các giá trị NA (null). Để đối phó với điều này, Series có các phương thức hướng mảng cho các thao tác chuỗi bỏ qua các giá trị NA. Các phương thức này được truy cập thông qua thuộc tính str của Series; ví dụ, có thể kiểm tra xem mỗi địa chỉ email có chứa ‘gmail’ trong đó hay không với str.contains:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;gmail&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Dave</span>     <span class="kc">False</span>
+<span class="n">Rob</span>       <span class="kc">True</span>
+<span class="n">Steve</span>     <span class="kc">True</span>
+<span class="n">Wes</span>        <span class="n">NaN</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
+</pre></div>
+</div>
+<p>Cũng có thể sử dụng các biểu thức chính quy cùng với bất kỳ tùy chọn re nào như IGNORECASE:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="s1">&#39;([A-Z0-9._%+-]+)@([A-Z0-9.-]+)</span><span class="se">\\</span><span class="s1">.([A-Z]{2,4})&#39;</span>
+<span class="n">data</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Dave</span>     <span class="p">[(</span><span class="n">dave</span><span class="p">,</span> <span class="n">google</span><span class="p">,</span> <span class="n">com</span><span class="p">)]</span>
+<span class="n">Rob</span>       <span class="p">[(</span><span class="n">rob</span><span class="p">,</span> <span class="n">gmail</span><span class="p">,</span> <span class="n">com</span><span class="p">)]</span>
+<span class="n">Steve</span>    <span class="p">[(</span><span class="n">steve</span><span class="p">,</span> <span class="n">gmail</span><span class="p">,</span> <span class="n">com</span><span class="p">)]</span>
+<span class="n">Wes</span>                      <span class="n">NaN</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
+</pre></div>
+</div>
+<p>Có một số cách để truy xuất phần tử theo dạng vector hóa. Hoặc sử dụng str.get hoặc truy cập vào thuộc tính str:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">matches</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+<span class="n">matches</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Dave</span>     <span class="kc">True</span>
+<span class="n">Rob</span>      <span class="kc">True</span>
+<span class="n">Steve</span>    <span class="kc">True</span>
+<span class="n">Wes</span>       <span class="n">NaN</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
+</pre></div>
+</div>
+<p>Để truy cập các phần tử trong danh sách nhúng, có thể truyền một chỉ mục vào một trong các hàm này:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">matches</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Dave</span>    <span class="n">NaN</span>
+<span class="n">Rob</span>     <span class="n">NaN</span>
+<span class="n">Steve</span>   <span class="n">NaN</span>
+<span class="n">Wes</span>     <span class="n">NaN</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+<span class="n">python</span>
+<span class="n">matches</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Dave</span>    <span class="n">NaN</span>
+<span class="n">Rob</span>     <span class="n">NaN</span>
+<span class="n">Steve</span>   <span class="n">NaN</span>
+<span class="n">Wes</span>     <span class="n">NaN</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Tương tự, có thể cắt chuỗi bằng cách sử dụng cú pháp này:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">str</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Dave</span>     <span class="n">dave</span><span class="o">@</span>
+<span class="n">Rob</span>      <span class="n">rob</span><span class="nd">@g</span>
+<span class="n">Steve</span>    <span class="n">steve</span>
+<span class="n">Wes</span>       <span class="n">NaN</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
+</pre></div>
+</div>
+<p>Xem Bảng 7-5 để biết thêm các phương thức chuỗi trong pandas.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="bang-7-5-mot-so-phuong-thuc-chuoi-vector-hoa-trong-python">
+<h1>Bảng 7-5: Một số phương thức chuỗi vector hóa trong Python<a class="headerlink" href="#bang-7-5-mot-so-phuong-thuc-chuoi-vector-hoa-trong-python" title="Link to this heading">#</a></h1>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Phương thức</strong></p></th>
+<th class="head"><p><strong>Mô tả</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cat</span></code></p></td>
+<td><p>Nối chuỗi theo phần tử với dấu phân cách tùy chọn.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">contains</span></code></p></td>
+<td><p>Trả về mảng boolean nếu mỗi chuỗi chứa mẫu/regex.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">count</span></code></p></td>
+<td><p>Đếm số lần xuất hiện của mẫu.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">extract</span></code></p></td>
+<td><p>Sử dụng biểu thức chính quy với các nhóm để trích xuất một hoặc nhiều chuỗi từ một <code class="docutils literal notranslate"><span class="pre">Series</span></code> của chuỗi; kết quả là một <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> với một cột cho mỗi nhóm.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">endswith</span></code></p></td>
+<td><p>Tương đương với <code class="docutils literal notranslate"><span class="pre">x.endswith(pattern)</span></code> cho mỗi phần tử.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">startswith</span></code></p></td>
+<td><p>Tương đương với <code class="docutils literal notranslate"><span class="pre">x.startswith(pattern)</span></code> cho mỗi phần tử.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">findall</span></code></p></td>
+<td><p>Tính toán danh sách tất cả các lần xuất hiện của mẫu/regex cho mỗi chuỗi.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">get</span></code></p></td>
+<td><p>Truy xuất vào mỗi phần tử (lấy phần tử thứ <code class="docutils literal notranslate"><span class="pre">i</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isalnum</span></code></p></td>
+<td><p>Tương đương với <code class="docutils literal notranslate"><span class="pre">str.isalnum</span></code> tích hợp sẵn.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isalpha</span></code></p></td>
+<td><p>Tương đương với <code class="docutils literal notranslate"><span class="pre">str.isalpha</span></code> tích hợp sẵn.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isdecimal</span></code></p></td>
+<td><p>Tương đương với <code class="docutils literal notranslate"><span class="pre">str.isdecimal</span></code> tích hợp sẵn.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isdigit</span></code></p></td>
+<td><p>Tương đương với <code class="docutils literal notranslate"><span class="pre">str.isdigit</span></code> tích hợp sẵn.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">islower</span></code></p></td>
+<td><p>Tương đương với <code class="docutils literal notranslate"><span class="pre">str.islower</span></code> tích hợp sẵn.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isnumeric</span></code></p></td>
+<td><p>Tương đương với <code class="docutils literal notranslate"><span class="pre">str.isnumeric</span></code> tích hợp sẵn.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isupper</span></code></p></td>
+<td><p>Tương đương với <code class="docutils literal notranslate"><span class="pre">str.isupper</span></code> tích hợp sẵn.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">join</span></code></p></td>
+<td><p>Nối chuỗi trong mỗi phần tử của <code class="docutils literal notranslate"><span class="pre">Series</span></code> với dấu phân cách đã truyền.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">len</span></code></p></td>
+<td><p>Tính toán độ dài của mỗi chuỗi.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lower</span></code>, <code class="docutils literal notranslate"><span class="pre">upper</span></code></p></td>
+<td><p>Chuyển đổi chữ cái; tương đương với <code class="docutils literal notranslate"><span class="pre">x.lower()</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">x.upper()</span></code> cho mỗi phần tử.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">match</span></code></p></td>
+<td><p>Sử dụng <code class="docutils literal notranslate"><span class="pre">re.match</span></code> với biểu thức chính quy đã truyền trên mỗi phần tử; trả về các nhóm đã khớp dưới dạng danh sách.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pad</span></code></p></td>
+<td><p>Thêm khoảng trắng vào bên trái, bên phải, hoặc cả hai bên của chuỗi.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">center</span></code></p></td>
+<td><p>Tương đương với <code class="docutils literal notranslate"><span class="pre">pad(side='both')</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">repeat</span></code></p></td>
+<td><p>Nhân giá trị (ví dụ: <code class="docutils literal notranslate"><span class="pre">s.str.repeat(3)</span></code> tương đương với <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">3</span></code> cho mỗi chuỗi).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">replace</span></code></p></td>
+<td><p>Thay thế các lần xuất hiện của mẫu/regex bằng chuỗi khác.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">slice</span></code></p></td>
+<td><p>Cắt mỗi chuỗi trong <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">split</span></code></p></td>
+<td><p>Tách chuỗi theo dấu phân cách hoặc biểu thức chính quy.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">strip</span></code></p></td>
+<td><p>Loại bỏ khoảng trắng từ cả hai bên, bao gồm cả dòng mới.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rstrip</span></code></p></td>
+<td><p>Loại bỏ khoảng trắng bên phải.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lstrip</span></code></p></td>
+<td><p>Loại bỏ khoảng trắng bên trái.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Transformation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Biến Đổi Dữ Liệu</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="DataWrangling.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Biến Đổi và Kết Hợp Dữ Liệu</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">String Manipulation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#string-object-methods">String Object Methods</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-7-3-cac-phuong-thuc-chuoi-tich-hop-cua-python">Bảng 7-3: Các phương thức chuỗi tích hợp của Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bieu-thuc-chinh-quy-regular-expressions">Biểu Thức Chính Quy (Regular Expressions)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-7-4-cac-phuong-thuc-regular-expression-regex-trong-python">Bảng 7-4: Các phương thức Regular Expression (Regex) trong Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-ham-chuoi-vector-hoa-trong-pandas">Các Hàm Chuỗi Vector hóa trong pandas</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-7-5-mot-so-phuong-thuc-chuoi-vector-hoa-trong-python">Bảng 7-5: Một số phương thức chuỗi vector hóa trong Python</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

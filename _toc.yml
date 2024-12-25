@@ -1,0 +1,59 @@
+# _toc.yml
+
+format: jb-book
+root: intro
+
+chapters:
+  - file: tongquan.md
+    title: Tổng quan về NumPy và Pandas
+  - file: Numpy.md
+    title: NumPy Cơ Bản Mảng và Tính Toán Vector
+    sections:
+      - file: ndarray.md
+        title: Đối tượng ndarray Mảng Nhiều Chiều
+      - file: Arithmetic.md
+        title: Các Phép Toán trên Mảng
+      - file: UniversalFunctions.md
+        title: Hàm Toàn Cục và Tối Ưu Hoá Hiệu Suất
+      - file: InputOutput.md
+        title: Nhập/Xuất Dữ Liệu
+      - file: Khac.md
+        title: Các Ứng Dụng Khác
+
+  - file: Pandas.md
+    title: Pandas cơ bản
+    sections:
+      - file: DataStructures.md
+        title: Giới Thiệu Cấu Trúc Dữ Liệu
+      - file: EssentialFunctionality.md
+        title: Các Chức Năng Cơ Bản
+      - file: DescriptiveStatistics.md
+        title: Thống Kê và Phân Tích Dữ Liệu
+
+  - file: Format.md
+    title: Nạp, Lưu Trữ và Định Dạng Dữ Liệu
+    sections:
+      - file: TextFormat.md
+        title: Đọc và Ghi Dữ Liệu Văn Bản
+      - file: DataFormat.md
+        title: Định Dạng Dữ Liệu Nhị Phân
+
+  - file: DataCleaning.md
+    title: Làm Sạch và Chuẩn Bị Dữ Liệu
+    sections:
+      - file:  Handling.md
+        title: Xử Lý Dữ Liệu Thiếu
+      - file:  Transformation.md
+        title: Biến Đổi Dữ Liệu
+      - file:  StringManipulation.md
+        title: Xử Lý Chuỗi Ký Tự
+
+  - file: DataWrangling.md
+    title: Biến Đổi và Kết Hợp Dữ Liệu
+    sections:
+      - file:  Indexing.md
+        title: Indexing Phân Cấp
+      - file:  Combining.md
+        title: Kết Hợp Dữ Liệu
+      - file: Reshaping.md
+        title: Biến Đổi Dữ Liệu

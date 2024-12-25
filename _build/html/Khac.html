@@ -1,0 +1,907 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Đại Số Tuyến Tính với NumPy &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Khac';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Giới Thiệu Về pandas" href="Pandas.html" />
+    <link rel="prev" title="Nhập và Xuất Tệp với Mảng NumPy" href="InputOutput.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="My sample book - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Numpy.html">NumPy Cơ Bản Mảng và Tính Toán Vector</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ndarray.html">4.1 Đối Tượng Mảng N Chiều NumPy: Một Đối Tượng Mảng Đa Chiều</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="Arithmetic.html">Các Phép Toán trên Mảng</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UniversalFunctions.html">4.2 Hàm Toàn Cụcục: Các Hàm Mảng Nhanh Theo Phần Tử</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="InputOutput.html">Nhập/Xuất Dữ Liệu</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Đại Số Tuyến Tính với NumPy</a></li>
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Pandas.html">Pandas cơ bản</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures.html">Giới Thiệu Cấu Trúc Dữ Liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EssentialFunctionality.html">Các Chức Năng Cơ Bản</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="DataCleaning.html">Làm Sạch và Chuẩn Bị Dữ Liệu</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Handling.html">Xử Lý Dữ Liệu Thiếu</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="DataWrangling.html">CHƯƠNG 8</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FKhac.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Khac.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Đại Số Tuyến Tính với NumPy</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Đại Số Tuyến Tính với NumPy</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nhan-ma-tran-voi-dot">Nhân Ma Trận với <code class="docutils literal notranslate"><span class="pre">dot</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-ham-dai-so-tuyen-tinh-trong-numpy-linalg">Các Hàm Đại Số Tuyến Tính trong numpy.linalg</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-du-ve-nghich-dao-ma-tran-va-phan-tich-qr">Ví dụ về nghịch đảo ma trận và phân tích QR:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-ham-numpy-linalg-thuong-dung">Các Hàm <code class="docutils literal notranslate"><span class="pre">numpy.linalg</span></code> Thường Dùng</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sinh-so-ngau-nhien-gia-pseudorandom-number-generation">Sinh Số Ngẫu Nhiên Giả (Pseudorandom Number Generation)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-ham-trong-numpy-random">Các Hàm Trong <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-du-cac-buoc-ngau-nhien-random-walks">Ví Dụ: Các Bước Ngẫu Nhiên (Random Walks)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mo-phong-nhieu-buoc-ngau-nhien-cung-luc">Mô Phỏng Nhiều Bước Ngẫu Nhiên Cùng Lúc</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="dai-so-tuyen-tinh-voi-numpy">
+<h1>Đại Số Tuyến Tính với NumPy<a class="headerlink" href="#dai-so-tuyen-tinh-voi-numpy" title="Link to this heading">#</a></h1>
+<p>Đại số tuyến tính, bao gồm các phép toán như nhân ma trận, phân tích ma trận, định thức và các phép toán trên ma trận vuông, là một phần quan trọng của bất kỳ thư viện mảng nào. Không giống như một số ngôn ngữ như MATLAB, phép nhân giữa hai mảng hai chiều với dấu <code class="docutils literal notranslate"><span class="pre">*</span></code> là phép nhân phần tử, thay vì nhân ma trận chấm. Vì vậy, NumPy cung cấp hàm <code class="docutils literal notranslate"><span class="pre">dot</span></code>, là một phương thức của mảng và cũng là một hàm trong không gian tên của NumPy, để thực hiện phép nhân ma trận.</p>
+<section id="nhan-ma-tran-voi-dot">
+<h2>Nhân Ma Trận với <code class="docutils literal notranslate"><span class="pre">dot</span></code><a class="headerlink" href="#nhan-ma-tran-voi-dot" title="Link to this heading">#</a></h2>
+<p>Ví dụ về nhân ma trận với <code class="docutils literal notranslate"><span class="pre">dot</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">],</span> <span class="p">[</span><span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">]])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">6.</span><span class="p">,</span> <span class="mf">23.</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+
+<span class="c1"># Nhân ma trận</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">(</span><span class="s">[[ 28., 64.],</span>
+<span class="s">       [ 67., 181.]]</span><span class="p">)</span>
+<span class="n">x</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="n">tương</span> <span class="err">đươ</span><span class="n">ng</span> <span class="n">với</span> <span class="n">np</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả cũng sẽ là:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">(</span><span class="s">[[ 28., 64.],</span>
+<span class="s">       [ 67., 181.]]</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Khi nhân ma trận giữa một mảng hai chiều và một mảng một chiều với kích thước phù hợp, kết quả là một mảng một chiều:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-scss notranslate"><div class="highlight"><pre><span></span><span class="nt">array</span><span class="o">([</span><span class="w"> </span><span class="nt">6</span><span class="nc">.</span><span class="o">,</span><span class="w"> </span><span class="nt">15</span><span class="nc">.</span><span class="o">])</span>
+</pre></div>
+</div>
+<p>Từ Python 3.5 trở đi, có thể sử dụng toán tử &#64; để thực hiện phép nhân ma trận:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-scss notranslate"><div class="highlight"><pre><span></span><span class="nt">array</span><span class="o">([</span><span class="w"> </span><span class="nt">6</span><span class="nc">.</span><span class="o">,</span><span class="w"> </span><span class="nt">15</span><span class="nc">.</span><span class="o">])</span>
+</pre></div>
+</div>
+</section>
+<section id="cac-ham-dai-so-tuyen-tinh-trong-numpy-linalg">
+<h2>Các Hàm Đại Số Tuyến Tính trong numpy.linalg<a class="headerlink" href="#cac-ham-dai-so-tuyen-tinh-trong-numpy-linalg" title="Link to this heading">#</a></h2>
+<p>numpy.linalg cung cấp các hàm chuẩn cho phân tích ma trận và các phép toán như nghịch đảo và định thức. Các hàm này được triển khai thông qua các thư viện tiêu chuẩn ngành như BLAS, LAPACK hoặc có thể là thư viện Intel MKL (Math Kernel Library), tùy vào cách bạn cài đặt NumPy.</p>
+<section id="vi-du-ve-nghich-dao-ma-tran-va-phan-tich-qr">
+<h3>Ví dụ về nghịch đảo ma trận và phân tích QR:<a class="headerlink" href="#vi-du-ve-nghich-dao-ma-tran-va-phan-tich-qr" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">inv</span><span class="p">,</span> <span class="n">qr</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">mat</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Nghịch đảo ma trận</span>
+<span class="n">inv_mat</span> <span class="o">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inv_mat</span><span class="p">)</span>
+
+<span class="c1"># Kiểm tra nghịch đảo</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mat</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">inv_mat</span><span class="p">))</span>
+
+<span class="c1"># Phân tích QR</span>
+<span class="n">q</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">qr</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">array([[ 933.1189, 871.8258, -1417.6902, -1460.4005, 1782.1391],</span>
+<span class="w">       </span><span class="l l-Scalar l-Scalar-Plain">[ 871.8258, 815.3929, -1325.9965, -1365.9242, 1666.9347],</span>
+<span class="w">       </span><span class="l l-Scalar l-Scalar-Plain">[-1417.6902, -1325.9965, 2158.4424, 2222.0191, -2711.6822],</span>
+<span class="w">       </span><span class="l l-Scalar l-Scalar-Plain">[-1460.4005, -1365.9242, 2222.0191, 2289.0575, -2793.422 ],</span>
+<span class="w">       </span><span class="l l-Scalar l-Scalar-Plain">[ 1782.1391, 1666.9347, -2711.6822, -2793.422 , 3409.5128]])</span>
+</pre></div>
+</div>
+<p>Ma trận chuyển vị của X nhân với chính nó cho ra ma trận trên.</p>
+</section>
+<section id="cac-ham-numpy-linalg-thuong-dung">
+<h3>Các Hàm <code class="docutils literal notranslate"><span class="pre">numpy.linalg</span></code> Thường Dùng<a class="headerlink" href="#cac-ham-numpy-linalg-thuong-dung" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Hàm</p></th>
+<th class="head"><p>Mô Tả</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">diag</span></code></p></td>
+<td><p>Trả về các phần tử chéo (hoặc ngoài chéo) của ma trận vuông dưới dạng mảng 1D, hoặc chuyển đổi mảng 1D thành ma trận vuông với phần tử ngoài chéo là 0.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">dot</span></code></p></td>
+<td><p>Nhân ma trận.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">trace</span></code></p></td>
+<td><p>Tính tổng các phần tử trên đường chéo của ma trận.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">det</span></code></p></td>
+<td><p>Tính định thức của ma trận.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">eig</span></code></p></td>
+<td><p>Tính các giá trị và vectơ riêng của ma trận vuông.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">inv</span></code></p></td>
+<td><p>Tính nghịch đảo của ma trận vuông.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pinv</span></code></p></td>
+<td><p>Tính nghịch đảo Moore-Penrose của ma trận.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qr</span></code></p></td>
+<td><p>Tính phân tích QR.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">svd</span></code></p></td>
+<td><p>Tính phân tích giá trị kỳ dị (SVD).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">solve</span></code></p></td>
+<td><p>Giải hệ phương trình tuyến tính ( Ax = b ) cho ( x ), với ( A ) là ma trận vuông.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lstsq</span></code></p></td>
+<td><p>Tính nghiệm ít bình phương cho ( Ax = b ).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="sinh-so-ngau-nhien-gia-pseudorandom-number-generation">
+<h1>Sinh Số Ngẫu Nhiên Giả (Pseudorandom Number Generation)<a class="headerlink" href="#sinh-so-ngau-nhien-gia-pseudorandom-number-generation" title="Link to this heading">#</a></h1>
+<p>Module <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> bổ sung cho module <code class="docutils literal notranslate"><span class="pre">random</span></code> tích hợp của Python với các hàm sinh mảng số ngẫu nhiên từ nhiều phân phối xác suất khác nhau. Ví dụ, bạn có thể tạo một mảng 4 × 4 mẫu từ phân phối chuẩn chuẩn (standard normal distribution) bằng cách sử dụng hàm <code class="docutils literal notranslate"><span class="pre">normal</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">samples</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">(</span><span class="s">[[ 0.5732,  0.1933,  0.4429,  1.2796],</span>
+<span class="s">       [ 0.575 ,  0.4339, -0.7658, -1.237 ],</span>
+<span class="s">       [-0.5367,  1.8545, -0.92  , -0.1082],</span>
+<span class="s">       [ 0.1525,  0.9435, -1.0953, -0.144 ]]</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Trong khi đó, module random tích hợp của Python chỉ sinh một giá trị tại một thời điểm. Như bạn có thể thấy từ bài kiểm tra tốc độ dưới đây, numpy.random nhanh hơn rất nhiều khi sinh các mẫu số lượng lớn:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">normalvariate</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">1000000</span>
+
+<span class="c1"># Dùng random module</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="n">samples</span> <span class="o">=</span> <span class="p">[</span><span class="n">normalvariate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+
+<span class="c1"># Dùng numpy.random</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả cho thấy:</p>
+<div class="highlight-pythonpython notranslate"><div class="highlight"><pre><span></span>Sao chép mã
+1.77 s ± 126 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+61.7 ms ± 1.32 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+</pre></div>
+</div>
+<p>Chúng ta gọi đây là số ngẫu nhiên giả (pseudorandom numbers) vì chúng được sinh ra bởi một thuật toán với hành vi xác định dựa trên hạt giống (seed) của bộ sinh số ngẫu nhiên. Bạn có thể thay đổi hạt giống số ngẫu nhiên của NumPy bằng cách sử dụng np.random.seed:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Các hàm sinh dữ liệu trong numpy.random sử dụng một hạt giống toàn cục. Để tránh trạng thái toàn cục, bạn có thể sử dụng numpy.random.RandomState để tạo ra một bộ sinh số ngẫu nhiên cách ly với các bộ sinh khác:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-scss notranslate"><div class="highlight"><pre><span></span><span class="nt">array</span><span class="o">([</span><span class="w"> </span><span class="nt">0</span><span class="nc">.4714</span><span class="o">,</span><span class="w"> </span><span class="nt">-1</span><span class="nc">.191</span><span class="w"> </span><span class="o">,</span><span class="w">  </span><span class="nt">1</span><span class="nc">.4327</span><span class="o">,</span><span class="w"> </span><span class="nt">-0</span><span class="nc">.3127</span><span class="o">,</span><span class="w"> </span><span class="nt">-0</span><span class="nc">.7206</span><span class="o">,</span><span class="w">  </span><span class="nt">0</span><span class="nc">.8872</span><span class="o">,</span><span class="w">  </span><span class="nt">0</span><span class="nc">.8596</span><span class="o">,</span>
+<span class="w">       </span><span class="nt">-0</span><span class="nc">.6365</span><span class="o">,</span><span class="w">  </span><span class="nt">0</span><span class="nc">.0157</span><span class="o">,</span><span class="w"> </span><span class="nt">-2</span><span class="nc">.2427</span><span class="o">])</span>
+</pre></div>
+</div>
+<section id="cac-ham-trong-numpy-random">
+<h2>Các Hàm Trong <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code><a class="headerlink" href="#cac-ham-trong-numpy-random" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Hàm</p></th>
+<th class="head"><p>Mô Tả</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">seed</span></code></p></td>
+<td><p>Đặt hạt giống cho bộ sinh số ngẫu nhiên.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">permutation</span></code></p></td>
+<td><p>Trả về một hoán vị ngẫu nhiên của một dãy số hoặc trả về một dãy số đã hoán vị.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">shuffle</span></code></p></td>
+<td><p>Hoán vị ngẫu nhiên một dãy số tại chỗ.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rand</span></code></p></td>
+<td><p>Lấy mẫu từ phân phối đều.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">randint</span></code></p></td>
+<td><p>Lấy các số nguyên ngẫu nhiên từ một phạm vi cho trước.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">randn</span></code></p></td>
+<td><p>Lấy mẫu từ phân phối chuẩn (Gaussian) với trung bình 0 và độ lệch chuẩn 1 (giao diện giống MATLAB).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">binomial</span></code></p></td>
+<td><p>Lấy mẫu từ phân phối nhị thức.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">normal</span></code></p></td>
+<td><p>Lấy mẫu từ phân phối chuẩn (Gaussian).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">beta</span></code></p></td>
+<td><p>Lấy mẫu từ phân phối Beta.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">chisquare</span></code></p></td>
+<td><p>Lấy mẫu từ phân phối chi-square.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">gamma</span></code></p></td>
+<td><p>Lấy mẫu từ phân phối Gamma.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">uniform</span></code></p></td>
+<td><p>Lấy mẫu từ phân phối đều trên</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="vi-du-cac-buoc-ngau-nhien-random-walks">
+<h1>Ví Dụ: Các Bước Ngẫu Nhiên (Random Walks)<a class="headerlink" href="#vi-du-cac-buoc-ngau-nhien-random-walks" title="Link to this heading">#</a></h1>
+<p>Mô phỏng các bước ngẫu nhiên là một ứng dụng minh họa việc sử dụng các phép toán mảng. Cùng xem xét một bước đi ngẫu nhiên đơn giản bắt đầu từ 0 với các bước 1 và -1 xảy ra với xác suất bằng nhau.</p>
+<p>Dưới đây là cách thực hiện một bước đi ngẫu nhiên đơn giản với 1.000 bước bằng Python thuần (pure Python) sử dụng module <code class="docutils literal notranslate"><span class="pre">random</span></code> tích hợp:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">position</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">walk</span> <span class="o">=</span> <span class="p">[</span><span class="n">position</span><span class="p">]</span>
+<span class="n">steps</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
+    <span class="n">step</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">position</span> <span class="o">+=</span> <span class="n">step</span>
+    <span class="n">walk</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Hình 4-4 dưới đây là một ví dụ về đồ thị của 100 giá trị đầu tiên trong một bước đi ngẫu nhiên như thế:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">walk</span><span class="p">[:</span><span class="mi">100</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Hình 4-4. Một bước đi ngẫu nhiên đơn giản</p>
+<p>CCó thể nhận thấy rằng walk thực chất là tổng cộng dồn (cumulative sum) của các bước ngẫu nhiên và có thể được tính bằng cách sử dụng một biểu thức mảng. Do đó, ta sẽ sử dụng module np.random để rút ra 1.000 lần lật đồng xu cùng một lúc, gán chúng thành 1 và -1, và tính tổng cộng dồn:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">nsteps</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">draws</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">nsteps</span><span class="p">)</span>
+<span class="n">steps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">draws</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">walk</span> <span class="o">=</span> <span class="n">steps</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Từ đây, ta có thể bắt đầu tính toán các thống kê như giá trị nhỏ nhất và lớn nhất trong hành trình bước đi:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">walk</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>  <span class="c1"># Giá trị nhỏ nhất</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="gd">-3</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">walk</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>  <span class="c1"># Giá trị lớn nhất</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">31</span>
+</pre></div>
+</div>
+<p>Một thống kê phức tạp hơn là thời gian vượt qua đầu tiên, tức là bước đi mà bước đi ngẫu nhiên đạt đến một giá trị nhất định. Ở đây, ta muốn biết mất bao lâu để bước đi ngẫu nhiên cách gốc (0) ít nhất 10 bước về một phía.</p>
+<p>Câu lệnh np.abs(walk) &gt;= 10 sẽ cho ra một mảng boolean chỉ ra những vị trí mà bước đi đã đạt hoặc vượt qua 10, nhưng ta muốn chỉ lấy chỉ số của lần đầu tiên đạt giá trị 10 hoặc -10. Hóa ra, ta có thể tính điều này bằng cách sử dụng argmax, hàm này trả về chỉ số đầu tiên của giá trị lớn nhất trong mảng boolean (True là giá trị lớn nhất):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">walk</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">37</span>
+</pre></div>
+</div>
+<p>Lưu ý rằng việc sử dụng argmax ở đây không phải lúc nào cũng hiệu quả, vì nó luôn quét toàn bộ mảng. Trong trường hợp đặc biệt này, khi một giá trị True được phát hiện, ta biết đó là giá trị tối đa.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="mo-phong-nhieu-buoc-ngau-nhien-cung-luc">
+<h1>Mô Phỏng Nhiều Bước Ngẫu Nhiên Cùng Lúc<a class="headerlink" href="#mo-phong-nhieu-buoc-ngau-nhien-cung-luc" title="Link to this heading">#</a></h1>
+<p>Nếu mục tiêu là mô phỏng nhiều bước ngẫu nhiên, chẳng hạn 5.000 bước, bạn có thể tạo ra tất cả các bước ngẫu nhiên này với một số sửa đổi nhỏ trong mã trước. Nếu truyền vào một bộ 2 phần tử, các hàm của <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> sẽ tạo ra một mảng hai chiều các giá trị ngẫu nhiên, và ta có thể tính tổng cộng dồn trên các hàng để tính tất cả 5.000 bước ngẫu nhiên trong một lần:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nwalks</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="n">nsteps</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="c1"># Tạo một mảng 2 chiều với giá trị ngẫu nhiên 0 hoặc 1</span>
+<span class="n">draws</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">nwalks</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">))</span>
+
+<span class="c1"># Gán các giá trị 1 và -1 cho các bước</span>
+<span class="n">steps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">draws</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Tính tổng cộng dồn trên các hàng</span>
+<span class="n">walks</span> <span class="o">=</span> <span class="n">steps</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả là một mảng hai chiều, trong đó mỗi hàng là một bước đi ngẫu nhiên:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">walks</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">array</span><span class="o">([[</span><span class="w"> </span><span class="nt">1</span><span class="o">,</span><span class="w"> </span><span class="nt">0</span><span class="o">,</span><span class="w"> </span><span class="nt">1</span><span class="o">,</span><span class="w"> </span><span class="o">...,</span><span class="w"> </span><span class="nt">8</span><span class="o">,</span><span class="w"> </span><span class="nt">7</span><span class="o">,</span><span class="w"> </span><span class="nt">8</span><span class="o">],</span>
+<span class="w">       </span><span class="o">[</span><span class="w"> </span><span class="nt">1</span><span class="o">,</span><span class="w"> </span><span class="nt">0</span><span class="o">,</span><span class="w"> </span><span class="nt">-1</span><span class="o">,</span><span class="w"> </span><span class="o">...,</span><span class="w"> </span><span class="nt">34</span><span class="o">,</span><span class="w"> </span><span class="nt">33</span><span class="o">,</span><span class="w"> </span><span class="nt">32</span><span class="o">],</span>
+<span class="w">       </span><span class="o">[</span><span class="w"> </span><span class="nt">1</span><span class="o">,</span><span class="w"> </span><span class="nt">0</span><span class="o">,</span><span class="w"> </span><span class="nt">-1</span><span class="o">,</span><span class="w"> </span><span class="o">...,</span><span class="w"> </span><span class="nt">4</span><span class="o">,</span><span class="w"> </span><span class="nt">5</span><span class="o">,</span><span class="w"> </span><span class="nt">4</span><span class="o">],</span>
+<span class="w">       </span><span class="o">...,</span>
+<span class="w">       </span><span class="o">[</span><span class="w"> </span><span class="nt">1</span><span class="o">,</span><span class="w"> </span><span class="nt">2</span><span class="o">,</span><span class="w"> </span><span class="nt">1</span><span class="o">,</span><span class="w"> </span><span class="o">...,</span><span class="w"> </span><span class="nt">24</span><span class="o">,</span><span class="w"> </span><span class="nt">25</span><span class="o">,</span><span class="w"> </span><span class="nt">26</span><span class="o">],</span>
+<span class="w">       </span><span class="o">[</span><span class="w"> </span><span class="nt">1</span><span class="o">,</span><span class="w"> </span><span class="nt">2</span><span class="o">,</span><span class="w"> </span><span class="nt">3</span><span class="o">,</span><span class="w"> </span><span class="o">...,</span><span class="w"> </span><span class="nt">14</span><span class="o">,</span><span class="w"> </span><span class="nt">13</span><span class="o">,</span><span class="w"> </span><span class="nt">14</span><span class="o">],</span>
+<span class="w">       </span><span class="o">[</span><span class="w"> </span><span class="nt">-1</span><span class="o">,</span><span class="w"> </span><span class="nt">-2</span><span class="o">,</span><span class="w"> </span><span class="nt">-3</span><span class="o">,</span><span class="w"> </span><span class="o">...,</span><span class="w"> </span><span class="nt">-24</span><span class="o">,</span><span class="w"> </span><span class="nt">-23</span><span class="o">,</span><span class="w"> </span><span class="nt">-22</span><span class="o">]])</span>
+</pre></div>
+</div>
+<p>Giờ đây, ta có thể tính các giá trị tối đa và tối thiểu có được trong tất cả các bước đi:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">walks</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>  <span class="c1"># Giá trị lớn nhất</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">138</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">walks</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>  <span class="c1"># Giá trị nhỏ nhất</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="gd">-133</span>
+</pre></div>
+</div>
+<p>Tiếp theo, ta sẽ tính thời gian vượt qua mức 30 hoặc -30 lần đầu tiên. Điều này hơi phức tạp vì không phải tất cả 5.000 bước đi đều đạt đến mức 30. Ta có thể kiểm tra điều này bằng cách sử dụng phương thức any:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hits30</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">walks</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">hits30</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Đếm số lượng bước đi đạt 30 hoặc -30:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hits30</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>  <span class="c1"># Số bước đi đạt 30 hoặc -30</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">3410</span>
+</pre></div>
+</div>
+<p>Ta có thể sử dụng mảng boolean này để chọn ra các hàng của bước đi thực sự vượt qua mức 30 và gọi argmax dọc theo trục 1 để lấy thời gian vượt qua:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">crossing_times</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">walks</span><span class="p">[</span><span class="n">hits30</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">crossing_times</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>  <span class="c1"># Tính trung bình thời gian vượt qua</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">498.89</span>
+</pre></div>
+</div>
+<p>Có thể thử nghiệm với các phân phối khác cho các bước đi thay vì chỉ sử dụng đồng xu với xác suất bằng nhau. CChỉ cần sử dụng một hàm sinh số ngẫu nhiên khác, chẳng hạn như normal để tạo các bước phân phối chuẩn với một giá trị trung bình và độ lệch chuẩn nhất định:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">steps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">nwalks</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="InputOutput.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Nhập và Xuất Tệp với Mảng NumPy</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Pandas.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Giới Thiệu Về pandas</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Đại Số Tuyến Tính với NumPy</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nhan-ma-tran-voi-dot">Nhân Ma Trận với <code class="docutils literal notranslate"><span class="pre">dot</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-ham-dai-so-tuyen-tinh-trong-numpy-linalg">Các Hàm Đại Số Tuyến Tính trong numpy.linalg</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-du-ve-nghich-dao-ma-tran-va-phan-tich-qr">Ví dụ về nghịch đảo ma trận và phân tích QR:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-ham-numpy-linalg-thuong-dung">Các Hàm <code class="docutils literal notranslate"><span class="pre">numpy.linalg</span></code> Thường Dùng</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sinh-so-ngau-nhien-gia-pseudorandom-number-generation">Sinh Số Ngẫu Nhiên Giả (Pseudorandom Number Generation)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-ham-trong-numpy-random">Các Hàm Trong <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-du-cac-buoc-ngau-nhien-random-walks">Ví Dụ: Các Bước Ngẫu Nhiên (Random Walks)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mo-phong-nhieu-buoc-ngau-nhien-cung-luc">Mô Phỏng Nhiều Bước Ngẫu Nhiên Cùng Lúc</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

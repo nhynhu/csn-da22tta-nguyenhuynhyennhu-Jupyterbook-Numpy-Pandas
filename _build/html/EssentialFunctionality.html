@@ -1,0 +1,1543 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Essential Functionality &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'EssentialFunctionality';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Làm sạch và Chuẩn bị Dữ liệu" href="DataCleaning.html" />
+    <link rel="prev" title="Giới thiệu về các cấu trúc dữ liệu trong pandas" href="DataStructures.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="My sample book - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Numpy.html">NumPy Cơ Bản Mảng và Tính Toán Vector</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ndarray.html">4.1 Đối Tượng Mảng N Chiều NumPy: Một Đối Tượng Mảng Đa Chiều</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="Arithmetic.html">Các Phép Toán trên Mảng</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UniversalFunctions.html">4.2 Hàm Toàn Cụcục: Các Hàm Mảng Nhanh Theo Phần Tử</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="InputOutput.html">Nhập/Xuất Dữ Liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Khac.html">Đại Số Tuyến Tính với NumPy</a></li>
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Pandas.html">Pandas cơ bản</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="DataStructures.html">Giới Thiệu Cấu Trúc Dữ Liệu</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Các Chức Năng Cơ Bản</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="DataCleaning.html">Làm Sạch và Chuẩn Bị Dữ Liệu</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Handling.html">Xử Lý Dữ Liệu Thiếu</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="DataWrangling.html">CHƯƠNG 8</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FEssentialFunctionality.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/EssentialFunctionality.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Essential Functionality</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reindexing">Reindexing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-5-3-cac-tham-so-cua-ham-reindex">Bảng 5-3. Các Tham Số của Hàm reindex</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dropping-entries-from-an-axis">Dropping Entries from an Axis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-selection-and-filtering">Indexing, Selection, and Filtering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selection-with-loc-and-iloc">Selection with loc and iloc</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-du-so-bo-chon-mot-hang-va-nhieu-cot-bang-nhan">Ví dụ sơ bộ, chọn một hàng và nhiều cột bằng nhãn:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-5-4-cac-tuy-chon-lap-chi-muc-voi-dataframe">Bảng 5-4. Các Tùy Chọn Lập Chỉ Mục với DataFrame</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integer-indexes">Integer Indexes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic-and-data-alignment">Arithmetic and Data Alignment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic-methods-with-fill-values">Arithmetic Methods with Fill Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-5-5-cac-phuong-thuc-so-hoc-linh-hoat">Bảng 5-5. Các Phương Thức Số Học Linh Hoạt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-between-dataframe-and-series">Operations between DataFrame and Series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-application-and-mapping">Function Application and Mapping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-and-ranking">Sorting and Ranking</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-5-6-cac-phuong-phap-pha-vo-rang-buoc-voi-rank">Bảng 5-6. Các Phương Pháp Phá Vỡ Ràng Buộc Với Rank</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="essential-functionality">
+<h1>Essential Functionality<a class="headerlink" href="#essential-functionality" title="Link to this heading">#</a></h1>
+<p>Phần này sẽ hướng dẫn các cơ chế cơ bản để tương tác với dữ liệu chứa trong một <code class="docutils literal notranslate"><span class="pre">Series</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. Trong các chương tiếp theo, chúng ta sẽ đi sâu hơn vào các chủ đề phân tích và thao tác dữ liệu sử dụng pandas. Cuốn sách này không nhằm mục đích làm tài liệu đầy đủ cho thư viện pandas; thay vào đó, chúng ta sẽ tập trung vào các tính năng quan trọng nhất, để bạn tự khám phá các tính năng ít phổ biến hơn.</p>
+<section id="reindexing">
+<h2>Reindexing<a class="headerlink" href="#reindexing" title="Link to this heading">#</a></h2>
+<p>Một phương thức quan trọng trên các đối tượng pandas là <code class="docutils literal notranslate"><span class="pre">reindex</span></code>, tức là tạo một đối tượng mới với dữ liệu phù hợp với một chỉ số mới. Xem xét ví dụ sau:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">91</span><span class="p">]:</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">7.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.3</span><span class="p">,</span> <span class="mf">3.6</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">92</span><span class="p">]:</span> <span class="n">obj</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">92</span><span class="p">]:</span>
+<span class="n">d</span>    <span class="mf">4.5</span>
+<span class="n">b</span>    <span class="mf">7.2</span>
+<span class="n">a</span>   <span class="o">-</span><span class="mf">5.3</span>
+<span class="n">c</span>    <span class="mf">3.6</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Gọi reindex trên Series này sẽ sắp xếp lại dữ liệu theo chỉ số mới, và nếu có bất kỳ giá trị nào của chỉ số không có sẵn, các giá trị bị thiếu sẽ được thêm vào:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">93</span><span class="p">]:</span> <span class="n">obj2</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">94</span><span class="p">]:</span> <span class="n">obj2</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">94</span><span class="p">]:</span>
+<span class="n">a</span>   <span class="o">-</span><span class="mf">5.3</span>
+<span class="n">b</span>    <span class="mf">7.2</span>
+<span class="n">c</span>    <span class="mf">3.6</span>
+<span class="n">d</span>    <span class="mf">4.5</span>
+<span class="n">e</span>    <span class="n">NaN</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Đối với dữ liệu có thứ tự như chuỗi thời gian, có thể mong muốn thực hiện một số nội suy hoặc điền giá trị khi reindexing. Tùy chọn method cho phép thực hiện điều này, sử dụng một phương thức như ffill, sẽ điền giá trị từ phía trước:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">95</span><span class="p">]:</span> <span class="n">obj3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">96</span><span class="p">]:</span> <span class="n">obj3</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">96</span><span class="p">]:</span>
+<span class="mi">0</span>      <span class="n">blue</span>
+<span class="mi">2</span>    <span class="n">purple</span>
+<span class="mi">4</span>    <span class="n">yellow</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">97</span><span class="p">]:</span> <span class="n">obj3</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;ffill&#39;</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">97</span><span class="p">]:</span>
+<span class="mi">0</span>      <span class="n">blue</span>
+<span class="mi">1</span>      <span class="n">blue</span>
+<span class="mi">2</span>    <span class="n">purple</span>
+<span class="mi">3</span>    <span class="n">purple</span>
+<span class="mi">4</span>    <span class="n">yellow</span>
+<span class="mi">5</span>    <span class="n">yellow</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
+</pre></div>
+</div>
+<p>Với DataFrame, reindex có thể thay đổi chỉ số hàng (row index), cột (columns), hoặc cả hai. Khi chỉ truyền một chuỗi, nó sẽ reindex các hàng trong kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">98</span><span class="p">]:</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span>
+                              <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">],</span>
+                              <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Texas&#39;</span><span class="p">,</span> <span class="s1">&#39;California&#39;</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">99</span><span class="p">]:</span> <span class="n">frame</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">99</span><span class="p">]:</span>
+   <span class="n">Ohio</span>  <span class="n">Texas</span>  <span class="n">California</span>
+<span class="n">a</span>     <span class="mi">0</span>      <span class="mi">1</span>           <span class="mi">2</span>
+<span class="n">c</span>     <span class="mi">3</span>      <span class="mi">4</span>           <span class="mi">5</span>
+<span class="n">d</span>     <span class="mi">6</span>      <span class="mi">7</span>           <span class="mi">8</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">100</span><span class="p">]:</span> <span class="n">frame2</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">101</span><span class="p">]:</span> <span class="n">frame2</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">101</span><span class="p">]:</span>
+   <span class="n">Ohio</span>  <span class="n">Texas</span>  <span class="n">California</span>
+<span class="n">a</span>   <span class="mf">0.0</span>    <span class="mf">1.0</span>         <span class="mf">2.0</span>
+<span class="n">b</span>   <span class="n">NaN</span>    <span class="n">NaN</span>         <span class="n">NaN</span>
+<span class="n">c</span>   <span class="mf">3.0</span>    <span class="mf">4.0</span>         <span class="mf">5.0</span>
+<span class="n">d</span>   <span class="mf">6.0</span>    <span class="mf">7.0</span>         <span class="mf">8.0</span>
+</pre></div>
+</div>
+<p>Các cột có thể được reindex với từ khóa columns:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">102</span><span class="p">]:</span> <span class="n">states</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Texas&#39;</span><span class="p">,</span> <span class="s1">&#39;Utah&#39;</span><span class="p">,</span> <span class="s1">&#39;California&#39;</span><span class="p">]</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">103</span><span class="p">]:</span> <span class="n">frame</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">states</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">103</span><span class="p">]:</span>
+   <span class="n">Texas</span>  <span class="n">Utah</span>  <span class="n">California</span>
+<span class="n">a</span>      <span class="mi">1</span>   <span class="n">NaN</span>           <span class="mi">2</span>
+<span class="n">c</span>      <span class="mi">4</span>   <span class="n">NaN</span>           <span class="mi">5</span>
+<span class="n">d</span>      <span class="mi">7</span>   <span class="n">NaN</span>           <span class="mi">8</span>
+</pre></div>
+</div>
+<p>Như sẽ được khám phá chi tiết hơn, có thể reindex ngắn gọn hơn bằng cách lập chỉ mục nhãn với loc, và nhiều người dùng thích sử dụng cách này:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">104</span><span class="p">]:</span> <span class="n">frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">],</span> <span class="n">states</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">104</span><span class="p">]:</span>
+   <span class="n">Texas</span>  <span class="n">Utah</span>  <span class="n">California</span>
+<span class="n">a</span>    <span class="mf">1.0</span>   <span class="n">NaN</span>         <span class="mf">2.0</span>
+<span class="n">b</span>    <span class="n">NaN</span>   <span class="n">NaN</span>         <span class="n">NaN</span>
+<span class="n">c</span>    <span class="mf">4.0</span>   <span class="n">NaN</span>         <span class="mf">5.0</span>
+<span class="n">d</span>    <span class="mf">7.0</span>   <span class="n">NaN</span>         <span class="mf">8.0</span>
+</pre></div>
+</div>
+<section id="bang-5-3-cac-tham-so-cua-ham-reindex">
+<h3>Bảng 5-3. Các Tham Số của Hàm reindex<a class="headerlink" href="#bang-5-3-cac-tham-so-cua-ham-reindex" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>index</p></td>
+<td><p>Chuỗi mới để sử dụng làm chỉ số. Có thể là một đối tượng <code class="docutils literal notranslate"><span class="pre">Index</span></code> hoặc bất kỳ cấu trúc dữ liệu dạng chuỗi nào của Python. Một <code class="docutils literal notranslate"><span class="pre">Index</span></code> sẽ được sử dụng chính xác như vậy mà không cần sao chép.</p></td>
+</tr>
+<tr class="row-odd"><td><p>method</p></td>
+<td><p>Phương thức nội suy (điền giá trị); ‘ffill’ điền từ phía trước, trong khi ‘bfill’ điền từ phía sau.</p></td>
+</tr>
+<tr class="row-even"><td><p>fill_value</p></td>
+<td><p>Giá trị thay thế để sử dụng khi giới thiệu dữ liệu bị thiếu bằng cách <code class="docutils literal notranslate"><span class="pre">reindex</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>limit</p></td>
+<td><p>Khi điền tiến hoặc điền lùi, khoảng cách tối đa (tính theo số phần tử) để điền.</p></td>
+</tr>
+<tr class="row-even"><td><p>tolerance</p></td>
+<td><p>Khi điền tiến hoặc điền lùi, khoảng cách tối đa (tính theo khoảng cách số tuyệt đối) để điền cho các kết quả không chính xác.</p></td>
+</tr>
+<tr class="row-odd"><td><p>level</p></td>
+<td><p>Khớp chỉ số đơn giản trên mức của <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code>; nếu không, chọn tập hợp con của.</p></td>
+</tr>
+<tr class="row-even"><td><p>copy</p></td>
+<td><p>Nếu <code class="docutils literal notranslate"><span class="pre">True</span></code>, luôn sao chép dữ liệu cơ bản ngay cả khi chỉ số mới tương đương với chỉ số cũ; nếu <code class="docutils literal notranslate"><span class="pre">False</span></code>, không sao chép dữ liệu khi các chỉ số tương đương.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="dropping-entries-from-an-axis">
+<h2>Dropping Entries from an Axis<a class="headerlink" href="#dropping-entries-from-an-axis" title="Link to this heading">#</a></h2>
+<p>Việc loại bỏ một hoặc nhiều mục từ một trục trở nên dễ dàng nếu đã có một mảng chỉ số hoặc danh sách mà không có những mục đó. Vì điều này có thể yêu cầu một chút xử lý và logic tập hợp, phương thức <code class="docutils literal notranslate"><span class="pre">drop</span></code> sẽ trả về một đối tượng mới với giá trị hoặc các giá trị được chỉ định bị xóa khỏi một trục:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">105</span><span class="p">]:</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">5.</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">106</span><span class="p">]:</span> <span class="n">obj</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">106</span><span class="p">]:</span>
+<span class="n">a</span>    <span class="mf">0.0</span>
+<span class="n">b</span>    <span class="mf">1.0</span>
+<span class="n">c</span>    <span class="mf">2.0</span>
+<span class="n">d</span>    <span class="mf">3.0</span>
+<span class="n">e</span>    <span class="mf">4.0</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">107</span><span class="p">]:</span> <span class="n">new_obj</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">108</span><span class="p">]:</span> <span class="n">new_obj</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">108</span><span class="p">]:</span>
+<span class="n">a</span>    <span class="mf">0.0</span>
+<span class="n">b</span>    <span class="mf">1.0</span>
+<span class="n">d</span>    <span class="mf">3.0</span>
+<span class="n">e</span>    <span class="mf">4.0</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">109</span><span class="p">]:</span> <span class="n">obj</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">109</span><span class="p">]:</span>
+<span class="n">a</span>    <span class="mf">0.0</span>
+<span class="n">b</span>    <span class="mf">1.0</span>
+<span class="n">e</span>    <span class="mf">4.0</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Với DataFrame, các giá trị chỉ số có thể được xóa từ bất kỳ trục nào. Để minh họa điều này, trước tiên chúng ta tạo một DataFrame</p>
+<p>Ví dụ:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">110</span><span class="p">]:</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)),</span>
+                              <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Colorado&#39;</span><span class="p">,</span> <span class="s1">&#39;Utah&#39;</span><span class="p">,</span> <span class="s1">&#39;New York&#39;</span><span class="p">],</span>
+                              <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">,</span> <span class="s1">&#39;four&#39;</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">111</span><span class="p">]:</span> <span class="n">data</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">111</span><span class="p">]:</span>
+            <span class="n">one</span>  <span class="n">two</span>  <span class="n">three</span>  <span class="n">four</span>
+<span class="n">Ohio</span>          <span class="mi">0</span>    <span class="mi">1</span>      <span class="mi">2</span>     <span class="mi">3</span>
+<span class="n">Colorado</span>      <span class="mi">4</span>    <span class="mi">5</span>      <span class="mi">6</span>     <span class="mi">7</span>
+<span class="n">Utah</span>          <span class="mi">8</span>    <span class="mi">9</span>     <span class="mi">10</span>    <span class="mi">11</span>
+<span class="n">New</span> <span class="n">York</span>     <span class="mi">12</span>   <span class="mi">13</span>     <span class="mi">14</span>    <span class="mi">15</span>
+</pre></div>
+</div>
+<p>Gọi drop với một chuỗi các nhãn sẽ loại bỏ các giá trị từ nhãn hàng (trục 0):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">112</span><span class="p">]:</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Colorado&#39;</span><span class="p">,</span> <span class="s1">&#39;Ohio&#39;</span><span class="p">])</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">112</span><span class="p">]:</span>
+            <span class="n">one</span>  <span class="n">two</span>  <span class="n">three</span>  <span class="n">four</span>
+<span class="n">Utah</span>          <span class="mi">8</span>    <span class="mi">9</span>     <span class="mi">10</span>    <span class="mi">11</span>
+<span class="n">New</span> <span class="n">York</span>     <span class="mi">12</span>   <span class="mi">13</span>     <span class="mi">14</span>    <span class="mi">15</span>
+</pre></div>
+</div>
+<p>Có thể loại bỏ các giá trị từ các cột bằng cách truyền axis=1 hoặc axis=’columns’:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">113</span><span class="p">]:</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">113</span><span class="p">]:</span>
+            <span class="n">one</span>  <span class="n">three</span>  <span class="n">four</span>
+<span class="n">Ohio</span>          <span class="mi">0</span>      <span class="mi">2</span>     <span class="mi">3</span>
+<span class="n">Colorado</span>      <span class="mi">4</span>      <span class="mi">6</span>     <span class="mi">7</span>
+<span class="n">Utah</span>          <span class="mi">8</span>     <span class="mi">10</span>    <span class="mi">11</span>
+<span class="n">New</span> <span class="n">York</span>     <span class="mi">12</span>     <span class="mi">14</span>    <span class="mi">15</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">114</span><span class="p">]:</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;four&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">114</span><span class="p">]:</span>
+            <span class="n">one</span>  <span class="n">three</span>
+<span class="n">Ohio</span>          <span class="mi">0</span>      <span class="mi">2</span>
+<span class="n">Colorado</span>      <span class="mi">4</span>      <span class="mi">6</span>
+<span class="n">Utah</span>          <span class="mi">8</span>     <span class="mi">10</span>
+<span class="n">New</span> <span class="n">York</span>     <span class="mi">12</span>     <span class="mi">14</span>
+</pre></div>
+</div>
+<p>Nhiều hàm, như drop, thay đổi kích thước hoặc hình dạng của một Series hoặc DataFrame, có thể thao tác một đối tượng tại chỗ mà không trả về một đối tượng mới:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">115</span><span class="p">]:</span> <span class="n">obj</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">116</span><span class="p">]:</span> <span class="n">obj</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">116</span><span class="p">]:</span>
+<span class="n">a</span>    <span class="mf">0.0</span>
+<span class="n">b</span>    <span class="mf">1.0</span>
+<span class="n">d</span>    <span class="mf">3.0</span>
+<span class="n">e</span>    <span class="mf">4.0</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+</section>
+<section id="indexing-selection-and-filtering">
+<h2>Indexing, Selection, and Filtering<a class="headerlink" href="#indexing-selection-and-filtering" title="Link to this heading">#</a></h2>
+<p>Việc lập chỉ mục (<code class="docutils literal notranslate"><span class="pre">indexing</span></code>) của <code class="docutils literal notranslate"><span class="pre">Series</span></code> (obj[…]) hoạt động tương tự như lập chỉ mục mảng NumPy, ngoại trừ việc bạn có thể sử dụng các giá trị chỉ mục của <code class="docutils literal notranslate"><span class="pre">Series</span></code> thay vì chỉ sử dụng các số nguyên. Dưới đây là một số ví dụ:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">117</span><span class="p">]:</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">4.</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">118</span><span class="p">]:</span> <span class="n">obj</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">118</span><span class="p">]:</span>
+<span class="n">a</span>    <span class="mf">0.0</span>
+<span class="n">b</span>    <span class="mf">1.0</span>
+<span class="n">c</span>    <span class="mf">2.0</span>
+<span class="n">d</span>    <span class="mf">3.0</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">119</span><span class="p">]:</span> <span class="n">obj</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">119</span><span class="p">]:</span> <span class="mf">1.0</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">120</span><span class="p">]:</span> <span class="n">obj</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">120</span><span class="p">]:</span> <span class="mf">1.0</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">121</span><span class="p">]:</span> <span class="n">obj</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">121</span><span class="p">]:</span>
+<span class="n">c</span>    <span class="mf">2.0</span>
+<span class="n">d</span>    <span class="mf">3.0</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">122</span><span class="p">]:</span> <span class="n">obj</span><span class="p">[[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">122</span><span class="p">]:</span>
+<span class="n">b</span>    <span class="mf">1.0</span>
+<span class="n">a</span>    <span class="mf">0.0</span>
+<span class="n">d</span>    <span class="mf">3.0</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">123</span><span class="p">]:</span> <span class="n">obj</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">123</span><span class="p">]:</span>
+<span class="n">b</span>    <span class="mf">1.0</span>
+<span class="n">d</span>    <span class="mf">3.0</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">124</span><span class="p">]:</span> <span class="n">obj</span><span class="p">[</span><span class="n">obj</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">124</span><span class="p">]:</span>
+<span class="n">a</span>    <span class="mf">0.0</span>
+<span class="n">b</span>    <span class="mf">1.0</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Cắt lát (slicing) với nhãn hoạt động khác với cắt lát thông thường trong Python ở chỗ điểm kết thúc được bao gồm:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">125</span><span class="p">]:</span> <span class="n">obj</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">125</span><span class="p">]:</span>
+<span class="n">b</span>    <span class="mf">1.0</span>
+<span class="n">c</span>    <span class="mf">2.0</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Thiết lập bằng cách sử dụng các phương thức này sẽ thay đổi phần tương ứng của Series:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">126</span><span class="p">]:</span> <span class="n">obj</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="s1">&#39;c&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">127</span><span class="p">]:</span> <span class="n">obj</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">127</span><span class="p">]:</span>
+<span class="n">a</span>    <span class="mf">0.0</span>
+<span class="n">b</span>    <span class="mf">5.0</span>
+<span class="n">c</span>    <span class="mf">5.0</span>
+<span class="n">d</span>    <span class="mf">3.0</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Lập chỉ mục vào một DataFrame là để truy xuất một hoặc nhiều cột bằng một giá trị đơn hoặc một chuỗi:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">128</span><span class="p">]:</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)),</span>
+                              <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Colorado&#39;</span><span class="p">,</span> <span class="s1">&#39;Utah&#39;</span><span class="p">,</span> <span class="s1">&#39;New York&#39;</span><span class="p">],</span>
+                              <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">,</span> <span class="s1">&#39;four&#39;</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">129</span><span class="p">]:</span> <span class="n">data</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">129</span><span class="p">]:</span>
+            <span class="n">one</span>  <span class="n">two</span>  <span class="n">three</span>  <span class="n">four</span>
+<span class="n">Ohio</span>          <span class="mi">0</span>    <span class="mi">1</span>      <span class="mi">2</span>     <span class="mi">3</span>
+<span class="n">Colorado</span>      <span class="mi">4</span>    <span class="mi">5</span>      <span class="mi">6</span>     <span class="mi">7</span>
+<span class="n">Utah</span>          <span class="mi">8</span>    <span class="mi">9</span>     <span class="mi">10</span>    <span class="mi">11</span>
+<span class="n">New</span> <span class="n">York</span>     <span class="mi">12</span>   <span class="mi">13</span>     <span class="mi">14</span>    <span class="mi">15</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">130</span><span class="p">]:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;two&#39;</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">130</span><span class="p">]:</span>
+<span class="n">Ohio</span>         <span class="mi">1</span>
+<span class="n">Colorado</span>     <span class="mi">5</span>
+<span class="n">Utah</span>         <span class="mi">9</span>
+<span class="n">New</span> <span class="n">York</span>    <span class="mi">13</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">two</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">131</span><span class="p">]:</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;three&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">]]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">131</span><span class="p">]:</span>
+            <span class="n">three</span>  <span class="n">one</span>
+<span class="n">Ohio</span>            <span class="mi">2</span>    <span class="mi">0</span>
+<span class="n">Colorado</span>        <span class="mi">6</span>    <span class="mi">4</span>
+<span class="n">Utah</span>           <span class="mi">10</span>    <span class="mi">8</span>
+<span class="n">New</span> <span class="n">York</span>       <span class="mi">14</span>   <span class="mi">12</span>
+</pre></div>
+</div>
+<p>Lập chỉ mục như thế này có một vài trường hợp đặc biệt. Đầu tiên, cắt lát hoặc chọn dữ liệu với một mảng boolean:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">132</span><span class="p">]:</span> <span class="n">data</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">132</span><span class="p">]:</span>
+            <span class="n">one</span>  <span class="n">two</span>  <span class="n">three</span>  <span class="n">four</span>
+<span class="n">Ohio</span>          <span class="mi">0</span>    <span class="mi">1</span>      <span class="mi">2</span>     <span class="mi">3</span>
+<span class="n">Colorado</span>      <span class="mi">4</span>    <span class="mi">5</span>      <span class="mi">6</span>     <span class="mi">7</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">133</span><span class="p">]:</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;three&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">133</span><span class="p">]:</span>
+            <span class="n">one</span>  <span class="n">two</span>  <span class="n">three</span>  <span class="n">four</span>
+<span class="n">Colorado</span>      <span class="mi">4</span>    <span class="mi">5</span>      <span class="mi">6</span>     <span class="mi">7</span>
+<span class="n">Utah</span>          <span class="mi">8</span>    <span class="mi">9</span>     <span class="mi">10</span>    <span class="mi">11</span>
+<span class="n">New</span> <span class="n">York</span>     <span class="mi">12</span>   <span class="mi">13</span>     <span class="mi">14</span>    <span class="mi">15</span>
+</pre></div>
+</div>
+<p>Cú pháp chọn hàng data[:2] được cung cấp để thuận tiện. Việc truyền một phần tử đơn hoặc một danh sách cho toán tử [] sẽ chọn các cột.</p>
+<p>Một trường hợp sử dụng khác là lập chỉ mục với một DataFrame boolean, chẳng hạn như một cái được tạo ra bởi một so sánh số học:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">134</span><span class="p">]:</span> <span class="n">data</span> <span class="o">&lt;</span> <span class="mi">5</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">134</span><span class="p">]:</span>
+            <span class="n">one</span>    <span class="n">two</span>  <span class="n">three</span>   <span class="n">four</span>
+<span class="n">Ohio</span>       <span class="kc">True</span>   <span class="kc">True</span>   <span class="kc">True</span>   <span class="kc">True</span>
+<span class="n">Colorado</span>   <span class="kc">True</span>  <span class="kc">False</span>  <span class="kc">False</span>  <span class="kc">False</span>
+<span class="n">Utah</span>      <span class="kc">False</span>  <span class="kc">False</span>  <span class="kc">False</span>  <span class="kc">False</span>
+<span class="n">New</span> <span class="n">York</span>  <span class="kc">False</span>  <span class="kc">False</span>  <span class="kc">False</span>  <span class="kc">False</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">135</span><span class="p">]:</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">136</span><span class="p">]:</span> <span class="n">data</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">136</span><span class="p">]:</span>
+            <span class="n">one</span>  <span class="n">two</span>  <span class="n">three</span>  <span class="n">four</span>
+<span class="n">Ohio</span>          <span class="mi">0</span>    <span class="mi">0</span>      <span class="mi">0</span>     <span class="mi">0</span>
+<span class="n">Colorado</span>      <span class="mi">0</span>    <span class="mi">5</span>      <span class="mi">6</span>     <span class="mi">7</span>
+<span class="n">Utah</span>          <span class="mi">8</span>    <span class="mi">9</span>     <span class="mi">10</span>    <span class="mi">11</span>
+<span class="n">New</span> <span class="n">York</span>     <span class="mi">12</span>   <span class="mi">13</span>     <span class="mi">14</span>    <span class="mi">15</span>
+</pre></div>
+</div>
+<p>Điều này làm cho DataFrame cú pháp hóa giống như một mảng NumPy hai chiều trong trường hợp cụ thể này.</p>
+</section>
+<section id="selection-with-loc-and-iloc">
+<h2>Selection with loc and iloc<a class="headerlink" href="#selection-with-loc-and-iloc" title="Link to this heading">#</a></h2>
+<p>Đối với việc lập chỉ mục theo nhãn trong DataFrame, pandas cung cấp các toán tử lập chỉ mục đặc biệt <code class="docutils literal notranslate"><span class="pre">loc</span></code> và <code class="docutils literal notranslate"><span class="pre">iloc</span></code>. Chúng cho phép bạn chọn một tập hợp các hàng và cột từ một DataFrame với cú pháp tương tự NumPy, sử dụng nhãn trục (<code class="docutils literal notranslate"><span class="pre">loc</span></code>) hoặc số nguyên (<code class="docutils literal notranslate"><span class="pre">iloc</span></code>).</p>
+<section id="vi-du-so-bo-chon-mot-hang-va-nhieu-cot-bang-nhan">
+<h3>Ví dụ sơ bộ, chọn một hàng và nhiều cột bằng nhãn:<a class="headerlink" href="#vi-du-so-bo-chon-mot-hang-va-nhieu-cot-bang-nhan" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">137</span><span class="p">]:</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Colorado&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">]]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">137</span><span class="p">]:</span>
+<span class="n">two</span>      <span class="mi">5</span>
+<span class="n">three</span>    <span class="mi">6</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">Colorado</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+</pre></div>
+</div>
+<p>Thực hiện một số lựa chọn tương tự bằng các số nguyên sử dụng iloc:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">138</span><span class="p">]:</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">138</span><span class="p">]:</span>
+<span class="n">four</span>    <span class="mi">11</span>
+<span class="n">one</span>      <span class="mi">8</span>
+<span class="n">two</span>      <span class="mi">9</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">Utah</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">139</span><span class="p">]:</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">139</span><span class="p">]:</span>
+<span class="n">one</span>       <span class="mi">8</span>
+<span class="n">two</span>       <span class="mi">9</span>
+<span class="n">three</span>    <span class="mi">10</span>
+<span class="n">four</span>     <span class="mi">11</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">Utah</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+</pre></div>
+</div>
+<p>Cả hai hàm lập chỉ mục làm việc với các lát cắt (slices) ngoài các nhãn đơn lẻ hoặc danh sách nhãn:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">140</span><span class="p">]:</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">140</span><span class="p">]:</span>
+            <span class="n">four</span>  <span class="n">one</span>  <span class="n">two</span>
+<span class="n">Colorado</span>      <span class="mi">7</span>    <span class="mi">4</span>    <span class="mi">5</span>
+<span class="n">Utah</span>         <span class="mi">11</span>    <span class="mi">8</span>    <span class="mi">9</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">141</span><span class="p">]:</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="s1">&#39;Utah&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">141</span><span class="p">]:</span>
+<span class="n">Ohio</span>         <span class="mi">0</span>
+<span class="n">Colorado</span>     <span class="mi">5</span>
+<span class="n">Utah</span>         <span class="mi">9</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">two</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">142</span><span class="p">]:</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">][</span><span class="n">data</span><span class="o">.</span><span class="n">three</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">142</span><span class="p">]:</span>
+            <span class="n">one</span>  <span class="n">two</span>  <span class="n">three</span>
+<span class="n">Colorado</span>      <span class="mi">4</span>    <span class="mi">5</span>      <span class="mi">6</span>
+<span class="n">Utah</span>          <span class="mi">8</span>    <span class="mi">9</span>     <span class="mi">10</span>
+<span class="n">New</span> <span class="n">York</span>     <span class="mi">12</span>   <span class="mi">13</span>     <span class="mi">14</span>
+</pre></div>
+</div>
+<p>Như vậy, có rất nhiều cách để chọn và sắp xếp lại dữ liệu chứa trong một đối tượng pandas.</p>
+<p>Bảng 5-4 cung cấp một tóm tắt ngắn về nhiều phương pháp này. Như sẽ thấy sau, có nhiều tùy chọn bổ sung để làm việc với các chỉ số phân cấp (hierarchical indexes).</p>
+<p>Khi thiết kế ban đầu pandas, việc phải gõ frame[:, col] để chọn một cột được cho là quá dài dòng và dễ sai sót, vì việc chọn cột là một trong những thao tác phổ biến nhất. Quyết định đã được đưa ra để chuyển tất cả hành vi lập chỉ mục phức tạp (cả nhãn và số nguyên) vào toán tử ix. Trong thực tế, điều này dẫn đến nhiều trường hợp ngoại lệ trong dữ liệu có nhãn trục là số nguyên, vì vậy đội ngũ pandas đã quyết định tạo ra các toán tử loc và iloc để xử lý lần lượt lập chỉ mục dựa trên nhãn và số nguyên. Toán tử lập chỉ mục ix vẫn tồn tại, nhưng đã bị loại bỏ và không được khuyến nghị sử dụng.</p>
+</section>
+<section id="bang-5-4-cac-tuy-chon-lap-chi-muc-voi-dataframe">
+<h3>Bảng 5-4. Các Tùy Chọn Lập Chỉ Mục với DataFrame<a class="headerlink" href="#bang-5-4-cac-tuy-chon-lap-chi-muc-voi-dataframe" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>df[val]</p></td>
+<td><p>Chọn một cột đơn hoặc một chuỗi các cột từ DataFrame; các trường hợp đặc biệt tiện lợi: mảng boolean (lọc hàng), lát cắt (cắt lát hàng), hoặc DataFrame boolean (thiết lập giá trị dựa trên một tiêu chí nào đó)</p></td>
+</tr>
+<tr class="row-odd"><td><p>df.loc[val]</p></td>
+<td><p>Chọn một hàng đơn hoặc một tập hợp các hàng từ DataFrame theo nhãn</p></td>
+</tr>
+<tr class="row-even"><td><p>df.loc[:, val]</p></td>
+<td><p>Chọn một cột đơn hoặc một tập hợp các cột theo nhãn</p></td>
+</tr>
+<tr class="row-odd"><td><p>df.loc[val1, val2]</p></td>
+<td><p>Chọn cả hàng và cột theo nhãn</p></td>
+</tr>
+<tr class="row-even"><td><p>df.iloc[where]</p></td>
+<td><p>Chọn một hàng đơn hoặc một tập hợp các hàng từ DataFrame theo vị trí số nguyên</p></td>
+</tr>
+<tr class="row-odd"><td><p>df.iloc[:, where]</p></td>
+<td><p>Chọn một cột đơn hoặc một tập hợp các cột theo vị trí số nguyên</p></td>
+</tr>
+<tr class="row-even"><td><p>df.iloc[where_i, where_j]</p></td>
+<td><p>Chọn cả hàng và cột theo vị trí số nguyên</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="http://df.at">df.at</a>[label_i, label_j]</p></td>
+<td><p>Chọn một giá trị vô hướng đơn bằng nhãn hàng và nhãn cột</p></td>
+</tr>
+<tr class="row-even"><td><p>df.iat[i, j]</p></td>
+<td><p>Chọn một giá trị vô hướng đơn bằng vị trí hàng và vị trí cột (số nguyên)</p></td>
+</tr>
+<tr class="row-odd"><td><p>reindex method</p></td>
+<td><p>Chọn hàng hoặc cột theo nhãn</p></td>
+</tr>
+<tr class="row-even"><td><p>get_value, set_value methods</p></td>
+<td><p>Chọn một giá trị đơn theo nhãn hàng và nhãn cột</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="integer-indexes">
+<h2>Integer Indexes<a class="headerlink" href="#integer-indexes" title="Link to this heading">#</a></h2>
+<p>Làm việc với các đối tượng pandas có chỉ mục là số nguyên là điều thường gây khó khăn cho người mới bắt đầu do một số khác biệt với ngữ nghĩa lập chỉ mục trên các cấu trúc dữ liệu Python tích hợp như danh sách và tuple. Ví dụ, bạn có thể không mong đợi đoạn mã sau tạo ra lỗi:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ser</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">3.</span><span class="p">))</span>
+<span class="n">ser</span>
+<span class="n">ser</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Trong trường hợp này, pandas có thể “quay lại” lập chỉ mục bằng số nguyên, nhưng rất khó để làm điều này mà không gây ra các lỗi tinh tế. Ở đây chúng ta có một chỉ mục chứa 0, 1, 2, nhưng suy luận điều mà người dùng muốn (lập chỉ mục dựa trên nhãn hoặc dựa trên vị trí) là khó khăn:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">144</span><span class="p">]:</span> <span class="n">ser</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">144</span><span class="p">]:</span>
+<span class="mi">0</span>    <span class="mf">0.0</span>
+<span class="mi">1</span>    <span class="mf">1.0</span>
+<span class="mi">2</span>    <span class="mf">2.0</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Mặt khác, với một chỉ mục không phải là số nguyên, không có khả năng gây nhầm lẫn:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">145</span><span class="p">]:</span> <span class="n">ser2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">3.</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">146</span><span class="p">]:</span> <span class="n">ser2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">146</span><span class="p">]:</span> <span class="mf">2.0</span>
+</pre></div>
+</div>
+<p>Để giữ cho mọi thứ nhất quán, nếu có một chỉ mục trục chứa các số nguyên, việc lựa chọn dữ liệu sẽ luôn dựa trên nhãn. Để xử lý chính xác hơn, sử dụng loc (cho nhãn) hoặc iloc (cho số nguyên):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">147</span><span class="p">]:</span> <span class="n">ser</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">147</span><span class="p">]:</span>
+<span class="mi">0</span>    <span class="mf">0.0</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">148</span><span class="p">]:</span> <span class="n">ser</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">148</span><span class="p">]:</span>
+<span class="mi">0</span>    <span class="mf">0.0</span>
+<span class="mi">1</span>    <span class="mf">1.0</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">149</span><span class="p">]:</span> <span class="n">ser</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">149</span><span class="p">]:</span>
+<span class="mi">0</span>    <span class="mf">0.0</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+</section>
+<section id="arithmetic-and-data-alignment">
+<h2>Arithmetic and Data Alignment<a class="headerlink" href="#arithmetic-and-data-alignment" title="Link to this heading">#</a></h2>
+<p>Một tính năng quan trọng của pandas cho một số ứng dụng là cách thức thực hiện các phép toán giữa các đối tượng có chỉ số khác nhau. Khi cộng các đối tượng lại với nhau, nếu bất kỳ cặp chỉ số nào không giống nhau, chỉ số tương ứng trong kết quả sẽ là hợp của các cặp chỉ số. Đối với người dùng có kinh nghiệm về cơ sở dữ liệu, điều này tương tự như một phép nối ngoài tự động trên các nhãn chỉ số. Hãy xem một ví dụ:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">150</span><span class="p">]:</span> <span class="n">s1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">7.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">151</span><span class="p">]:</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="o">-</span><span class="mf">2.1</span><span class="p">,</span> <span class="mf">3.6</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">152</span><span class="p">]:</span> <span class="n">s1</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">152</span><span class="p">]:</span>
+<span class="n">a</span>    <span class="mf">7.3</span>
+<span class="n">c</span>   <span class="o">-</span><span class="mf">2.5</span>
+<span class="n">d</span>    <span class="mf">3.4</span>
+<span class="n">e</span>    <span class="mf">1.5</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">153</span><span class="p">]:</span> <span class="n">s2</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">153</span><span class="p">]:</span>
+<span class="n">a</span>   <span class="o">-</span><span class="mf">2.1</span>
+<span class="n">c</span>    <span class="mf">3.6</span>
+<span class="n">e</span>   <span class="o">-</span><span class="mf">1.5</span>
+<span class="n">f</span>    <span class="mf">4.0</span>
+<span class="n">g</span>    <span class="mf">3.1</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+<span class="n">Cộng</span> <span class="n">hai</span> <span class="n">đối</span> <span class="n">tượng</span> <span class="n">này</span> <span class="n">lại</span> <span class="n">với</span> <span class="n">nhau</span> <span class="n">cho</span> <span class="n">kết</span> <span class="n">quả</span><span class="p">:</span>
+
+<span class="n">python</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">154</span><span class="p">]:</span> <span class="n">s1</span> <span class="o">+</span> <span class="n">s2</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">154</span><span class="p">]:</span>
+<span class="n">a</span>    <span class="mf">5.2</span>
+<span class="n">c</span>    <span class="mf">1.1</span>
+<span class="n">d</span>    <span class="n">NaN</span>
+<span class="n">e</span>    <span class="mf">0.0</span>
+<span class="n">f</span>    <span class="n">NaN</span>
+<span class="n">g</span>    <span class="n">NaN</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Sự căn chỉnh dữ liệu bên trong tạo ra các giá trị bị thiếu tại các vị trí nhãn không trùng lặp. Các giá trị bị thiếu sau đó sẽ lan truyền trong các phép toán số học tiếp theo.</p>
+<p>Trong trường hợp của DataFrame, việc căn chỉnh được thực hiện trên cả các hàng và các cột:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">155</span><span class="p">]:</span> <span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">9.</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;bcd&#39;</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Texas&#39;</span><span class="p">,</span> <span class="s1">&#39;Colorado&#39;</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">156</span><span class="p">]:</span> <span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">12.</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;bde&#39;</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Utah&#39;</span><span class="p">,</span> <span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Texas&#39;</span><span class="p">,</span> <span class="s1">&#39;Oregon&#39;</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">157</span><span class="p">]:</span> <span class="n">df1</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">157</span><span class="p">]:</span>
+            <span class="n">b</span>    <span class="n">c</span>    <span class="n">d</span>
+<span class="n">Ohio</span>       <span class="mf">0.0</span>  <span class="mf">1.0</span>  <span class="mf">2.0</span>
+<span class="n">Texas</span>      <span class="mf">3.0</span>  <span class="mf">4.0</span>  <span class="mf">5.0</span>
+<span class="n">Colorado</span>   <span class="mf">6.0</span>  <span class="mf">7.0</span>  <span class="mf">8.0</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">158</span><span class="p">]:</span> <span class="n">df2</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">158</span><span class="p">]:</span>
+            <span class="n">b</span>    <span class="n">d</span>    <span class="n">e</span>
+<span class="n">Utah</span>       <span class="mf">0.0</span>  <span class="mf">1.0</span>  <span class="mf">2.0</span>
+<span class="n">Ohio</span>       <span class="mf">3.0</span>  <span class="mf">4.0</span>  <span class="mf">5.0</span>
+<span class="n">Texas</span>      <span class="mf">6.0</span>  <span class="mf">7.0</span>  <span class="mf">8.0</span>
+<span class="n">Oregon</span>     <span class="mf">9.0</span> <span class="mf">10.0</span> <span class="mf">11.0</span>
+</pre></div>
+</div>
+<p>Cộng hai đối tượng này lại với nhau trả về một DataFrame với chỉ số hàng và cột là hợp của các chỉ số trong mỗi DataFrame:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">159</span><span class="p">]:</span> <span class="n">df1</span> <span class="o">+</span> <span class="n">df2</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">159</span><span class="p">]:</span>
+            <span class="n">b</span>    <span class="n">c</span>     <span class="n">d</span>     <span class="n">e</span>
+<span class="n">Colorado</span>   <span class="n">NaN</span>  <span class="n">NaN</span>  <span class="n">NaN</span>   <span class="n">NaN</span>
+<span class="n">Ohio</span>       <span class="mf">3.0</span>  <span class="n">NaN</span>  <span class="mf">6.0</span>   <span class="n">NaN</span>
+<span class="n">Oregon</span>     <span class="n">NaN</span>  <span class="n">NaN</span>  <span class="n">NaN</span>   <span class="n">NaN</span>
+<span class="n">Texas</span>      <span class="mf">9.0</span>  <span class="n">NaN</span> <span class="mf">12.0</span>   <span class="n">NaN</span>
+<span class="n">Utah</span>       <span class="n">NaN</span>  <span class="n">NaN</span>  <span class="n">NaN</span>   <span class="n">NaN</span>
+</pre></div>
+</div>
+<p>Vì cột ‘c’ và ‘e’ không được tìm thấy trong cả hai đối tượng DataFrame, chúng xuất hiện dưới dạng tất cả các giá trị bị thiếu trong kết quả. Điều tương tự cũng xảy ra với các hàng có nhãn không trùng lặp trong cả hai đối tượng.</p>
+<p>Nếu cộng các đối tượng DataFrame mà không có cột hoặc hàng nào có nhãn trùng, kết quả sẽ chứa toàn bộ giá trị null:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">160</span><span class="p">]:</span> <span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]})</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">161</span><span class="p">]:</span> <span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]})</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">162</span><span class="p">]:</span> <span class="n">df1</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">162</span><span class="p">]:</span>
+   <span class="n">A</span>
+<span class="mi">0</span>  <span class="mi">1</span>
+<span class="mi">1</span>  <span class="mi">2</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">163</span><span class="p">]:</span> <span class="n">df2</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">163</span><span class="p">]:</span>
+   <span class="n">B</span>
+<span class="mi">0</span>  <span class="mi">3</span>
+<span class="mi">1</span>  <span class="mi">4</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">164</span><span class="p">]:</span> <span class="n">df1</span> <span class="o">-</span> <span class="n">df2</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">164</span><span class="p">]:</span>
+   <span class="n">A</span>   <span class="n">B</span>
+<span class="mi">0</span> <span class="n">NaN</span> <span class="n">NaN</span>
+<span class="mi">1</span> <span class="n">NaN</span> <span class="n">NaN</span>
+</pre></div>
+</div>
+<section id="arithmetic-methods-with-fill-values">
+<h3>Arithmetic Methods with Fill Values<a class="headerlink" href="#arithmetic-methods-with-fill-values" title="Link to this heading">#</a></h3>
+<p>Trong các phép toán số học giữa các đối tượng có chỉ số khác nhau, có thể cần điền một giá trị đặc biệt, như 0, khi một nhãn trục xuất hiện trong một đối tượng nhưng không xuất hiện trong đối tượng kia:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">165</span><span class="p">]:</span> <span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">12.</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abcd&#39;</span><span class="p">))</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">166</span><span class="p">]:</span> <span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">20.</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abcde&#39;</span><span class="p">))</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">167</span><span class="p">]:</span> <span class="n">df2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">168</span><span class="p">]:</span> <span class="n">df1</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">168</span><span class="p">]:</span>
+     <span class="n">a</span>    <span class="n">b</span>     <span class="n">c</span>     <span class="n">d</span>
+<span class="mi">0</span>  <span class="mf">0.0</span>  <span class="mf">1.0</span>  <span class="mf">2.0</span>  <span class="mf">3.0</span>
+<span class="mi">1</span>  <span class="mf">4.0</span>  <span class="mf">5.0</span>  <span class="mf">6.0</span>  <span class="mf">7.0</span>
+<span class="mi">2</span>  <span class="mf">8.0</span>  <span class="mf">9.0</span>  <span class="mf">10.0</span>  <span class="mf">11.0</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">169</span><span class="p">]:</span> <span class="n">df2</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">169</span><span class="p">]:</span>
+     <span class="n">a</span>     <span class="n">b</span>     <span class="n">c</span>     <span class="n">d</span>     <span class="n">e</span>
+<span class="mi">0</span>  <span class="mf">0.0</span>  <span class="mf">1.0</span>  <span class="mf">2.0</span>  <span class="mf">3.0</span>  <span class="mf">4.0</span>
+<span class="mi">1</span>  <span class="mf">5.0</span>  <span class="n">NaN</span>  <span class="mf">7.0</span>  <span class="mf">8.0</span>  <span class="mf">9.0</span>
+<span class="mi">2</span>  <span class="mf">10.0</span>  <span class="mf">11.0</span>  <span class="mf">12.0</span>  <span class="mf">13.0</span>  <span class="mf">14.0</span>
+<span class="mi">3</span>  <span class="mf">15.0</span>  <span class="mf">16.0</span>  <span class="mf">17.0</span>  <span class="mf">18.0</span>  <span class="mf">19.0</span>
+</pre></div>
+</div>
+<p>Cộng hai đối tượng này lại với nhau dẫn đến các giá trị NA ở các vị trí không trùng lặp:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">170</span><span class="p">]:</span> <span class="n">df1</span> <span class="o">+</span> <span class="n">df2</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">170</span><span class="p">]:</span>
+     <span class="n">a</span>     <span class="n">b</span>     <span class="n">c</span>     <span class="n">d</span>     <span class="n">e</span>
+<span class="mi">0</span>  <span class="mf">0.0</span>  <span class="mf">2.0</span>  <span class="mf">4.0</span>  <span class="mf">6.0</span>  <span class="n">NaN</span>
+<span class="mi">1</span>  <span class="mf">9.0</span>  <span class="n">NaN</span>  <span class="mf">13.0</span>  <span class="mf">15.0</span>  <span class="n">NaN</span>
+<span class="mi">2</span>  <span class="mf">18.0</span>  <span class="mf">20.0</span>  <span class="mf">22.0</span>  <span class="mf">24.0</span>  <span class="n">NaN</span>
+<span class="mi">3</span>  <span class="n">NaN</span>  <span class="n">NaN</span>  <span class="n">NaN</span>  <span class="n">NaN</span>  <span class="n">NaN</span>
+</pre></div>
+</div>
+<p>Sử dụng phương thức add trên df1, truyền vào df2 và một tham số fill_value:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">171</span><span class="p">]:</span> <span class="n">df1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">171</span><span class="p">]:</span>
+     <span class="n">a</span>     <span class="n">b</span>     <span class="n">c</span>     <span class="n">d</span>     <span class="n">e</span>
+<span class="mi">0</span>  <span class="mf">0.0</span>  <span class="mf">2.0</span>  <span class="mf">4.0</span>  <span class="mf">6.0</span>  <span class="mf">4.0</span>
+<span class="mi">1</span>  <span class="mf">9.0</span>  <span class="mf">5.0</span>  <span class="mf">13.0</span>  <span class="mf">15.0</span>  <span class="mf">9.0</span>
+<span class="mi">2</span>  <span class="mf">18.0</span>  <span class="mf">20.0</span>  <span class="mf">22.0</span>  <span class="mf">24.0</span>  <span class="mf">14.0</span>
+<span class="mi">3</span>  <span class="mf">15.0</span>  <span class="mf">16.0</span>  <span class="mf">17.0</span>  <span class="mf">18.0</span>  <span class="mf">19.0</span>
+</pre></div>
+</div>
+<p>Xem Bảng 5-5 để biết danh sách các phương thức số học cho Series và DataFrame. Mỗi phương thức đều có một đối tác bắt đầu bằng chữ “r”, với các tham số được đảo ngược. Do đó, hai câu lệnh sau là tương đương:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">172</span><span class="p">]:</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">df1</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">172</span><span class="p">]:</span>
+     <span class="n">a</span>       <span class="n">b</span>          <span class="n">c</span>          <span class="n">d</span>
+<span class="mi">0</span>  <span class="n">inf</span>  <span class="mf">1.000000</span>  <span class="mf">0.500000</span>  <span class="mf">0.333333</span>
+<span class="mi">1</span>  <span class="mf">0.250000</span>  <span class="mf">0.200000</span>  <span class="mf">0.166667</span>  <span class="mf">0.142857</span>
+<span class="mi">2</span>  <span class="mf">0.125000</span>  <span class="mf">0.111111</span>  <span class="mf">0.100000</span>  <span class="mf">0.090909</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">173</span><span class="p">]:</span> <span class="n">df1</span><span class="o">.</span><span class="n">rdiv</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">173</span><span class="p">]:</span>
+     <span class="n">a</span>       <span class="n">b</span>          <span class="n">c</span>          <span class="n">d</span>
+<span class="mi">0</span>  <span class="n">inf</span>  <span class="mf">1.000000</span>  <span class="mf">0.500000</span>  <span class="mf">0.333333</span>
+<span class="mi">1</span>  <span class="mf">0.250000</span>  <span class="mf">0.200000</span>  <span class="mf">0.166667</span>  <span class="mf">0.142857</span>
+<span class="mi">2</span>  <span class="mf">0.125000</span>  <span class="mf">0.111111</span>  <span class="mf">0.100000</span>  <span class="mf">0.090909</span>
+</pre></div>
+</div>
+<p>Liên quan đến điều này, khi reindex một Series hoặc DataFrame, bạn cũng có thể chỉ định một giá trị điền khác:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">174</span><span class="p">]:</span> <span class="n">df1</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">df2</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">174</span><span class="p">]:</span>
+     <span class="n">a</span>    <span class="n">b</span>    <span class="n">c</span>    <span class="n">d</span>    <span class="n">e</span>
+<span class="mi">0</span>  <span class="mf">0.0</span>  <span class="mf">1.0</span>  <span class="mf">2.0</span>  <span class="mf">3.0</span>  <span class="mi">0</span>
+<span class="mi">1</span>  <span class="mf">4.0</span>  <span class="mf">5.0</span>  <span class="mf">6.0</span>  <span class="mf">7.0</span>  <span class="mi">0</span>
+<span class="mi">2</span>  <span class="mf">8.0</span>  <span class="mf">9.0</span>  <span class="mf">10.0</span> <span class="mf">11.0</span>  <span class="mi">0</span>
+</pre></div>
+</div>
+</section>
+<section id="bang-5-5-cac-phuong-thuc-so-hoc-linh-hoat">
+<h3>Bảng 5-5. Các Phương Thức Số Học Linh Hoạt<a class="headerlink" href="#bang-5-5-cac-phuong-thuc-so-hoc-linh-hoat" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>add, radd</p></td>
+<td><p>Phương thức cho phép cộng (+)</p></td>
+</tr>
+<tr class="row-odd"><td><p>sub, rsub</p></td>
+<td><p>Phương thức cho phép trừ (-)</p></td>
+</tr>
+<tr class="row-even"><td><p>div, rdiv</p></td>
+<td><p>Phương thức cho phép chia (/)</p></td>
+</tr>
+<tr class="row-odd"><td><p>floordiv, rfloordiv</p></td>
+<td><p>Phương thức cho phép chia lấy phần nguyên (//)</p></td>
+</tr>
+<tr class="row-even"><td><p>mul, rmul</p></td>
+<td><p>Phương thức cho phép nhân (*)</p></td>
+</tr>
+<tr class="row-odd"><td><p>pow, rpow</p></td>
+<td><p>Phương thức cho phép lũy thừa (**)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="operations-between-dataframe-and-series">
+<h3>Operations between DataFrame and Series<a class="headerlink" href="#operations-between-dataframe-and-series" title="Link to this heading">#</a></h3>
+<p>Cũng giống như các mảng NumPy có các kích thước khác nhau, các phép toán số học giữa <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> và <code class="docutils literal notranslate"><span class="pre">Series</span></code> cũng được định nghĩa. Trước tiên, hãy xem xét sự khác biệt giữa một mảng hai chiều và một trong các hàng của nó:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">175</span><span class="p">]:</span> <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">12.</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">176</span><span class="p">]:</span> <span class="n">arr</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">176</span><span class="p">]:</span>
+<span class="n">array</span><span class="p">([[</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">7.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">8.</span><span class="p">,</span> <span class="mf">9.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">,</span> <span class="mf">11.</span><span class="p">]])</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">177</span><span class="p">]:</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">177</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">])</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">178</span><span class="p">]:</span> <span class="n">arr</span> <span class="o">-</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">178</span><span class="p">]:</span>
+<span class="n">array</span><span class="p">([[</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">8.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>Khi trừ arr[0] khỏi arr, phép trừ được thực hiện một lần cho mỗi hàng. Điều này được gọi là phát sóng (broadcasting) và được giải thích chi tiết hơn liên quan đến các mảng NumPy tổng quát trong Phụ lục A. Các phép toán giữa DataFrame và Series cũng tương tự:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">179</span><span class="p">]:</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">12.</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;bde&#39;</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Utah&#39;</span><span class="p">,</span> <span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Texas&#39;</span><span class="p">,</span> <span class="s1">&#39;Oregon&#39;</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">180</span><span class="p">]:</span> <span class="n">series</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">181</span><span class="p">]:</span> <span class="n">frame</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">181</span><span class="p">]:</span>
+         <span class="n">b</span>    <span class="n">d</span>     <span class="n">e</span>
+<span class="n">Utah</span>    <span class="mf">0.0</span>  <span class="mf">1.0</span>  <span class="mf">2.0</span>
+<span class="n">Ohio</span>    <span class="mf">3.0</span>  <span class="mf">4.0</span>  <span class="mf">5.0</span>
+<span class="n">Texas</span>   <span class="mf">6.0</span>  <span class="mf">7.0</span>  <span class="mf">8.0</span>
+<span class="n">Oregon</span>  <span class="mf">9.0</span>  <span class="mf">10.0</span> <span class="mf">11.0</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">182</span><span class="p">]:</span> <span class="n">series</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">182</span><span class="p">]:</span>
+<span class="n">b</span>    <span class="mf">0.0</span>
+<span class="n">d</span>    <span class="mf">1.0</span>
+<span class="n">e</span>    <span class="mf">2.0</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">Utah</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Theo mặc định, các phép toán số học giữa DataFrame và Series sẽ ghép chỉ số của Series vào các cột của DataFrame, phát sóng xuống các hàng:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">183</span><span class="p">]:</span> <span class="n">frame</span> <span class="o">-</span> <span class="n">series</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">183</span><span class="p">]:</span>
+         <span class="n">b</span>    <span class="n">d</span>    <span class="n">e</span>
+<span class="n">Utah</span>    <span class="mf">0.0</span>  <span class="mf">0.0</span>  <span class="mf">0.0</span>
+<span class="n">Ohio</span>    <span class="mf">3.0</span>  <span class="mf">3.0</span>  <span class="mf">3.0</span>
+<span class="n">Texas</span>   <span class="mf">6.0</span>  <span class="mf">6.0</span>  <span class="mf">6.0</span>
+<span class="n">Oregon</span>  <span class="mf">9.0</span>  <span class="mf">9.0</span>  <span class="mf">9.0</span>
+</pre></div>
+</div>
+<p>Nếu một giá trị chỉ số không được tìm thấy trong cột của DataFrame hoặc chỉ số của Series, các đối tượng sẽ được tái lập chỉ số để tạo thành hợp:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">184</span><span class="p">]:</span> <span class="n">series2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">185</span><span class="p">]:</span> <span class="n">frame</span> <span class="o">+</span> <span class="n">series2</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">185</span><span class="p">]:</span>
+         <span class="n">b</span>    <span class="n">d</span>    <span class="n">e</span>    <span class="n">f</span>
+<span class="n">Utah</span>    <span class="mf">0.0</span>  <span class="n">NaN</span>  <span class="mf">3.0</span>  <span class="n">NaN</span>
+<span class="n">Ohio</span>    <span class="mf">3.0</span>  <span class="n">NaN</span>  <span class="mf">6.0</span>  <span class="n">NaN</span>
+<span class="n">Texas</span>   <span class="mf">6.0</span>  <span class="n">NaN</span>  <span class="mf">9.0</span>  <span class="n">NaN</span>
+<span class="n">Oregon</span>  <span class="mf">9.0</span>  <span class="n">NaN</span>  <span class="mf">12.0</span> <span class="n">NaN</span>
+</pre></div>
+</div>
+</section>
+<section id="function-application-and-mapping">
+<h3>Function Application and Mapping<a class="headerlink" href="#function-application-and-mapping" title="Link to this heading">#</a></h3>
+<p>Các hàm NumPy ufuncs (phương thức mảng theo phần tử) cũng hoạt động với các đối tượng pandas:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">190</span><span class="p">]:</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;bde&#39;</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Utah&#39;</span><span class="p">,</span> <span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Texas&#39;</span><span class="p">,</span> <span class="s1">&#39;Oregon&#39;</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">191</span><span class="p">]:</span> <span class="n">frame</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">191</span><span class="p">]:</span>
+               <span class="n">b</span>         <span class="n">d</span>         <span class="n">e</span>
+<span class="n">Utah</span>   <span class="o">-</span><span class="mf">0.204708</span>  <span class="mf">0.478943</span> <span class="o">-</span><span class="mf">0.519439</span>
+<span class="n">Ohio</span>   <span class="o">-</span><span class="mf">0.555730</span>  <span class="mf">1.965781</span>  <span class="mf">1.393406</span>
+<span class="n">Texas</span>   <span class="mf">0.092908</span>  <span class="mf">0.281746</span>  <span class="mf">0.769023</span>
+<span class="n">Oregon</span>  <span class="mf">1.246435</span>  <span class="mf">1.007189</span> <span class="o">-</span><span class="mf">1.296221</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">192</span><span class="p">]:</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">192</span><span class="p">]:</span>
+               <span class="n">b</span>         <span class="n">d</span>         <span class="n">e</span>
+<span class="n">Utah</span>    <span class="mf">0.204708</span>  <span class="mf">0.478943</span>  <span class="mf">0.519439</span>
+<span class="n">Ohio</span>    <span class="mf">0.555730</span>  <span class="mf">1.965781</span>  <span class="mf">1.393406</span>
+<span class="n">Texas</span>   <span class="mf">0.092908</span>  <span class="mf">0.281746</span>  <span class="mf">0.769023</span>
+<span class="n">Oregon</span>  <span class="mf">1.246435</span>  <span class="mf">1.007189</span>  <span class="mf">1.296221</span>
+</pre></div>
+</div>
+<p>Một hoạt động thường xuyên khác là áp dụng một hàm trên các mảng một chiều cho mỗi cột hoặc hàng. Phương thức apply của DataFrame thực hiện chính xác điều này:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">193</span><span class="p">]:</span> <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">194</span><span class="p">]:</span> <span class="n">frame</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">194</span><span class="p">]:</span>
+<span class="n">b</span>    <span class="mf">1.802165</span>
+<span class="n">d</span>    <span class="mf">1.684034</span>
+<span class="n">e</span>    <span class="mf">2.689627</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Ở đây hàm f, tính toán sự chênh lệch giữa giá trị lớn nhất và nhỏ nhất của một Series, được gọi một lần trên mỗi cột trong frame. Kết quả là một Series có các cột của frame làm chỉ số.</p>
+<p>Nếu bạn truyền axis=’columns’ cho apply, hàm sẽ được gọi một lần cho mỗi hàng:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">195</span><span class="p">]:</span> <span class="n">frame</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">195</span><span class="p">]:</span>
+<span class="n">Utah</span>       <span class="mf">0.998382</span>
+<span class="n">Ohio</span>       <span class="mf">2.521511</span>
+<span class="n">Texas</span>      <span class="mf">0.676115</span>
+<span class="n">Oregon</span>     <span class="mf">2.542656</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Nhiều thống kê mảng phổ biến nhất (như sum và mean) là các phương thức của DataFrame, vì vậy không cần thiết phải sử dụng apply.</p>
+<p>Hàm truyền vào apply không nhất thiết phải trả về một giá trị vô hướng; nó cũng có thể trả về một Series với nhiều giá trị:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">196</span><span class="p">]:</span> <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+     <span class="o">...</span><span class="p">:</span>     <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">197</span><span class="p">]:</span> <span class="n">frame</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">197</span><span class="p">]:</span>
+              <span class="n">b</span>         <span class="n">d</span>         <span class="n">e</span>
+<span class="nb">min</span>   <span class="o">-</span><span class="mf">0.555730</span>  <span class="mf">0.281746</span> <span class="o">-</span><span class="mf">1.296221</span>
+<span class="nb">max</span>    <span class="mf">1.246435</span>  <span class="mf">1.965781</span>  <span class="mf">1.393406</span>
+</pre></div>
+</div>
+<p>Các hàm Python theo phần tử cũng có thể được sử dụng. Giả sử bạn muốn tính một chuỗi định dạng từ mỗi giá trị dấu phẩy động trong frame. Bạn có thể làm điều này với applymap:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">198</span><span class="p">]:</span> <span class="nb">format</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">x</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">199</span><span class="p">]:</span> <span class="n">frame</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="nb">format</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">199</span><span class="p">]:</span>
+             <span class="n">b</span>     <span class="n">d</span>     <span class="n">e</span>
+<span class="n">Utah</span>     <span class="o">-</span><span class="mf">0.20</span>  <span class="mf">0.48</span>  <span class="o">-</span><span class="mf">0.52</span>
+<span class="n">Ohio</span>     <span class="o">-</span><span class="mf">0.56</span>  <span class="mf">1.97</span>   <span class="mf">1.39</span>
+<span class="n">Texas</span>     <span class="mf">0.09</span>  <span class="mf">0.28</span>   <span class="mf">0.77</span>
+<span class="n">Oregon</span>    <span class="mf">1.25</span>  <span class="mf">1.01</span>  <span class="o">-</span><span class="mf">1.30</span>
+</pre></div>
+</div>
+<p>Lý do cho tên gọi applymap là vì Series có một phương thức map để áp dụng một hàm theo phần tử:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">200</span><span class="p">]:</span> <span class="n">frame</span><span class="p">[</span><span class="s1">&#39;e&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">format</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">200</span><span class="p">]:</span>
+<span class="n">Utah</span>      <span class="o">-</span><span class="mf">0.52</span>
+<span class="n">Ohio</span>       <span class="mf">1.39</span>
+<span class="n">Texas</span>      <span class="mf">0.77</span>
+<span class="n">Oregon</span>    <span class="o">-</span><span class="mf">1.30</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">e</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
+</pre></div>
+</div>
+</section>
+<section id="sorting-and-ranking">
+<h3>Sorting and Ranking<a class="headerlink" href="#sorting-and-ranking" title="Link to this heading">#</a></h3>
+<p>Sắp xếp dữ liệu theo một tiêu chí nào đó là một thao tác tích hợp quan trọng khác. Để sắp xếp theo thứ tự từ điển theo chỉ mục hàng hoặc cột, sử dụng phương thức <code class="docutils literal notranslate"><span class="pre">sort_index</span></code>, phương thức này trả về một đối tượng mới đã được sắp xếp:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">201</span><span class="p">]:</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">202</span><span class="p">]:</span> <span class="n">obj</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">202</span><span class="p">]:</span>
+<span class="n">a</span>    <span class="mi">1</span>
+<span class="n">b</span>    <span class="mi">2</span>
+<span class="n">c</span>    <span class="mi">3</span>
+<span class="n">d</span>    <span class="mi">0</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+</pre></div>
+</div>
+<p>Với DataFrame, có thể sắp xếp theo chỉ mục trên bất kỳ trục nào:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">203</span><span class="p">]:</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)),</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;three&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">204</span><span class="p">]:</span> <span class="n">frame</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">204</span><span class="p">]:</span>
+        <span class="n">d</span>  <span class="n">a</span>  <span class="n">b</span>  <span class="n">c</span>
+<span class="n">one</span>     <span class="mi">4</span>  <span class="mi">5</span>  <span class="mi">6</span>  <span class="mi">7</span>
+<span class="n">three</span>   <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">205</span><span class="p">]:</span> <span class="n">frame</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">205</span><span class="p">]:</span>
+        <span class="n">a</span>  <span class="n">b</span>  <span class="n">c</span>  <span class="n">d</span>
+<span class="n">three</span>   <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span>  <span class="mi">0</span>
+<span class="n">one</span>     <span class="mi">5</span>  <span class="mi">6</span>  <span class="mi">7</span>  <span class="mi">4</span>
+</pre></div>
+</div>
+<p>Dữ liệu được sắp xếp theo thứ tự tăng dần theo mặc định, nhưng cũng có thể sắp xếp theo thứ tự giảm dần:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">206</span><span class="p">]:</span> <span class="n">frame</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">206</span><span class="p">]:</span>
+        <span class="n">d</span>  <span class="n">c</span>  <span class="n">b</span>  <span class="n">a</span>
+<span class="n">three</span>   <span class="mi">0</span>  <span class="mi">3</span>  <span class="mi">2</span>  <span class="mi">1</span>
+<span class="n">one</span>     <span class="mi">4</span>  <span class="mi">7</span>  <span class="mi">6</span>  <span class="mi">5</span>
+</pre></div>
+</div>
+<p>Để sắp xếp một Series theo các giá trị của nó, sử dụng phương thức sort_values:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">207</span><span class="p">]:</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">208</span><span class="p">]:</span> <span class="n">obj</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">208</span><span class="p">]:</span>
+<span class="mi">2</span>   <span class="o">-</span><span class="mi">3</span>
+<span class="mi">3</span>    <span class="mi">2</span>
+<span class="mi">0</span>    <span class="mi">4</span>
+<span class="mi">1</span>    <span class="mi">7</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+</pre></div>
+</div>
+<p>Bất kỳ giá trị thiếu nào đều được sắp xếp đến cuối của Series theo mặc định:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">209</span><span class="p">]:</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">210</span><span class="p">]:</span> <span class="n">obj</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">210</span><span class="p">]:</span>
+<span class="mi">4</span>   <span class="o">-</span><span class="mf">3.0</span>
+<span class="mi">5</span>    <span class="mf">2.0</span>
+<span class="mi">0</span>    <span class="mf">4.0</span>
+<span class="mi">2</span>    <span class="mf">7.0</span>
+<span class="mi">1</span>    <span class="n">NaN</span>
+<span class="mi">3</span>    <span class="n">NaN</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Khi sắp xếp một DataFrame, có thể sử dụng dữ liệu trong một hoặc nhiều cột làm khóa sắp xếp. Để làm điều này, truyền tên một hoặc nhiều cột vào tùy chọn by của sort_values:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">211</span><span class="p">]:</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]})</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">212</span><span class="p">]:</span> <span class="n">frame</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">212</span><span class="p">]:</span>
+    <span class="n">a</span>   <span class="n">b</span>
+<span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">4</span>
+<span class="mi">1</span>   <span class="mi">1</span>   <span class="mi">7</span>
+<span class="mi">2</span>   <span class="mi">0</span>  <span class="o">-</span><span class="mi">3</span>
+<span class="mi">3</span>   <span class="mi">1</span>   <span class="mi">2</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">213</span><span class="p">]:</span> <span class="n">frame</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">213</span><span class="p">]:</span>
+    <span class="n">a</span>   <span class="n">b</span>
+<span class="mi">2</span>   <span class="mi">0</span>  <span class="o">-</span><span class="mi">3</span>
+<span class="mi">3</span>   <span class="mi">1</span>   <span class="mi">2</span>
+<span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">4</span>
+<span class="mi">1</span>   <span class="mi">1</span>   <span class="mi">7</span>
+</pre></div>
+</div>
+<p>Để sắp xếp theo nhiều cột, truyền một danh sách các tên:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">214</span><span class="p">]:</span> <span class="n">frame</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">])</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">214</span><span class="p">]:</span>
+    <span class="n">a</span>   <span class="n">b</span>
+<span class="mi">2</span>   <span class="mi">0</span>  <span class="o">-</span><span class="mi">3</span>
+<span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">4</span>
+<span class="mi">3</span>   <span class="mi">1</span>   <span class="mi">2</span>
+<span class="mi">1</span>   <span class="mi">1</span>   <span class="mi">7</span>
+</pre></div>
+</div>
+<p>Việc xếp hạng (ranking) gán các xếp hạng từ một đến số lượng điểm dữ liệu hợp lệ trong một mảng. Phương thức rank cho Series và DataFrame là nơi cần xem; theo mặc định, rank phá vỡ các ràng buộc bằng cách gán cho mỗi nhóm xếp hạng trung bình:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">215</span><span class="p">]:</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">216</span><span class="p">]:</span> <span class="n">obj</span><span class="o">.</span><span class="n">rank</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">216</span><span class="p">]:</span>
+<span class="mi">0</span>    <span class="mf">6.5</span>
+<span class="mi">1</span>    <span class="mf">1.0</span>
+<span class="mi">2</span>    <span class="mf">6.5</span>
+<span class="mi">3</span>    <span class="mf">4.5</span>
+<span class="mi">4</span>    <span class="mf">3.0</span>
+<span class="mi">5</span>    <span class="mf">2.0</span>
+<span class="mi">6</span>    <span class="mf">4.5</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Xếp hạng cũng có thể được gán theo thứ tự quan sát trong dữ liệu:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">217</span><span class="p">]:</span> <span class="n">obj</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">217</span><span class="p">]:</span>
+<span class="mi">0</span>    <span class="mf">6.0</span>
+<span class="mi">1</span>    <span class="mf">1.0</span>
+<span class="mi">2</span>    <span class="mf">7.0</span>
+<span class="mi">3</span>    <span class="mf">4.0</span>
+<span class="mi">4</span>    <span class="mf">3.0</span>
+<span class="mi">5</span>    <span class="mf">2.0</span>
+<span class="mi">6</span>    <span class="mf">5.0</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Ở đây, thay vì sử dụng xếp hạng trung bình 6.5 cho các mục 0 và 2, chúng được đặt thành 6 và 7 vì nhãn 0 đứng trước nhãn 2 trong dữ liệu.</p>
+<p>Có thể xếp hạng theo thứ tự giảm dần:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">218</span><span class="p">]:</span> <span class="n">obj</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">218</span><span class="p">]:</span>
+<span class="mi">0</span>    <span class="mf">2.0</span>
+<span class="mi">1</span>    <span class="mf">7.0</span>
+<span class="mi">2</span>    <span class="mf">2.0</span>
+<span class="mi">3</span>    <span class="mf">4.0</span>
+<span class="mi">4</span>    <span class="mf">5.0</span>
+<span class="mi">5</span>    <span class="mf">6.0</span>
+<span class="mi">6</span>    <span class="mf">4.0</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Xem Bảng 5-6 để biết danh sách các phương pháp phá vỡ ràng buộc có sẵn.</p>
+<p>DataFrame có thể tính toán các xếp hạng qua các hàng hoặc các cột:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">219</span><span class="p">]:</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">4.3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.5</span><span class="p">]})</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">220</span><span class="p">]:</span> <span class="n">frame</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">220</span><span class="p">]:</span>
+    <span class="n">a</span>    <span class="n">b</span>    <span class="n">c</span>
+<span class="mi">0</span>   <span class="mi">0</span>  <span class="mf">4.3</span>  <span class="o">-</span><span class="mf">2.0</span>
+<span class="mi">1</span>   <span class="mi">1</span>  <span class="mf">7.0</span>   <span class="mf">5.0</span>
+<span class="mi">2</span>   <span class="mi">0</span> <span class="o">-</span><span class="mf">3.0</span>   <span class="mf">8.0</span>
+<span class="mi">3</span>   <span class="mi">1</span>  <span class="mf">2.0</span>  <span class="o">-</span><span class="mf">2.5</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">221</span><span class="p">]:</span> <span class="n">frame</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">221</span><span class="p">]:</span>
+      <span class="n">a</span>    <span class="n">b</span>    <span class="n">c</span>
+<span class="mi">0</span>   <span class="mf">2.0</span>  <span class="mf">3.0</span>  <span class="mf">1.0</span>
+<span class="mi">1</span>   <span class="mf">1.0</span>  <span class="mf">3.0</span>  <span class="mf">2.0</span>
+<span class="mi">2</span>   <span class="mf">2.0</span>  <span class="mf">1.0</span>  <span class="mf">3.0</span>
+<span class="mi">3</span>   <span class="mf">2.0</span>  <span class="mf">3.0</span>  <span class="mf">1.0</span>
+</pre></div>
+</div>
+</section>
+<section id="bang-5-6-cac-phuong-phap-pha-vo-rang-buoc-voi-rank">
+<h3>Bảng 5-6. Các Phương Pháp Phá Vỡ Ràng Buộc Với Rank<a class="headerlink" href="#bang-5-6-cac-phuong-phap-pha-vo-rang-buoc-voi-rank" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>‘average’</p></td>
+<td><p>Mặc định: gán xếp hạng trung bình cho mỗi mục trong nhóm bằng nhau</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘min’</p></td>
+<td><p>Sử dụng xếp hạng tối thiểu cho toàn bộ nhóm</p></td>
+</tr>
+<tr class="row-even"><td><p>‘max’</p></td>
+<td><p>Sử dụng xếp hạng tối đa cho toàn bộ nhóm</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘first’</p></td>
+<td><p>Gán xếp hạng theo thứ tự xuất hiện của các giá trị trong dữ liệu</p></td>
+</tr>
+<tr class="row-even"><td><p>‘dense’</p></td>
+<td><p>Giống phương pháp ‘min’, nhưng xếp hạng luôn tăng thêm 1 giữa các nhóm thay vì số lượng phần tử bằng nhau trong một nhóm</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="DataStructures.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Giới thiệu về các cấu trúc dữ liệu trong pandas</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="DataCleaning.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Làm sạch và Chuẩn bị Dữ liệu</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reindexing">Reindexing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-5-3-cac-tham-so-cua-ham-reindex">Bảng 5-3. Các Tham Số của Hàm reindex</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dropping-entries-from-an-axis">Dropping Entries from an Axis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-selection-and-filtering">Indexing, Selection, and Filtering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selection-with-loc-and-iloc">Selection with loc and iloc</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-du-so-bo-chon-mot-hang-va-nhieu-cot-bang-nhan">Ví dụ sơ bộ, chọn một hàng và nhiều cột bằng nhãn:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-5-4-cac-tuy-chon-lap-chi-muc-voi-dataframe">Bảng 5-4. Các Tùy Chọn Lập Chỉ Mục với DataFrame</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integer-indexes">Integer Indexes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic-and-data-alignment">Arithmetic and Data Alignment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic-methods-with-fill-values">Arithmetic Methods with Fill Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-5-5-cac-phuong-thuc-so-hoc-linh-hoat">Bảng 5-5. Các Phương Thức Số Học Linh Hoạt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-between-dataframe-and-series">Operations between DataFrame and Series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-application-and-mapping">Function Application and Mapping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-and-ranking">Sorting and Ranking</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-5-6-cac-phuong-phap-pha-vo-rang-buoc-voi-rank">Bảng 5-6. Các Phương Pháp Phá Vỡ Ràng Buộc Với Rank</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

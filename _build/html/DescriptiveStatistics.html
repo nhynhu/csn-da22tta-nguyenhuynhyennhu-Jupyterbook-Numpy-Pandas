@@ -1,0 +1,936 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Summarizing and Computing Descriptive Statistics &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'DescriptiveStatistics';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Làm sạch và Chuẩn bị Dữ liệu" href="DataCleaning.html" />
+    <link rel="prev" title="Essential Functionality" href="EssentialFunctionality.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="My sample book - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="tongquan.html">Tổng quan về NumPy và Pandas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Numpy.html">NumPy Cơ Bản Mảng và Tính Toán Vector</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ndarray.html">Đối Tượng Mảng N Chiều NumPy: Một Đối Tượng Mảng Đa Chiều</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="Arithmetic.html">Các Phép Toán trên Mảng</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UniversalFunctions.html">Hàm Toàn Cục: Các Hàm Mảng Nhanh Theo Phần Tử</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="InputOutput.html">Nhập/Xuất Dữ Liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Khac.html">Đại Số Tuyến Tính với NumPy</a></li>
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Pandas.html">Pandas cơ bản</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="DataStructures.html">Giới Thiệu Cấu Trúc Dữ Liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EssentialFunctionality.html">Các Chức Năng Cơ Bản</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Thống Kê và Phân Tích Dữ Liệu</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="DataCleaning.html">Làm Sạch và Chuẩn Bị Dữ Liệu</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Handling.html">Xử Lý Dữ Liệu Thiếu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Transformation.html">Biến Đổi Dữ Liệu</a></li>
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="DataWrangling.html">Biến Đổi và Kết Hợp Dữ Liệu</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Indexing.html">Đánh Chỉ Mục Phân Cấp</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="Combining.html">Kết Hợp Dữ Liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Reshaping.html">Biến Đổi Dữ Liệu</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FDescriptiveStatistics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/DescriptiveStatistics.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Summarizing and Computing Descriptive Statistics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-5-7-cac-tuy-chon-cho-phuong-thuc-giam">Bảng 5-7. Các Tùy Chọn cho Phương Thức Giảm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-5-8-cac-phuong-phap-thong-ke-tom-tat-va-lien-quan">Bảng 5-8. Các Phương Pháp Thống Kê Tóm Tắt và Liên Quan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-and-covariance">Correlation and Covariance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unique-values-value-counts-and-membership">Unique Values, Value Counts, and Membership</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-5-9-cac-phuong-phap-gia-tri-duy-nhat-tan-so-gia-tri-va-kiem-tra-thanh-vien">Bảng 5-9. Các Phương Pháp Giá Trị Duy Nhất, Tần Số Giá Trị, và Kiểm Tra Thành Viên</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="summarizing-and-computing-descriptive-statistics">
+<h1>Summarizing and Computing Descriptive Statistics<a class="headerlink" href="#summarizing-and-computing-descriptive-statistics" title="Link to this heading">#</a></h1>
+<p>Các đối tượng pandas được trang bị một bộ các phương pháp toán học và thống kê phổ biến. Hầu hết trong số này thuộc loại phương pháp giảm hoặc thống kê tóm tắt, các phương pháp này trích xuất một giá trị duy nhất (như tổng hoặc trung bình) từ một <code class="docutils literal notranslate"><span class="pre">Series</span></code> hoặc một chuỗi các giá trị từ các hàng hoặc cột của một <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. So với các phương pháp tương tự tìm thấy trên các mảng NumPy, chúng có xử lý tích hợp cho dữ liệu bị thiếu. Hãy xem xét một <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> nhỏ:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">230</span><span class="p">]:</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mf">1.4</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="p">[</span><span class="mf">7.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.5</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.75</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.3</span><span class="p">]],</span>
+                            <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">],</span>
+                            <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">231</span><span class="p">]:</span> <span class="n">df</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">231</span><span class="p">]:</span>
+    <span class="n">one</span>  <span class="n">two</span>
+<span class="n">a</span>  <span class="mf">1.40</span>   <span class="n">NaN</span>
+<span class="n">b</span>  <span class="mf">7.10</span>  <span class="o">-</span><span class="mf">4.5</span>
+<span class="n">c</span>   <span class="n">NaN</span>   <span class="n">NaN</span>
+<span class="n">d</span>  <span class="mf">0.75</span>  <span class="o">-</span><span class="mf">1.3</span>
+</pre></div>
+</div>
+<p>Gọi phương thức sum của DataFrame trả về một Series chứa tổng của các cột:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">232</span><span class="p">]:</span> <span class="n">df</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">232</span><span class="p">]:</span>
+<span class="n">one</span>    <span class="mf">9.25</span>
+<span class="n">two</span>   <span class="o">-</span><span class="mf">5.80</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Truyền axis=’columns’ hoặc axis=1 để tổng hợp theo các cột thay vì:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">233</span><span class="p">]:</span> <span class="n">df</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">233</span><span class="p">]:</span>
+<span class="n">a</span>    <span class="mf">1.40</span>
+<span class="n">b</span>    <span class="mf">2.60</span>
+<span class="n">c</span>     <span class="n">NaN</span>
+<span class="n">d</span>   <span class="o">-</span><span class="mf">0.55</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Các giá trị NA bị loại trừ trừ khi toàn bộ lát cắt (hàng hoặc cột trong trường hợp này) là NA. Điều này có thể được vô hiệu hóa với tùy chọn skipna:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">234</span><span class="p">]:</span> <span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">234</span><span class="p">]:</span>
+<span class="n">a</span>       <span class="n">NaN</span>
+<span class="n">b</span>    <span class="mf">1.300</span>
+<span class="n">c</span>       <span class="n">NaN</span>
+<span class="n">d</span>   <span class="o">-</span><span class="mf">0.275</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<section id="bang-5-7-cac-tuy-chon-cho-phuong-thuc-giam">
+<h2>Bảng 5-7. Các Tùy Chọn cho Phương Thức Giảm<a class="headerlink" href="#bang-5-7-cac-tuy-chon-cho-phuong-thuc-giam" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>axis</p></td>
+<td><p>Axis to reduce over; 0 for DataFrame’s rows and 1 for columns</p></td>
+</tr>
+<tr class="row-odd"><td><p>skipna</p></td>
+<td><p>Exclude missing values; True by default</p></td>
+</tr>
+<tr class="row-even"><td><p>level</p></td>
+<td><p>Reduce grouped by level if the axis is hierarchically indexed (MultiIndex)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Một số phương thức, như idxmin và idxmax, trả về các thống kê gián tiếp như giá trị chỉ mục nơi các giá trị tối thiểu hoặc tối đa đạt được:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">235</span><span class="p">]:</span> <span class="n">df</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">235</span><span class="p">]:</span>
+<span class="n">one</span>    <span class="n">b</span>
+<span class="n">two</span>    <span class="n">d</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
+</pre></div>
+</div>
+<p>Các phương thức khác là các tích lũy:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">236</span><span class="p">]:</span> <span class="n">df</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">236</span><span class="p">]:</span>
+     <span class="n">one</span>  <span class="n">two</span>
+<span class="n">a</span>   <span class="mf">1.40</span>   <span class="n">NaN</span>
+<span class="n">b</span>   <span class="mf">8.50</span>  <span class="o">-</span><span class="mf">4.5</span>
+<span class="n">c</span>    <span class="n">NaN</span>   <span class="n">NaN</span>
+<span class="n">d</span>   <span class="mf">9.25</span>  <span class="o">-</span><span class="mf">5.8</span>
+</pre></div>
+</div>
+<p>Một loại phương thức khác không phải là giảm cũng không phải là tích lũy. describe là một ví dụ như vậy, tạo ra nhiều thống kê tóm tắt chỉ trong một lần gọi:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">237</span><span class="p">]:</span> <span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">237</span><span class="p">]:</span>
+            <span class="n">one</span>        <span class="n">two</span>
+<span class="n">count</span>  <span class="mf">3.000000</span>   <span class="mf">2.000000</span>
+<span class="n">mean</span>   <span class="mf">3.083333</span>  <span class="o">-</span><span class="mf">2.900000</span>
+<span class="n">std</span>    <span class="mf">3.493685</span>   <span class="mf">2.262742</span>
+<span class="nb">min</span>    <span class="mf">0.750000</span>  <span class="o">-</span><span class="mf">4.500000</span>
+<span class="mi">25</span><span class="o">%</span>    <span class="mf">1.075000</span>  <span class="o">-</span><span class="mf">3.700000</span>
+<span class="mi">50</span><span class="o">%</span>    <span class="mf">1.400000</span>  <span class="o">-</span><span class="mf">2.900000</span>
+<span class="mi">75</span><span class="o">%</span>    <span class="mf">4.250000</span>  <span class="o">-</span><span class="mf">2.100000</span>
+<span class="nb">max</span>    <span class="mf">7.100000</span>  <span class="o">-</span><span class="mf">1.300000</span>
+</pre></div>
+</div>
+<p>Trên dữ liệu không phải số, describe tạo ra các thống kê tóm tắt thay thế:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">238</span><span class="p">]:</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">239</span><span class="p">]:</span> <span class="n">obj</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">239</span><span class="p">]:</span>
+<span class="n">count</span>       <span class="mi">16</span>
+<span class="n">unique</span>       <span class="mi">3</span>
+<span class="n">top</span>          <span class="n">a</span>
+<span class="n">freq</span>         <span class="mi">8</span>
+<span class="n">dtype</span><span class="p">:</span>  <span class="nb">object</span>
+</pre></div>
+</div>
+</section>
+<section id="bang-5-8-cac-phuong-phap-thong-ke-tom-tat-va-lien-quan">
+<h2>Bảng 5-8. Các Phương Pháp Thống Kê Tóm Tắt và Liên Quan<a class="headerlink" href="#bang-5-8-cac-phuong-phap-thong-ke-tom-tat-va-lien-quan" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Phương pháp</p></th>
+<th class="head"><p>Mô tả</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>count</p></td>
+<td><p>Số lượng các giá trị không phải NA</p></td>
+</tr>
+<tr class="row-odd"><td><p>describe</p></td>
+<td><p>Tính toán bộ thống kê tóm tắt cho Series hoặc mỗi cột của DataFrame</p></td>
+</tr>
+<tr class="row-even"><td><p>min, max</p></td>
+<td><p>Tính giá trị nhỏ nhất và lớn nhất</p></td>
+</tr>
+<tr class="row-odd"><td><p>argmin, argmax</p></td>
+<td><p>Tính vị trí chỉ số (số nguyên) tại đó giá trị nhỏ nhất hoặc lớn nhất đạt được</p></td>
+</tr>
+<tr class="row-even"><td><p>idxmin, idxmax</p></td>
+<td><p>Tính nhãn chỉ số tại đó giá trị nhỏ nhất hoặc lớn nhất đạt được</p></td>
+</tr>
+<tr class="row-odd"><td><p>quantile</p></td>
+<td><p>Tính phần trăm mẫu dao động từ 0 đến 1</p></td>
+</tr>
+<tr class="row-even"><td><p>sum</p></td>
+<td><p>Tổng các giá trị</p></td>
+</tr>
+<tr class="row-odd"><td><p>mean</p></td>
+<td><p>Trung bình các giá trị</p></td>
+</tr>
+<tr class="row-even"><td><p>median</p></td>
+<td><p>Trung vị số học (phần trăm thứ 50) của các giá trị</p></td>
+</tr>
+<tr class="row-odd"><td><p>mad</p></td>
+<td><p>Độ lệch tuyệt đối trung bình từ giá trị trung bình</p></td>
+</tr>
+<tr class="row-even"><td><p>prod</p></td>
+<td><p>Tích của tất cả các giá trị</p></td>
+</tr>
+<tr class="row-odd"><td><p>var</p></td>
+<td><p>Phương sai mẫu của các giá trị</p></td>
+</tr>
+<tr class="row-even"><td><p>std</p></td>
+<td><p>Độ lệch chuẩn mẫu của các giá trị</p></td>
+</tr>
+<tr class="row-odd"><td><p>skew</p></td>
+<td><p>Độ xiên mẫu (khoảnh khắc thứ ba) của các giá trị</p></td>
+</tr>
+<tr class="row-even"><td><p>kurt</p></td>
+<td><p>Độ nhọn mẫu (khoảnh khắc thứ tư) của các giá trị</p></td>
+</tr>
+<tr class="row-odd"><td><p>cumsum</p></td>
+<td><p>Tổng tích lũy của các giá trị</p></td>
+</tr>
+<tr class="row-even"><td><p>cummin, cummax</p></td>
+<td><p>Giá trị tối thiểu hoặc tối đa tích lũy của các giá trị</p></td>
+</tr>
+<tr class="row-odd"><td><p>cumprod</p></td>
+<td><p>Tích tích lũy của các giá trị</p></td>
+</tr>
+<tr class="row-even"><td><p>diff</p></td>
+<td><p>Tính toán chênh lệch số học đầu tiên (hữu ích cho chuỗi thời gian)</p></td>
+</tr>
+<tr class="row-odd"><td><p>pct_change</p></td>
+<td><p>Tính phần trăm thay đổi</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="correlation-and-covariance">
+<h2>Correlation and Covariance<a class="headerlink" href="#correlation-and-covariance" title="Link to this heading">#</a></h2>
+<p>Một số thống kê tóm tắt, như tương quan (correlation) và hiệp phương sai (covariance), được tính toán từ các cặp tham số. Hãy xem xét một số <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> về giá cổ phiếu và khối lượng giao dịch lấy từ Yahoo! Finance sử dụng gói pandas-datareader bổ sung. Nếu bạn chưa cài đặt, có thể cài qua conda hoặc pip:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>pandas-datareader
+</pre></div>
+</div>
+<p>Sử dụng mô-đun pandas_datareader để tải dữ liệu cho một số mã cổ phiếu:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas_datareader.data</span> <span class="k">as</span> <span class="nn">web</span>
+
+<span class="n">all_data</span> <span class="o">=</span> <span class="p">{</span><span class="n">ticker</span><span class="p">:</span> <span class="n">web</span><span class="o">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="n">ticker</span><span class="p">)</span> <span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;AAPL&#39;</span><span class="p">,</span> <span class="s1">&#39;IBM&#39;</span><span class="p">,</span> <span class="s1">&#39;MSFT&#39;</span><span class="p">,</span> <span class="s1">&#39;GOOG&#39;</span><span class="p">]}</span>
+<span class="n">price</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="n">ticker</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Adj Close&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">ticker</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">all_data</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
+<span class="n">volume</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="n">ticker</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">ticker</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">all_data</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
+</pre></div>
+</div>
+<p>Lưu ý: Đến thời điểm bạn đọc tài liệu này, Yahoo! Finance có thể không còn tồn tại do Yahoo! đã được Verizon mua lại vào năm 2017. Tham khảo tài liệu pandas-datareader trực tuyến để biết các chức năng mới nhất.</p>
+<p>Bây giờ tính phần trăm thay đổi của giá, một thao tác chuỗi thời gian sẽ được khám phá thêm ở Chương 11:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">242</span><span class="p">]:</span> <span class="n">returns</span> <span class="o">=</span> <span class="n">price</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">243</span><span class="p">]:</span> <span class="n">returns</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">243</span><span class="p">]:</span>
+                <span class="n">AAPL</span>       <span class="n">GOOG</span>       <span class="n">IBM</span>      <span class="n">MSFT</span>
+<span class="n">Date</span>                                              
+<span class="mi">2016</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">17</span> <span class="o">-</span><span class="mf">0.000680</span>  <span class="mf">0.001837</span>  <span class="mf">0.002072</span> <span class="o">-</span><span class="mf">0.003483</span>
+<span class="mi">2016</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">18</span> <span class="o">-</span><span class="mf">0.000681</span>  <span class="mf">0.019616</span> <span class="o">-</span><span class="mf">0.026168</span>  <span class="mf">0.007690</span>
+<span class="mi">2016</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">19</span> <span class="o">-</span><span class="mf">0.002979</span>  <span class="mf">0.007846</span>  <span class="mf">0.003583</span> <span class="o">-</span><span class="mf">0.002255</span>
+<span class="mi">2016</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">20</span> <span class="o">-</span><span class="mf">0.000512</span> <span class="o">-</span><span class="mf">0.005652</span>  <span class="mf">0.001719</span> <span class="o">-</span><span class="mf">0.004867</span>
+<span class="mi">2016</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">21</span> <span class="o">-</span><span class="mf">0.003930</span>  <span class="mf">0.003011</span> <span class="o">-</span><span class="mf">0.012474</span>  <span class="mf">0.042096</span>
+</pre></div>
+</div>
+<p>Phương thức corr của Series tính toán tương quan của các giá trị chồng chéo, không phải NA, căn chỉnh theo chỉ mục trong hai Series. Liên quan, cov tính toán hiệp phương sai:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">244</span><span class="p">]:</span> <span class="n">returns</span><span class="p">[</span><span class="s1">&#39;MSFT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">returns</span><span class="p">[</span><span class="s1">&#39;IBM&#39;</span><span class="p">])</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">244</span><span class="p">]:</span> <span class="mf">0.49976361144151144</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">245</span><span class="p">]:</span> <span class="n">returns</span><span class="p">[</span><span class="s1">&#39;MSFT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">returns</span><span class="p">[</span><span class="s1">&#39;IBM&#39;</span><span class="p">])</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">245</span><span class="p">]:</span> <span class="mf">8.8706554797035462e-05</span>
+</pre></div>
+</div>
+<p>Vì MSFT là một thuộc tính Python hợp lệ, có thể chọn các cột này sử dụng cú pháp ngắn gọn hơn:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">246</span><span class="p">]:</span> <span class="n">returns</span><span class="o">.</span><span class="n">MSFT</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">returns</span><span class="o">.</span><span class="n">IBM</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">246</span><span class="p">]:</span> <span class="mf">0.49976361144151144</span>
+</pre></div>
+</div>
+<p>Các phương thức corr và cov của DataFrame, mặt khác, trả về một ma trận tương quan hoặc hiệp phương sai đầy đủ dưới dạng một DataFrame:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">247</span><span class="p">]:</span> <span class="n">returns</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">247</span><span class="p">]:</span>
+           <span class="n">AAPL</span>      <span class="n">GOOG</span>       <span class="n">IBM</span>      <span class="n">MSFT</span>
+<span class="n">AAPL</span>   <span class="mf">1.000000</span>  <span class="mf">0.407919</span>  <span class="mf">0.386817</span>  <span class="mf">0.389695</span>
+<span class="n">GOOG</span>   <span class="mf">0.407919</span>  <span class="mf">1.000000</span>  <span class="mf">0.405099</span>  <span class="mf">0.465919</span>
+<span class="n">IBM</span>    <span class="mf">0.386817</span>  <span class="mf">0.405099</span>  <span class="mf">1.000000</span>  <span class="mf">0.499764</span>
+<span class="n">MSFT</span>   <span class="mf">0.389695</span>  <span class="mf">0.465919</span>  <span class="mf">0.499764</span>  <span class="mf">1.000000</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">248</span><span class="p">]:</span> <span class="n">returns</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">248</span><span class="p">]:</span>
+            <span class="n">AAPL</span>      <span class="n">GOOG</span>       <span class="n">IBM</span>      <span class="n">MSFT</span>
+<span class="n">AAPL</span>   <span class="mf">0.000277</span>  <span class="mf">0.000107</span>  <span class="mf">0.000078</span>  <span class="mf">0.000095</span>
+<span class="n">GOOG</span>   <span class="mf">0.000107</span>  <span class="mf">0.000251</span>  <span class="mf">0.000078</span>  <span class="mf">0.000108</span>
+<span class="n">IBM</span>    <span class="mf">0.000078</span>  <span class="mf">0.000078</span>  <span class="mf">0.000146</span>  <span class="mf">0.000089</span>
+<span class="n">MSFT</span>   <span class="mf">0.000095</span>  <span class="mf">0.000108</span>  <span class="mf">0.000089</span>  <span class="mf">0.000215</span>
+</pre></div>
+</div>
+<p>Sử dụng phương thức corrwith của DataFrame, có thể tính toán tương quan cặp giữa các cột hoặc hàng của DataFrame với một Series hoặc DataFrame khác. Truyền vào một Series trả về một Series với giá trị tương quan được tính toán cho mỗi cột:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">249</span><span class="p">]:</span> <span class="n">returns</span><span class="o">.</span><span class="n">corrwith</span><span class="p">(</span><span class="n">returns</span><span class="o">.</span><span class="n">IBM</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">249</span><span class="p">]:</span>
+<span class="n">AAPL</span>    <span class="mf">0.386817</span>
+<span class="n">GOOG</span>    <span class="mf">0.405099</span>
+<span class="n">IBM</span>     <span class="mf">1.000000</span>
+<span class="n">MSFT</span>    <span class="mf">0.499764</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Truyền vào một DataFrame tính toán các tương quan của tên cột tương ứng. Ở đây tính toán các tương quan của phần trăm thay đổi với khối lượng:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">250</span><span class="p">]:</span> <span class="n">returns</span><span class="o">.</span><span class="n">corrwith</span><span class="p">(</span><span class="n">volume</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">250</span><span class="p">]:</span>
+<span class="n">AAPL</span>   <span class="o">-</span><span class="mf">0.075565</span>
+<span class="n">GOOG</span>   <span class="o">-</span><span class="mf">0.007067</span>
+<span class="n">IBM</span>    <span class="o">-</span><span class="mf">0.204849</span>
+<span class="n">MSFT</span>   <span class="o">-</span><span class="mf">0.092950</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Truyền axis=’columns’ thực hiện thao tác theo từng hàng. Trong mọi trường hợp, các điểm dữ liệu được căn chỉnh theo nhãn trước khi tính toán tương quan.</p>
+</section>
+<section id="unique-values-value-counts-and-membership">
+<h2>Unique Values, Value Counts, and Membership<a class="headerlink" href="#unique-values-value-counts-and-membership" title="Link to this heading">#</a></h2>
+<p>Một lớp phương pháp liên quan khác là trích xuất thông tin về các giá trị chứa trong một <code class="docutils literal notranslate"><span class="pre">Series</span></code> một chiều. Để minh họa điều này, hãy xem xét ví dụ sau:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">251</span><span class="p">]:</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Phương thức đầu tiên là unique, cung cấp cho bạn một mảng các giá trị duy nhất trong một Series:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">252</span><span class="p">]:</span> <span class="n">uniques</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">253</span><span class="p">]:</span> <span class="n">uniques</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">253</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Các giá trị duy nhất không nhất thiết được trả về theo thứ tự sắp xếp, nhưng có thể được sắp xếp sau nếu cần (uniques.sort()). Liên quan, value_counts tính toán một Series chứa tần số giá trị:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">254</span><span class="p">]:</span> <span class="n">obj</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">254</span><span class="p">]:</span>
+<span class="n">c</span>    <span class="mi">3</span>
+<span class="n">a</span>    <span class="mi">3</span>
+<span class="n">b</span>    <span class="mi">2</span>
+<span class="n">d</span>    <span class="mi">1</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+</pre></div>
+</div>
+<p>Series được sắp xếp theo giá trị giảm dần để tiện lợi. value_counts cũng có sẵn dưới dạng một phương thức cấp cao nhất của pandas có thể được sử dụng với bất kỳ mảng hoặc chuỗi nào:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">255</span><span class="p">]:</span> <span class="n">pd</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">255</span><span class="p">]:</span>
+<span class="n">a</span>    <span class="mi">3</span>
+<span class="n">b</span>    <span class="mi">2</span>
+<span class="n">c</span>    <span class="mi">3</span>
+<span class="n">d</span>    <span class="mi">1</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+</pre></div>
+</div>
+<p>isin thực hiện kiểm tra thành viên tập hợp theo vector hóa và có thể hữu ích trong việc lọc dữ liệu xuống một tập hợp các giá trị trong một Series hoặc cột trong một DataFrame:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">256</span><span class="p">]:</span> <span class="n">obj</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">256</span><span class="p">]:</span>
+<span class="mi">0</span>    <span class="n">c</span>
+<span class="mi">1</span>    <span class="n">a</span>
+<span class="mi">2</span>    <span class="n">d</span>
+<span class="mi">3</span>    <span class="n">a</span>
+<span class="mi">4</span>    <span class="n">a</span>
+<span class="mi">5</span>    <span class="n">b</span>
+<span class="mi">6</span>    <span class="n">b</span>
+<span class="mi">7</span>    <span class="n">c</span>
+<span class="mi">8</span>    <span class="n">c</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">257</span><span class="p">]:</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">258</span><span class="p">]:</span> <span class="n">mask</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">258</span><span class="p">]:</span>
+<span class="mi">0</span>     <span class="kc">True</span>
+<span class="mi">1</span>    <span class="kc">False</span>
+<span class="mi">2</span>    <span class="kc">False</span>
+<span class="mi">3</span>    <span class="kc">False</span>
+<span class="mi">4</span>    <span class="kc">False</span>
+<span class="mi">5</span>     <span class="kc">True</span>
+<span class="mi">6</span>     <span class="kc">True</span>
+<span class="mi">7</span>     <span class="kc">True</span>
+<span class="mi">8</span>     <span class="kc">True</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="nb">bool</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">259</span><span class="p">]:</span> <span class="n">obj</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">259</span><span class="p">]:</span>
+<span class="mi">0</span>    <span class="n">c</span>
+<span class="mi">5</span>    <span class="n">b</span>
+<span class="mi">6</span>    <span class="n">b</span>
+<span class="mi">7</span>    <span class="n">c</span>
+<span class="mi">8</span>    <span class="n">c</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
+</pre></div>
+</div>
+<p>Liên quan đến isin là phương thức Index.get_indexer, cung cấp cho bạn một mảng chỉ số từ một mảng có thể có giá trị không duy nhất vào một mảng giá trị duy nhất khác:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">260</span><span class="p">]:</span> <span class="n">to_match</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">261</span><span class="p">]:</span> <span class="n">unique_vals</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">262</span><span class="p">]:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">unique_vals</span><span class="p">)</span><span class="o">.</span><span class="n">get_indexer</span><span class="p">(</span><span class="n">to_match</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">262</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="bang-5-9-cac-phuong-phap-gia-tri-duy-nhat-tan-so-gia-tri-va-kiem-tra-thanh-vien">
+<h2>Bảng 5-9. Các Phương Pháp Giá Trị Duy Nhất, Tần Số Giá Trị, và Kiểm Tra Thành Viên<a class="headerlink" href="#bang-5-9-cac-phuong-phap-gia-tri-duy-nhat-tan-so-gia-tri-va-kiem-tra-thanh-vien" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Phương pháp</p></th>
+<th class="head"><p>Mô tả</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>isin</p></td>
+<td><p>Tính mảng boolean chỉ ra liệu mỗi giá trị trong Series có nằm trong chuỗi giá trị đã truyền vào hay không</p></td>
+</tr>
+<tr class="row-odd"><td><p>match</p></td>
+<td><p>Tính các chỉ số số nguyên cho mỗi giá trị trong một mảng vào một mảng các giá trị duy nhất khác; hữu ích cho căn chỉnh dữ liệu và các phép nối</p></td>
+</tr>
+<tr class="row-even"><td><p>unique</p></td>
+<td><p>Tính mảng các giá trị duy nhất trong Series, trả về theo thứ tự quan sát được</p></td>
+</tr>
+<tr class="row-odd"><td><p>value_counts</p></td>
+<td><p>Trả về một Series chứa các giá trị duy nhất làm chỉ mục và tần số làm giá trị, được sắp xếp theo thứ tự giảm dần của tần số</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Trong một số trường hợp, bạn có thể muốn tính toán biểu đồ histogram trên nhiều cột liên quan trong một <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. Dưới đây là một ví dụ:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">263</span><span class="p">]:</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Qu1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+                              <span class="s1">&#39;Qu2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                              <span class="s1">&#39;Qu3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">]})</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">264</span><span class="p">]:</span> <span class="n">data</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">264</span><span class="p">]:</span>
+   <span class="n">Qu1</span>  <span class="n">Qu2</span>  <span class="n">Qu3</span>
+<span class="mi">0</span>    <span class="mi">1</span>    <span class="mi">2</span>    <span class="mi">1</span>
+<span class="mi">1</span>    <span class="mi">3</span>    <span class="mi">3</span>    <span class="mi">5</span>
+<span class="mi">2</span>    <span class="mi">4</span>    <span class="mi">1</span>    <span class="mi">2</span>
+<span class="mi">3</span>    <span class="mi">3</span>    <span class="mi">2</span>    <span class="mi">4</span>
+<span class="mi">4</span>    <span class="mi">4</span>    <span class="mi">3</span>    <span class="mi">4</span>
+</pre></div>
+</div>
+<p>Truyền pandas.value_counts vào hàm apply của DataFrame:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">265</span><span class="p">]:</span> <span class="n">result</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">value_counts</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">266</span><span class="p">]:</span> <span class="n">result</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">266</span><span class="p">]:</span>
+     <span class="n">Qu1</span>  <span class="n">Qu2</span>  <span class="n">Qu3</span>
+<span class="mi">1</span>    <span class="mf">1.0</span>  <span class="mf">1.0</span>  <span class="mf">1.0</span>
+<span class="mi">2</span>    <span class="mf">0.0</span>  <span class="mf">2.0</span>  <span class="mf">1.0</span>
+<span class="mi">3</span>    <span class="mf">2.0</span>  <span class="mf">2.0</span>  <span class="mf">0.0</span>
+<span class="mi">4</span>    <span class="mf">2.0</span>  <span class="mf">0.0</span>  <span class="mf">2.0</span>
+<span class="mi">5</span>    <span class="mf">0.0</span>  <span class="mf">0.0</span>  <span class="mf">1.0</span>
+</pre></div>
+</div>
+<p>Ở đây, các nhãn hàng trong kết quả là các giá trị khác nhau xuất hiện trong tất cả các cột. Các giá trị là số lượng tương ứng của các giá trị này trong mỗi cột.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="EssentialFunctionality.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Essential Functionality</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="DataCleaning.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Làm sạch và Chuẩn bị Dữ liệu</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-5-7-cac-tuy-chon-cho-phuong-thuc-giam">Bảng 5-7. Các Tùy Chọn cho Phương Thức Giảm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-5-8-cac-phuong-phap-thong-ke-tom-tat-va-lien-quan">Bảng 5-8. Các Phương Pháp Thống Kê Tóm Tắt và Liên Quan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-and-covariance">Correlation and Covariance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unique-values-value-counts-and-membership">Unique Values, Value Counts, and Membership</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-5-9-cac-phuong-phap-gia-tri-duy-nhat-tan-so-gia-tri-va-kiem-tra-thanh-vien">Bảng 5-9. Các Phương Pháp Giá Trị Duy Nhất, Tần Số Giá Trị, và Kiểm Tra Thành Viên</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

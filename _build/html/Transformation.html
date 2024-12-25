@@ -1,0 +1,1245 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Biến Đổi Dữ Liệu &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Transformation';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Biến Đổi và Kết Hợp Dữ Liệu" href="DataWrangling.html" />
+    <link rel="prev" title="Xử Lý Dữ Liệu Thiếu" href="Handling.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="My sample book - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="tongquan.html">Tổng quan về NumPy và Pandas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Numpy.html">NumPy Cơ Bản Mảng và Tính Toán Vector</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ndarray.html">Đối Tượng Mảng N Chiều NumPy: Một Đối Tượng Mảng Đa Chiều</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="Arithmetic.html">Các Phép Toán trên Mảng</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UniversalFunctions.html">Hàm Toàn Cục: Các Hàm Mảng Nhanh Theo Phần Tử</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="InputOutput.html">Nhập/Xuất Dữ Liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Khac.html">Đại Số Tuyến Tính với NumPy</a></li>
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Pandas.html">Pandas cơ bản</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures.html">Giới Thiệu Cấu Trúc Dữ Liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EssentialFunctionality.html">Các Chức Năng Cơ Bản</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DescriptiveStatistics.html">Thống Kê và Phân Tích Dữ Liệu</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="DataCleaning.html">Làm Sạch và Chuẩn Bị Dữ Liệu</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Handling.html">Xử Lý Dữ Liệu Thiếu</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Biến Đổi Dữ Liệu</a></li>
+
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="DataWrangling.html">Biến Đổi và Kết Hợp Dữ Liệu</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Indexing.html">Đánh Chỉ Mục Phân Cấp</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="Combining.html">Kết Hợp Dữ Liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Reshaping.html">Biến Đổi Dữ Liệu</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTransformation.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Transformation.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Biến Đổi Dữ Liệu</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Biến Đổi Dữ Liệu</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loai-bo-du-lieu-trung-lap">Loại Bỏ Dữ Liệu Trùng Lặp</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bien-doi-du-lieu-su-dung-ham-hoac-anh-xa">Biến Đổi Dữ Liệu Sử Dụng Hàm hoặc Ánh Xạ</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#thay-the-gia-tri">Thay Thế Giá Trị</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#phan-loai-va-dua-du-lieu-vao-cac-khoang">Phân Loại và Đưa Dữ Liệu Vào Các Khoảng</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#phat-hien-va-loc-ngoai-le">Phát Hiện và Lọc Ngoại Lệ</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hoan-vi-va-lay-mau-ngau-nhien">Hoán Vị và Lấy Mẫu Ngẫu Nhiên</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tinh-toan-bien-chi-thi-bien-gia">Tính Toán Biến Chỉ Thị/Biến Giả</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="bien-doi-du-lieu">
+<h1>Biến Đổi Dữ Liệu<a class="headerlink" href="#bien-doi-du-lieu" title="Link to this heading">#</a></h1>
+<p>Cho đến nay trong chương này, chúng ta đã quan tâm đến việc sắp xếp lại dữ liệu. Lọc, làm sạch và các biến đổi khác cũng là một loại thao tác quan trọng.</p>
+<section id="loai-bo-du-lieu-trung-lap">
+<h2>Loại Bỏ Dữ Liệu Trùng Lặp<a class="headerlink" href="#loai-bo-du-lieu-trung-lap" title="Link to this heading">#</a></h2>
+<p>Các hàng trùng lặp có thể được tìm thấy trong một DataFrame vì nhiều lý do khác nhau. Đây là một ví dụ:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;k1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;two&#39;</span><span class="p">],</span>
+                     <span class="s1">&#39;k2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">]})</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">k1</span>  <span class="n">k2</span>
+<span class="mi">0</span>  <span class="n">one</span>   <span class="mi">1</span>
+<span class="mi">1</span>  <span class="n">two</span>   <span class="mi">1</span>
+<span class="mi">2</span>  <span class="n">one</span>   <span class="mi">2</span>
+<span class="mi">3</span>  <span class="n">two</span>   <span class="mi">3</span>
+<span class="mi">4</span>  <span class="n">one</span>   <span class="mi">3</span>
+<span class="mi">5</span>  <span class="n">two</span>   <span class="mi">4</span>
+<span class="mi">6</span>  <span class="n">two</span>   <span class="mi">4</span>
+</pre></div>
+</div>
+<p>Phương thức duplicated của DataFrame trả về một Series boolean chỉ ra liệu mỗi hàng có bị trùng lặp (đã được quan sát trong một hàng trước đó) hay không:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>    <span class="kc">False</span>
+<span class="mi">1</span>    <span class="kc">False</span>
+<span class="mi">2</span>    <span class="kc">False</span>
+<span class="mi">3</span>    <span class="kc">False</span>
+<span class="mi">4</span>    <span class="kc">False</span>
+<span class="mi">5</span>    <span class="kc">False</span>
+<span class="mi">6</span>     <span class="kc">True</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="nb">bool</span>
+</pre></div>
+</div>
+<p>Tương tự, drop_duplicates trả về một DataFrame nơi mảng trùng lặp là False:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">k1</span>  <span class="n">k2</span>
+<span class="mi">0</span>  <span class="n">one</span>   <span class="mi">1</span>
+<span class="mi">1</span>  <span class="n">two</span>   <span class="mi">1</span>
+<span class="mi">2</span>  <span class="n">one</span>   <span class="mi">2</span>
+<span class="mi">3</span>  <span class="n">two</span>   <span class="mi">3</span>
+<span class="mi">4</span>  <span class="n">one</span>   <span class="mi">3</span>
+<span class="mi">5</span>  <span class="n">two</span>   <span class="mi">4</span>
+</pre></div>
+</div>
+<p>Cả hai phương thức này mặc định xem xét tất cả các cột; ngoài ra, bạn có thể chỉ định bất kỳ tập hợp con nào của chúng để phát hiện trùng lặp. Giả sử có một cột giá trị bổ sung và muốn lọc trùng lặp chỉ dựa trên cột ‘k1’:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;v1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">([</span><span class="s1">&#39;k1&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">k1</span>  <span class="n">k2</span>  <span class="n">v1</span>
+<span class="mi">0</span>  <span class="n">one</span>   <span class="mi">1</span>   <span class="mi">0</span>
+<span class="mi">1</span>  <span class="n">two</span>   <span class="mi">1</span>   <span class="mi">1</span>
+</pre></div>
+</div>
+<p>duplicated và drop_duplicates mặc định giữ giá trị kết hợp đầu tiên được quan sát. Truyền keep=’last’ sẽ trả về giá trị cuối cùng:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">([</span><span class="s1">&#39;k1&#39;</span><span class="p">,</span> <span class="s1">&#39;k2&#39;</span><span class="p">],</span> <span class="n">keep</span><span class="o">=</span><span class="s1">&#39;last&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">k1</span>  <span class="n">k2</span>  <span class="n">v1</span>
+<span class="mi">0</span>  <span class="n">one</span>   <span class="mi">1</span>   <span class="mi">0</span>
+<span class="mi">1</span>  <span class="n">two</span>   <span class="mi">1</span>   <span class="mi">1</span>
+<span class="mi">2</span>  <span class="n">one</span>   <span class="mi">2</span>   <span class="mi">2</span>
+<span class="mi">3</span>  <span class="n">two</span>   <span class="mi">3</span>   <span class="mi">3</span>
+<span class="mi">4</span>  <span class="n">one</span>   <span class="mi">3</span>   <span class="mi">4</span>
+<span class="mi">6</span>  <span class="n">two</span>   <span class="mi">4</span>   <span class="mi">6</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="bien-doi-du-lieu-su-dung-ham-hoac-anh-xa">
+<h1>Biến Đổi Dữ Liệu Sử Dụng Hàm hoặc Ánh Xạ<a class="headerlink" href="#bien-doi-du-lieu-su-dung-ham-hoac-anh-xa" title="Link to this heading">#</a></h1>
+<p>Đối với nhiều tập dữ liệu, bạn có thể muốn thực hiện một số biến đổi dựa trên các giá trị trong một mảng, Series hoặc cột trong DataFrame. Hãy xem xét dữ liệu giả định sau đây được thu thập về các loại thịt khác nhau:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;food&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;bacon&#39;</span><span class="p">,</span> <span class="s1">&#39;pulled pork&#39;</span><span class="p">,</span> <span class="s1">&#39;bacon&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;Pastrami&#39;</span><span class="p">,</span> <span class="s1">&#39;corned beef&#39;</span><span class="p">,</span> <span class="s1">&#39;Bacon&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;pastrami&#39;</span><span class="p">,</span> <span class="s1">&#39;honey ham&#39;</span><span class="p">,</span> <span class="s1">&#39;nova lox&#39;</span><span class="p">],</span>
+                     <span class="s1">&#39;ounces&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]})</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>          <span class="n">food</span>  <span class="n">ounces</span>
+<span class="mi">0</span>        <span class="n">bacon</span>     <span class="mf">4.0</span>
+<span class="mi">1</span>  <span class="n">pulled</span> <span class="n">pork</span>     <span class="mf">3.0</span>
+<span class="mi">2</span>        <span class="n">bacon</span>    <span class="mf">12.0</span>
+<span class="mi">3</span>     <span class="n">Pastrami</span>     <span class="mf">6.0</span>
+<span class="mi">4</span>  <span class="n">corned</span> <span class="n">beef</span>     <span class="mf">7.5</span>
+<span class="mi">5</span>        <span class="n">Bacon</span>     <span class="mf">8.0</span>
+<span class="mi">6</span>     <span class="n">pastrami</span>     <span class="mf">3.0</span>
+<span class="mi">7</span>    <span class="n">honey</span> <span class="n">ham</span>     <span class="mf">5.0</span>
+<span class="mi">8</span>     <span class="n">nova</span> <span class="n">lox</span>     <span class="mf">6.0</span>
+</pre></div>
+</div>
+<p>Giả sử muốn thêm một cột chỉ ra loại động vật mà mỗi loại thịt đến từ. Hãy viết một ánh xạ của từng loại thịt cụ thể đến loại động vật:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">meat_to_animal</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;bacon&#39;</span><span class="p">:</span> <span class="s1">&#39;pig&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pulled pork&#39;</span><span class="p">:</span> <span class="s1">&#39;pig&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pastrami&#39;</span><span class="p">:</span> <span class="s1">&#39;cow&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;corned beef&#39;</span><span class="p">:</span> <span class="s1">&#39;cow&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;honey ham&#39;</span><span class="p">:</span> <span class="s1">&#39;pig&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;nova lox&#39;</span><span class="p">:</span> <span class="s1">&#39;salmon&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Phương thức map trên một Series chấp nhận một hàm hoặc đối tượng giống dict chứa một ánh xạ, nhưng ở đây có một vấn đề nhỏ là một số loại thịt viết hoa và một số loại thì không. Vì vậy, cần chuyển đổi mỗi giá trị thành chữ thường bằng cách sử dụng phương thức str.lower của Series:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lowercased</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;food&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="n">lowercased</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>          <span class="n">bacon</span>
+<span class="mi">1</span>    <span class="n">pulled</span> <span class="n">pork</span>
+<span class="mi">2</span>          <span class="n">bacon</span>
+<span class="mi">3</span>       <span class="n">pastrami</span>
+<span class="mi">4</span>    <span class="n">corned</span> <span class="n">beef</span>
+<span class="mi">5</span>          <span class="n">bacon</span>
+<span class="mi">6</span>       <span class="n">pastrami</span>
+<span class="mi">7</span>      <span class="n">honey</span> <span class="n">ham</span>
+<span class="mi">8</span>       <span class="n">nova</span> <span class="n">lox</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">food</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
+</pre></div>
+</div>
+<p>Thêm cột animal vào DataFrame bằng cách sử dụng ánh xạ:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;animal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lowercased</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">meat_to_animal</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>          <span class="n">food</span>  <span class="n">ounces</span>  <span class="n">animal</span>
+<span class="mi">0</span>        <span class="n">bacon</span>     <span class="mf">4.0</span>     <span class="n">pig</span>
+<span class="mi">1</span>  <span class="n">pulled</span> <span class="n">pork</span>     <span class="mf">3.0</span>     <span class="n">pig</span>
+<span class="mi">2</span>        <span class="n">bacon</span>    <span class="mf">12.0</span>     <span class="n">pig</span>
+<span class="mi">3</span>     <span class="n">Pastrami</span>     <span class="mf">6.0</span>     <span class="n">cow</span>
+<span class="mi">4</span>  <span class="n">corned</span> <span class="n">beef</span>     <span class="mf">7.5</span>     <span class="n">cow</span>
+<span class="mi">5</span>        <span class="n">Bacon</span>     <span class="mf">8.0</span>     <span class="n">pig</span>
+<span class="mi">6</span>     <span class="n">pastrami</span>     <span class="mf">3.0</span>     <span class="n">cow</span>
+<span class="mi">7</span>    <span class="n">honey</span> <span class="n">ham</span>     <span class="mf">5.0</span>     <span class="n">pig</span>
+<span class="mi">8</span>     <span class="n">nova</span> <span class="n">lox</span>     <span class="mf">6.0</span>  <span class="n">salmon</span>
+</pre></div>
+</div>
+<p>Cũng có thể truyền một hàm thực hiện tất cả công việc:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;food&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">meat_to_animal</span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">()])</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>       <span class="n">pig</span>
+<span class="mi">1</span>       <span class="n">pig</span>
+<span class="mi">2</span>       <span class="n">pig</span>
+<span class="mi">3</span>       <span class="n">cow</span>
+<span class="mi">4</span>       <span class="n">cow</span>
+<span class="mi">5</span>       <span class="n">pig</span>
+<span class="mi">6</span>       <span class="n">cow</span>
+<span class="mi">7</span>       <span class="n">pig</span>
+<span class="mi">8</span>    <span class="n">salmon</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">food</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
+</pre></div>
+</div>
+<p>Sử dụng map là một cách thuận tiện để thực hiện các biến đổi theo từng phần tử và các thao tác làm sạch dữ liệu khác.</p>
+</section>
+<section id="thay-the-gia-tri">
+<h1>Thay Thế Giá Trị<a class="headerlink" href="#thay-the-gia-tri" title="Link to this heading">#</a></h1>
+<p>Điền vào dữ liệu thiếu bằng phương thức <code class="docutils literal notranslate"><span class="pre">fillna</span></code> là một trường hợp đặc biệt của việc thay thế giá trị tổng quát hơn. Như đã thấy, <code class="docutils literal notranslate"><span class="pre">map</span></code> có thể được sử dụng để thay đổi một tập hợp con các giá trị trong một đối tượng, nhưng <code class="docutils literal notranslate"><span class="pre">replace</span></code> cung cấp một cách đơn giản và linh hoạt hơn để làm điều đó. Hãy xem xét Series sau:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">999.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="o">-</span><span class="mf">999.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1000.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">])</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>       <span class="mf">1.0</span>
+<span class="mi">1</span>    <span class="o">-</span><span class="mf">999.0</span>
+<span class="mi">2</span>       <span class="mf">2.0</span>
+<span class="mi">3</span>    <span class="o">-</span><span class="mf">999.0</span>
+<span class="mi">4</span>   <span class="o">-</span><span class="mf">1000.0</span>
+<span class="mi">5</span>       <span class="mf">3.0</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Các giá trị -999 có thể là các giá trị sentinel cho dữ liệu thiếu. Để thay thế chúng bằng các giá trị NA mà pandas hiểu, có thể sử dụng replace, tạo ra một Series mới (trừ khi truyền inplace=True):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="o">-</span><span class="mi">999</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>       <span class="mf">1.0</span>
+<span class="mi">1</span>       <span class="n">NaN</span>
+<span class="mi">2</span>       <span class="mf">2.0</span>
+<span class="mi">3</span>       <span class="n">NaN</span>
+<span class="mi">4</span>   <span class="o">-</span><span class="mf">1000.0</span>
+<span class="mi">5</span>       <span class="mf">3.0</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Nếu muốn thay thế nhiều giá trị cùng một lúc, thay vì đó truyền một danh sách và sau đó là giá trị thay thế:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="o">-</span><span class="mi">999</span><span class="p">,</span> <span class="o">-</span><span class="mi">1000</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>    <span class="mf">1.0</span>
+<span class="mi">1</span>    <span class="n">NaN</span>
+<span class="mi">2</span>    <span class="mf">2.0</span>
+<span class="mi">3</span>    <span class="n">NaN</span>
+<span class="mi">4</span>    <span class="n">NaN</span>
+<span class="mi">5</span>    <span class="mf">3.0</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Để sử dụng một giá trị thay thế khác cho từng giá trị, truyền một danh sách các giá trị thay thế:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="o">-</span><span class="mi">999</span><span class="p">,</span> <span class="o">-</span><span class="mi">1000</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>    <span class="mf">1.0</span>
+<span class="mi">1</span>    <span class="n">NaN</span>
+<span class="mi">2</span>    <span class="mf">2.0</span>
+<span class="mi">3</span>    <span class="n">NaN</span>
+<span class="mi">4</span>    <span class="mf">0.0</span>
+<span class="mi">5</span>    <span class="mf">3.0</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Tham số truyền vào cũng có thể là một dict:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="o">-</span><span class="mi">999</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="o">-</span><span class="mi">1000</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>    <span class="mf">1.0</span>
+<span class="mi">1</span>    <span class="n">NaN</span>
+<span class="mi">2</span>    <span class="mf">2.0</span>
+<span class="mi">3</span>    <span class="n">NaN</span>
+<span class="mi">4</span>    <span class="mf">0.0</span>
+<span class="mi">5</span>    <span class="mf">3.0</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Phương thức data.replace khác với data.str.replace, phương thức thực hiện thay thế chuỗi theo từng phần tử. Các phương thức chuỗi trên Series sẽ được xem xét sau trong chương.</p>
+<p>Đổi Tên Chỉ Mục Trục
+Như các giá trị trong một Series, các nhãn trục cũng có thể được biến đổi tương tự bằng một hàm hoặc ánh xạ của một số dạng để tạo ra các đối tượng mới có nhãn khác. Bạn cũng có thể chỉnh sửa các trục tại chỗ mà không cần tạo ra một cấu trúc dữ liệu mới. Đây là một ví dụ đơn giản:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)),</span>
+                    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Colorado&#39;</span><span class="p">,</span> <span class="s1">&#39;New York&#39;</span><span class="p">],</span>
+                    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">,</span> <span class="s1">&#39;four&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Giống như một Series, các chỉ mục trục có phương thức map:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">transform</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Index</span><span class="p">([</span><span class="s1">&#39;OHIO&#39;</span><span class="p">,</span> <span class="s1">&#39;COLO&#39;</span><span class="p">,</span> <span class="s1">&#39;NEW &#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;object&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Có thể gán cho chỉ mục, chỉnh sửa DataFrame tại chỗ:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>       <span class="n">one</span>  <span class="n">two</span>  <span class="n">three</span>  <span class="n">four</span>
+<span class="n">OHIO</span>      <span class="mi">0</span>    <span class="mi">1</span>      <span class="mi">2</span>     <span class="mi">3</span>
+<span class="n">COLO</span>      <span class="mi">4</span>    <span class="mi">5</span>      <span class="mi">6</span>     <span class="mi">7</span>
+<span class="n">NEW</span>       <span class="mi">8</span>    <span class="mi">9</span>     <span class="mi">10</span>    <span class="mi">11</span>
+</pre></div>
+</div>
+<p>Nếu muốn tạo một phiên bản biến đổi của một tập dữ liệu mà không chỉnh sửa bản gốc, một phương thức hữu ích là rename:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="nb">str</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="nb">str</span><span class="o">.</span><span class="n">upper</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>       <span class="n">ONE</span>  <span class="n">TWO</span>  <span class="n">THREE</span>  <span class="n">FOUR</span>
+<span class="n">Ohio</span>      <span class="mi">0</span>    <span class="mi">1</span>      <span class="mi">2</span>     <span class="mi">3</span>
+<span class="n">Colo</span>      <span class="mi">4</span>    <span class="mi">5</span>      <span class="mi">6</span>     <span class="mi">7</span>
+<span class="n">New</span>       <span class="mi">8</span>    <span class="mi">9</span>     <span class="mi">10</span>    <span class="mi">11</span>
+</pre></div>
+</div>
+<p>Đáng chú ý, rename có thể được sử dụng kết hợp với một đối tượng giống dict cung cấp các giá trị mới cho một tập hợp con của các nhãn trục:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;OHIO&#39;</span><span class="p">:</span> <span class="s1">&#39;INDIANA&#39;</span><span class="p">},</span> <span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;three&#39;</span><span class="p">:</span> <span class="s1">&#39;peekaboo&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>         <span class="n">one</span>  <span class="n">two</span>  <span class="n">peekaboo</span>  <span class="n">four</span>
+<span class="n">INDIANA</span>     <span class="mi">0</span>    <span class="mi">1</span>         <span class="mi">2</span>     <span class="mi">3</span>
+<span class="n">COLO</span>        <span class="mi">4</span>    <span class="mi">5</span>         <span class="mi">6</span>     <span class="mi">7</span>
+<span class="n">NEW</span>         <span class="mi">8</span>    <span class="mi">9</span>        <span class="mi">10</span>    <span class="mi">11</span>
+</pre></div>
+</div>
+<p>rename giúp tiết kiệm công việc sao chép DataFrame thủ công và gán cho các thuộc tính chỉ mục và cột của nó. Nếu muốn chỉnh sửa tập dữ liệu tại chỗ, truyền inplace=True:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;OHIO&#39;</span><span class="p">:</span> <span class="s1">&#39;INDIANA&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>         <span class="n">one</span>  <span class="n">two</span>  <span class="n">three</span>  <span class="n">four</span>
+<span class="n">INDIANA</span>     <span class="mi">0</span>    <span class="mi">1</span>     <span class="mi">2</span>     <span class="mi">3</span>
+<span class="n">COLO</span>        <span class="mi">4</span>    <span class="mi">5</span>     <span class="mi">6</span>     <span class="mi">7</span>
+<span class="n">NEW</span>         <span class="mi">8</span>    <span class="mi">9</span>    <span class="mi">10</span>    <span class="mi">11</span>
+</pre></div>
+</div>
+</section>
+<section id="phan-loai-va-dua-du-lieu-vao-cac-khoang">
+<h1>Phân Loại và Đưa Dữ Liệu Vào Các Khoảng<a class="headerlink" href="#phan-loai-va-dua-du-lieu-vao-cac-khoang" title="Link to this heading">#</a></h1>
+<p>Dữ liệu liên tục thường được phân loại hoặc chia thành các “khoảng” để phân tích. Giả sử bạn có dữ liệu về một nhóm người trong một nghiên cứu và muốn chia họ thành các nhóm tuổi rời rạc:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">32</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Hãy chia chúng thành các khoảng từ 18 đến 25, 26 đến 35, 36 đến 60, và cuối cùng là 61 trở lên. Để làm điều đó, sử dụng hàm cut trong pandas:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="n">cats</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
+<span class="n">cats</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span> <span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span> <span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">],</span> <span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span> <span class="o">...</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">],</span> <span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span> <span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">]]</span>
+<span class="n">Length</span><span class="p">:</span> <span class="mi">12</span>
+<span class="n">Categories</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">interval</span><span class="p">[</span><span class="n">int64</span><span class="p">]):</span> <span class="p">[(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Đối tượng pandas trả về là một đối tượng Categorical đặc biệt. Đầu ra mô tả các khoảng được tính toán bởi pandas.cut. Có thể xử lý nó giống như một mảng chuỗi chỉ ra tên khoảng; bên trong nó chứa một mảng categories chỉ định các tên danh mục khác biệt cùng với việc gán nhãn cho dữ liệu tuổi trong thuộc tính codes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cats</span><span class="o">.</span><span class="n">codes</span>
+<span class="n">cats</span><span class="o">.</span><span class="n">categories</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">cats</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int8</span><span class="p">)</span>
+<span class="n">IntervalIndex</span><span class="p">([(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">],</span> <span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span> <span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">]],</span> <span class="n">closed</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;interval[int64]&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>     <span class="mi">5</span>
+<span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>     <span class="mi">3</span>
+<span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">]</span>     <span class="mi">3</span>
+<span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>    <span class="mi">1</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+</pre></div>
+</div>
+<p>Lưu ý rằng pd.value_counts(cats) là số lượng bin cho kết quả của pandas.cut. Theo quy ước toán học cho các khoảng, dấu ngoặc đơn có nghĩa là phía đó mở, trong khi dấu ngoặc vuông có nghĩa là đóng (bao gồm). Có thể thay đổi phía đóng bằng cách truyền right=False:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">26</span><span class="p">),</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">26</span><span class="p">),</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">26</span><span class="p">),</span> <span class="p">[</span><span class="mi">26</span><span class="p">,</span> <span class="mi">36</span><span class="p">),</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">26</span><span class="p">),</span> <span class="o">...</span><span class="p">,</span> <span class="p">[</span><span class="mi">26</span><span class="p">,</span> <span class="mi">36</span><span class="p">),</span> <span class="p">[</span><span class="mi">61</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="p">[</span><span class="mi">36</span><span class="p">,</span> <span class="mi">61</span><span class="p">),</span> <span class="p">[</span><span class="mi">36</span><span class="p">,</span> <span class="mi">61</span><span class="p">),</span> <span class="p">[</span><span class="mi">26</span><span class="p">,</span> <span class="mi">36</span><span class="p">)]</span>
+<span class="n">Length</span><span class="p">:</span> <span class="mi">12</span>
+<span class="n">Categories</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">interval</span><span class="p">[</span><span class="n">int64</span><span class="p">]):</span> <span class="p">[[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">26</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">[</span><span class="mi">26</span><span class="p">,</span> <span class="mi">36</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">[</span><span class="mi">36</span><span class="p">,</span> <span class="mi">61</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">[</span><span class="mi">61</span><span class="p">,</span> <span class="mi">100</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>Có thể truyền tên bin riêng bằng cách truyền một danh sách hoặc mảng cho tùy chọn labels:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">group_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Youth&#39;</span><span class="p">,</span> <span class="s1">&#39;YoungAdult&#39;</span><span class="p">,</span> <span class="s1">&#39;MiddleAged&#39;</span><span class="p">,</span> <span class="s1">&#39;Senior&#39;</span><span class="p">]</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">group_names</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Youth</span><span class="p">,</span> <span class="n">Youth</span><span class="p">,</span> <span class="n">Youth</span><span class="p">,</span> <span class="n">YoungAdult</span><span class="p">,</span> <span class="n">Youth</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">YoungAdult</span><span class="p">,</span> <span class="n">Senior</span><span class="p">,</span> <span class="n">MiddleAged</span><span class="p">,</span> <span class="n">MiddleAged</span><span class="p">,</span> <span class="n">YoungAdult</span><span class="p">]</span>
+<span class="n">Length</span><span class="p">:</span> <span class="mi">12</span>
+<span class="n">Categories</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="nb">object</span><span class="p">):</span> <span class="p">[</span><span class="n">Youth</span> <span class="o">&lt;</span> <span class="n">YoungAdult</span> <span class="o">&lt;</span> <span class="n">MiddleAged</span> <span class="o">&lt;</span> <span class="n">Senior</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Nếu truyền một số nguyên số bin cho cut thay vì các cạnh bin cụ thể, nó sẽ tính các bin có độ dài bằng nhau dựa trên các giá trị tối thiểu và tối đa trong dữ liệu. Xem xét trường hợp dữ liệu phân phối đều được chia thành bốn phần:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="mf">0.34</span><span class="p">,</span> <span class="mf">0.55</span><span class="p">],</span> <span class="p">(</span><span class="mf">0.34</span><span class="p">,</span> <span class="mf">0.55</span><span class="p">],</span> <span class="p">(</span><span class="mf">0.76</span><span class="p">,</span> <span class="mf">0.97</span><span class="p">],</span> <span class="p">(</span><span class="mf">0.76</span><span class="p">,</span> <span class="mf">0.97</span><span class="p">],</span> <span class="p">(</span><span class="mf">0.34</span><span class="p">,</span> <span class="mf">0.55</span><span class="p">],</span> <span class="o">...</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.34</span><span class="p">,</span> <span class="mf">0.55</span><span class="p">],</span> <span class="p">(</span><span class="mf">0.34</span><span class="p">,</span> <span class="mf">0.55</span><span class="p">],</span> <span class="p">(</span><span class="mf">0.55</span><span class="p">,</span> <span class="mf">0.76</span><span class="p">],</span> <span class="p">(</span><span class="mf">0.34</span><span class="p">,</span> <span class="mf">0.55</span><span class="p">],</span> <span class="p">(</span><span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.34</span><span class="p">]]</span>
+<span class="n">Length</span><span class="p">:</span> <span class="mi">20</span>
+<span class="n">Categories</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">interval</span><span class="p">[</span><span class="n">float64</span><span class="p">]):</span> <span class="p">[(</span><span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.34</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">0.34</span><span class="p">,</span> <span class="mf">0.55</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">0.55</span><span class="p">,</span> <span class="mf">0.76</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">0.76</span><span class="p">,</span> <span class="mf">0.97</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Tùy chọn precision=2 giới hạn độ chính xác của số thập phân thành hai chữ số.</p>
+<p>Một hàm liên quan chặt chẽ, qcut, đưa dữ liệu vào các bin dựa trên các phân vị mẫu. Tùy thuộc vào phân phối của dữ liệu, sử dụng cut thường sẽ không dẫn đến mỗi bin có cùng số điểm dữ liệu. Vì qcut sử dụng các phân vị mẫu, theo định nghĩa sẽ thu được các bin có kích thước xấp xỉ bằng nhau:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="c1"># Phân phối chuẩn</span>
+<span class="n">cats</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="c1"># Chia thành bốn phần</span>
+<span class="n">cats</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">cats</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="o">-</span><span class="mf">0.0265</span><span class="p">,</span> <span class="mf">0.62</span><span class="p">],</span> <span class="p">(</span><span class="mf">0.62</span><span class="p">,</span> <span class="mf">3.928</span><span class="p">],</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.68</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0265</span><span class="p">],</span> <span class="p">(</span><span class="mf">0.62</span><span class="p">,</span> <span class="mf">3.928</span><span class="p">],</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.0265</span><span class="p">,</span> <span class="mf">0.62</span><span class="p">],</span> <span class="o">...</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.68</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0265</span><span class="p">],</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.68</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0265</span><span class="p">],</span> <span class="p">(</span><span class="o">-</span><span class="mf">2.95</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.68</span><span class="p">],</span> <span class="p">(</span><span class="mf">0.62</span><span class="p">,</span> <span class="mf">3.928</span><span class="p">],</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.68</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0265</span><span class="p">]]</span>
+<span class="n">Length</span><span class="p">:</span> <span class="mi">1000</span>
+<span class="n">Categories</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">interval</span><span class="p">[</span><span class="n">float64</span><span class="p">]):</span> <span class="p">[(</span><span class="o">-</span><span class="mf">2.95</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.68</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.68</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0265</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.0265</span><span class="p">,</span> <span class="mf">0.62</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">0.62</span><span class="p">,</span> <span class="mf">3.928</span><span class="p">]]</span>
+
+<span class="p">(</span><span class="mf">0.62</span><span class="p">,</span> <span class="mf">3.928</span><span class="p">]</span>        <span class="mi">250</span>
+<span class="p">(</span><span class="o">-</span><span class="mf">0.0265</span><span class="p">,</span> <span class="mf">0.62</span><span class="p">]</span>      <span class="mi">250</span>
+<span class="p">(</span><span class="o">-</span><span class="mf">0.68</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0265</span><span class="p">]</span>     <span class="mi">250</span>
+<span class="p">(</span><span class="o">-</span><span class="mf">2.95</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.68</span><span class="p">]</span>       <span class="mi">250</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+</pre></div>
+</div>
+<p>Tương tự như cut, có thể truyền các phân vị riêng (các số từ 0 đến 1, bao gồm):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="o">-</span><span class="mf">0.0265</span><span class="p">,</span> <span class="mf">1.286</span><span class="p">],</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.0265</span><span class="p">,</span> <span class="mf">1.286</span><span class="p">],</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.187</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0265</span><span class="p">],</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.0265</span><span class="p">,</span> <span class="mf">1.286</span><span class="p">],</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.0265</span><span class="p">,</span> <span class="mf">1.286</span><span class="p">],</span> <span class="o">...</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.187</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0265</span><span class="p">],</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.187</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0265</span><span class="p">],</span> <span class="p">(</span><span class="o">-</span><span class="mf">2.95</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.187</span><span class="p">],</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.0265</span><span class="p">,</span> <span class="mf">1.286</span><span class="p">],</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.187</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0265</span><span class="p">]]</span>
+<span class="n">Length</span><span class="p">:</span> <span class="mi">1000</span>
+<span class="n">Categories</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">interval</span><span class="p">[</span><span class="n">float64</span><span class="p">]):</span> <span class="p">[(</span><span class="o">-</span><span class="mf">2.95</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.187</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.187</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0265</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.0265</span><span class="p">,</span> <span class="mf">1.286</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">1.286</span><span class="p">,</span> <span class="mf">3.928</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Sẽ quay lại với cut và qcut sau trong chương khi thảo luận về tổng hợp và các thao tác nhóm, vì các hàm phân loại này đặc biệt hữu ích cho phân tích phân vị và nhóm.</p>
+</section>
+<section id="phat-hien-va-loc-ngoai-le">
+<h1>Phát Hiện và Lọc Ngoại Lệ<a class="headerlink" href="#phat-hien-va-loc-ngoai-le" title="Link to this heading">#</a></h1>
+<p>Lọc hoặc biến đổi ngoại lệ chủ yếu là việc áp dụng các thao tác trên mảng. Hãy xem xét một DataFrame với một số dữ liệu phân phối chuẩn:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>              <span class="mi">0</span>            <span class="mi">1</span>            <span class="mi">2</span>            <span class="mi">3</span>
+<span class="n">count</span>  <span class="mf">1000.000000</span>  <span class="mf">1000.000000</span>  <span class="mf">1000.000000</span>  <span class="mf">1000.000000</span>
+<span class="n">mean</span>      <span class="mf">0.049091</span>     <span class="mf">0.026112</span>    <span class="o">-</span><span class="mf">0.002544</span>    <span class="o">-</span><span class="mf">0.051827</span>
+<span class="n">std</span>       <span class="mf">0.996947</span>     <span class="mf">1.007458</span>     <span class="mf">0.995232</span>     <span class="mf">0.998311</span>
+<span class="nb">min</span>      <span class="o">-</span><span class="mf">3.645860</span>    <span class="o">-</span><span class="mf">3.184377</span>    <span class="o">-</span><span class="mf">3.745356</span>    <span class="o">-</span><span class="mf">3.428254</span>
+<span class="mi">25</span><span class="o">%</span>      <span class="o">-</span><span class="mf">0.599807</span>    <span class="o">-</span><span class="mf">0.612162</span>    <span class="o">-</span><span class="mf">0.687373</span>    <span class="o">-</span><span class="mf">0.747478</span>
+<span class="mi">50</span><span class="o">%</span>       <span class="mf">0.047101</span>    <span class="o">-</span><span class="mf">0.013609</span>    <span class="o">-</span><span class="mf">0.022158</span>    <span class="o">-</span><span class="mf">0.088274</span>
+<span class="mi">75</span><span class="o">%</span>       <span class="mf">0.756646</span>     <span class="mf">0.695298</span>     <span class="mf">0.699046</span>     <span class="mf">0.623331</span>
+<span class="nb">max</span>       <span class="mf">2.653656</span>     <span class="mf">3.525865</span>     <span class="mf">2.735527</span>     <span class="mf">3.366626</span>
+</pre></div>
+</div>
+<p>Giả sử muốn tìm các giá trị trong một trong các cột vượt quá 3 theo giá trị tuyệt đối:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">col</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">col</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">col</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">41</span>    <span class="o">-</span><span class="mf">3.399312</span>
+<span class="mi">136</span>   <span class="o">-</span><span class="mf">3.745356</span>
+<span class="n">Name</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<p>Để chọn tất cả các hàng có giá trị vượt quá 3 hoặc –3, có thể sử dụng phương thức any trên một DataFrame boolean:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>            <span class="mi">0</span>         <span class="mi">1</span>         <span class="mi">2</span>         <span class="mi">3</span>
+<span class="mi">41</span>   <span class="mf">0.457246</span> <span class="o">-</span><span class="mf">0.025907</span> <span class="o">-</span><span class="mf">3.399312</span> <span class="o">-</span><span class="mf">0.974657</span>
+<span class="mi">60</span>   <span class="mf">1.951312</span>  <span class="mf">3.260383</span>  <span class="mf">0.963301</span>  <span class="mf">1.201206</span>
+<span class="mi">136</span>  <span class="mf">0.508391</span> <span class="o">-</span><span class="mf">0.196713</span> <span class="o">-</span><span class="mf">3.745356</span> <span class="o">-</span><span class="mf">1.520113</span>
+<span class="mi">235</span> <span class="o">-</span><span class="mf">0.242459</span> <span class="o">-</span><span class="mf">3.056990</span>  <span class="mf">1.918403</span> <span class="o">-</span><span class="mf">0.578828</span>
+<span class="mi">258</span>  <span class="mf">0.682841</span>  <span class="mf">0.326045</span>  <span class="mf">0.425384</span> <span class="o">-</span><span class="mf">3.428254</span>
+<span class="mi">322</span>  <span class="mf">1.179227</span> <span class="o">-</span><span class="mf">3.184377</span>  <span class="mf">1.369891</span> <span class="o">-</span><span class="mf">1.074833</span>
+<span class="mi">544</span> <span class="o">-</span><span class="mf">3.548824</span>  <span class="mf">1.553205</span> <span class="o">-</span><span class="mf">2.186301</span>  <span class="mf">1.277104</span>
+<span class="mi">635</span> <span class="o">-</span><span class="mf">0.578093</span>  <span class="mf">0.193299</span>  <span class="mf">1.397822</span>  <span class="mf">3.366626</span>
+<span class="mi">782</span> <span class="o">-</span><span class="mf">0.207434</span>  <span class="mf">3.525865</span>  <span class="mf">0.283070</span>  <span class="mf">0.544635</span>
+<span class="mi">803</span> <span class="o">-</span><span class="mf">3.645860</span>  <span class="mf">0.255475</span> <span class="o">-</span><span class="mf">0.549574</span> <span class="o">-</span><span class="mf">1.907459</span>
+</pre></div>
+</div>
+<p>Các giá trị có thể được đặt dựa trên các tiêu chí này. Dưới đây là mã để giới hạn các giá trị ngoài khoảng –3 đến 3:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>              <span class="mi">0</span>            <span class="mi">1</span>            <span class="mi">2</span>            <span class="mi">3</span>
+<span class="n">count</span>  <span class="mf">1000.000000</span>  <span class="mf">1000.000000</span>  <span class="mf">1000.000000</span>  <span class="mf">1000.000000</span>
+<span class="n">mean</span>      <span class="mf">0.050286</span>     <span class="mf">0.025567</span>    <span class="o">-</span><span class="mf">0.001399</span>    <span class="o">-</span><span class="mf">0.051765</span>
+<span class="n">std</span>       <span class="mf">0.992920</span>     <span class="mf">1.004214</span>     <span class="mf">0.991414</span>     <span class="mf">0.995761</span>
+<span class="nb">min</span>      <span class="o">-</span><span class="mf">3.000000</span>    <span class="o">-</span><span class="mf">3.000000</span>    <span class="o">-</span><span class="mf">3.000000</span>    <span class="o">-</span><span class="mf">3.000000</span>
+<span class="mi">25</span><span class="o">%</span>      <span class="o">-</span><span class="mf">0.599807</span>    <span class="o">-</span><span class="mf">0.612162</span>    <span class="o">-</span><span class="mf">0.687373</span>    <span class="o">-</span><span class="mf">0.747478</span>
+<span class="mi">50</span><span class="o">%</span>       <span class="mf">0.047101</span>    <span class="o">-</span><span class="mf">0.013609</span>    <span class="o">-</span><span class="mf">0.022158</span>    <span class="o">-</span><span class="mf">0.088274</span>
+<span class="mi">75</span><span class="o">%</span>       <span class="mf">0.756646</span>     <span class="mf">0.695298</span>     <span class="mf">0.699046</span>     <span class="mf">0.623331</span>
+<span class="nb">max</span>       <span class="mf">2.653656</span>     <span class="mf">3.000000</span>     <span class="mf">2.735527</span>     <span class="mf">3.000000</span>
+</pre></div>
+</div>
+<p>Câu lệnh np.sign(data) tạo ra các giá trị 1 và –1 dựa trên việc các giá trị trong data là dương hay âm:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>     <span class="mi">0</span>    <span class="mi">1</span>    <span class="mi">2</span>    <span class="mi">3</span>
+<span class="mi">0</span> <span class="o">-</span><span class="mf">1.0</span>  <span class="mf">1.0</span> <span class="o">-</span><span class="mf">1.0</span>  <span class="mf">1.0</span>
+<span class="mi">1</span>  <span class="mf">1.0</span> <span class="o">-</span><span class="mf">1.0</span>  <span class="mf">1.0</span> <span class="o">-</span><span class="mf">1.0</span>
+<span class="mi">2</span>  <span class="mf">1.0</span>  <span class="mf">1.0</span>  <span class="mf">1.0</span> <span class="o">-</span><span class="mf">1.0</span>
+<span class="mi">3</span> <span class="o">-</span><span class="mf">1.0</span> <span class="o">-</span><span class="mf">1.0</span>  <span class="mf">1.0</span> <span class="o">-</span><span class="mf">1.0</span>
+<span class="mi">4</span> <span class="o">-</span><span class="mf">1.0</span>  <span class="mf">1.0</span> <span class="o">-</span><span class="mf">1.0</span> <span class="o">-</span><span class="mf">1.0</span>
+</pre></div>
+</div>
+</section>
+<section id="hoan-vi-va-lay-mau-ngau-nhien">
+<h1>Hoán Vị và Lấy Mẫu Ngẫu Nhiên<a class="headerlink" href="#hoan-vi-va-lay-mau-ngau-nhien" title="Link to this heading">#</a></h1>
+<p>Hoán vị (xáo trộn ngẫu nhiên) một Series hoặc các hàng trong DataFrame rất dễ dàng bằng cách sử dụng hàm <code class="docutils literal notranslate"><span class="pre">numpy.random.permutation</span></code>. Gọi hàm permutation với chiều dài của trục bạn muốn hoán vị sẽ tạo ra một mảng số nguyên chỉ định thứ tự mới:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)))</span>
+<span class="n">sampler</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">sampler</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Mảng đó sau đó có thể được sử dụng trong lập chỉ mục dựa trên iloc hoặc hàm take tương đương:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+<span class="n">df</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">sampler</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>     <span class="mi">0</span>  <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">3</span>
+<span class="mi">0</span>    <span class="mi">0</span>  <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">3</span>
+<span class="mi">1</span>    <span class="mi">4</span>  <span class="mi">5</span>   <span class="mi">6</span>   <span class="mi">7</span>
+<span class="mi">2</span>    <span class="mi">8</span>  <span class="mi">9</span>  <span class="mi">10</span>  <span class="mi">11</span>
+<span class="mi">3</span>   <span class="mi">12</span> <span class="mi">13</span>  <span class="mi">14</span>  <span class="mi">15</span>
+<span class="mi">4</span>   <span class="mi">16</span> <span class="mi">17</span>  <span class="mi">18</span>  <span class="mi">19</span>
+
+     <span class="mi">0</span>   <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">3</span>
+<span class="mi">3</span>   <span class="mi">12</span>  <span class="mi">13</span>  <span class="mi">14</span>  <span class="mi">15</span>
+<span class="mi">1</span>    <span class="mi">4</span>   <span class="mi">5</span>   <span class="mi">6</span>   <span class="mi">7</span>
+<span class="mi">4</span>   <span class="mi">16</span>  <span class="mi">17</span>  <span class="mi">18</span>  <span class="mi">19</span>
+<span class="mi">2</span>    <span class="mi">8</span>   <span class="mi">9</span>  <span class="mi">10</span>  <span class="mi">11</span>
+<span class="mi">0</span>    <span class="mi">0</span>   <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">3</span>
+</pre></div>
+</div>
+<p>Để chọn một tập hợp con ngẫu nhiên không lặp lại, có thể sử dụng phương thức sample trên Series và DataFrame:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>     <span class="mi">0</span>   <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">3</span>
+<span class="mi">3</span>   <span class="mi">12</span>  <span class="mi">13</span>  <span class="mi">14</span>  <span class="mi">15</span>
+<span class="mi">4</span>   <span class="mi">16</span>  <span class="mi">17</span>  <span class="mi">18</span>  <span class="mi">19</span>
+<span class="mi">2</span>    <span class="mi">8</span>   <span class="mi">9</span>  <span class="mi">10</span>  <span class="mi">11</span>
+</pre></div>
+</div>
+<p>Để tạo một mẫu với lặp lại (cho phép chọn lặp lại), truyền replace=True vào sample:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">choices</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">draws</span> <span class="o">=</span> <span class="n">choices</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">draws</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span>    <span class="mi">4</span>
+<span class="mi">1</span>    <span class="mi">7</span>
+<span class="mi">4</span>    <span class="mi">4</span>
+<span class="mi">2</span>   <span class="o">-</span><span class="mi">1</span>
+<span class="mi">0</span>    <span class="mi">5</span>
+<span class="mi">3</span>    <span class="mi">6</span>
+<span class="mi">1</span>    <span class="mi">7</span>
+<span class="mi">4</span>    <span class="mi">4</span>
+<span class="mi">0</span>    <span class="mi">5</span>
+<span class="mi">4</span>    <span class="mi">4</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+</pre></div>
+</div>
+</section>
+<section id="tinh-toan-bien-chi-thi-bien-gia">
+<h1>Tính Toán Biến Chỉ Thị/Biến Giả<a class="headerlink" href="#tinh-toan-bien-chi-thi-bien-gia" title="Link to this heading">#</a></h1>
+<p>Một loại biến đổi khác cho các ứng dụng mô hình hóa thống kê hoặc học máy là chuyển đổi biến phân loại thành ma trận “giả” hoặc “chỉ thị”. Nếu một cột trong DataFrame có k giá trị khác nhau, bạn sẽ tạo ra một ma trận hoặc DataFrame với k cột chứa toàn bộ các giá trị 1 và 0. pandas có hàm <code class="docutils literal notranslate"><span class="pre">get_dummies</span></code> để làm điều này, mặc dù việc tự viết một hàm không khó. Hãy quay lại một ví dụ DataFrame trước đây:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span>
+                   <span class="s1">&#39;data1&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)})</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>   <span class="n">a</span>  <span class="n">b</span>  <span class="n">c</span>
+<span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">0</span>
+<span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">0</span>
+<span class="mi">2</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>
+<span class="mi">3</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">1</span>
+<span class="mi">4</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>
+<span class="mi">5</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">0</span>
+</pre></div>
+</div>
+<p>Trong một số trường hợp, bạn có thể muốn thêm tiền tố vào các cột trong DataFrame chỉ thị, sau đó có thể được hợp nhất với dữ liệu khác. get_dummies có một đối số prefix để làm điều này:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dummies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;key&#39;</span><span class="p">)</span>
+<span class="n">df_with_dummy</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;data1&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dummies</span><span class="p">)</span>
+<span class="n">df_with_dummy</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>   <span class="n">data1</span>  <span class="n">key_a</span>  <span class="n">key_b</span>  <span class="n">key_c</span>
+<span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">1</span>      <span class="mi">0</span>
+<span class="mi">1</span>      <span class="mi">1</span>      <span class="mi">0</span>      <span class="mi">1</span>      <span class="mi">0</span>
+<span class="mi">2</span>      <span class="mi">2</span>      <span class="mi">1</span>      <span class="mi">0</span>      <span class="mi">0</span>
+<span class="mi">3</span>      <span class="mi">3</span>      <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">1</span>
+<span class="mi">4</span>      <span class="mi">4</span>      <span class="mi">1</span>      <span class="mi">0</span>      <span class="mi">0</span>
+<span class="mi">5</span>      <span class="mi">5</span>      <span class="mi">0</span>      <span class="mi">1</span>      <span class="mi">0</span>
+</pre></div>
+</div>
+<p>Nếu một hàng trong DataFrame thuộc về nhiều danh mục, mọi thứ sẽ phức tạp hơn. Hãy xem xét tập dữ liệu MovieLens 1M, được nghiên cứu chi tiết hơn trong Chương 14:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;movie_id&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;genres&#39;</span><span class="p">]</span>
+<span class="n">movies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;datasets/movielens/movies.dat&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;::&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">mnames</span><span class="p">)</span>
+<span class="n">movies</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>   <span class="n">movie_id</span>                                        <span class="n">title</span>                         <span class="n">genres</span>
+<span class="mi">0</span>         <span class="mi">1</span>                             <span class="n">Toy</span> <span class="n">Story</span> <span class="p">(</span><span class="mi">1995</span><span class="p">)</span>     <span class="n">Animation</span><span class="o">|</span><span class="n">Children</span><span class="s1">&#39;s|Comedy</span>
+<span class="mi">1</span>         <span class="mi">2</span>                               <span class="n">Jumanji</span> <span class="p">(</span><span class="mi">1995</span><span class="p">)</span>         <span class="n">Adventure</span><span class="o">|</span><span class="n">Children</span><span class="s1">&#39;s|Fantasy</span>
+<span class="mi">2</span>         <span class="mi">3</span>                     <span class="n">Grumpier</span> <span class="n">Old</span> <span class="n">Men</span> <span class="p">(</span><span class="mi">1995</span><span class="p">)</span>                          <span class="n">Comedy</span><span class="o">|</span><span class="n">Romance</span>
+<span class="mi">3</span>         <span class="mi">4</span>                    <span class="n">Waiting</span> <span class="n">to</span> <span class="n">Exhale</span> <span class="p">(</span><span class="mi">1995</span><span class="p">)</span>                         <span class="n">Comedy</span><span class="o">|</span><span class="n">Drama</span>
+<span class="mi">4</span>         <span class="mi">5</span>      <span class="n">Father</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Bride</span> <span class="n">Part</span> <span class="n">II</span> <span class="p">(</span><span class="mi">1995</span><span class="p">)</span>                        <span class="n">Comedy</span>
+<span class="mi">5</span>         <span class="mi">6</span>                                    <span class="n">Heat</span> <span class="p">(</span><span class="mi">1995</span><span class="p">)</span>                    <span class="n">Action</span><span class="o">|</span><span class="n">Crime</span><span class="o">|</span><span class="n">Thriller</span>
+<span class="mi">6</span>         <span class="mi">7</span>                                 <span class="n">Sabrina</span> <span class="p">(</span><span class="mi">1995</span><span class="p">)</span>                       <span class="n">Comedy</span><span class="o">|</span><span class="n">Romance</span>
+<span class="mi">7</span>         <span class="mi">8</span>                               <span class="n">Tom</span> <span class="ow">and</span> <span class="n">Huck</span> <span class="p">(</span><span class="mi">1995</span><span class="p">)</span>                    <span class="n">Adventure</span><span class="o">|</span><span class="n">Children</span><span class="s1">&#39;s</span>
+<span class="mi">8</span>         <span class="mi">9</span>                               <span class="n">Sudden</span> <span class="n">Death</span> <span class="p">(</span><span class="mi">1995</span><span class="p">)</span>                    <span class="n">Action</span>
+<span class="mi">9</span>        <span class="mi">10</span>                               <span class="n">GoldenEye</span> <span class="p">(</span><span class="mi">1995</span><span class="p">)</span>                 <span class="n">Action</span><span class="o">|</span><span class="n">Adventure</span><span class="o">|</span><span class="n">Thriller</span>
+</pre></div>
+</div>
+<p>Thêm các biến chỉ thị cho mỗi thể loại yêu cầu một số xử lý. Đầu tiên, hãy trích xuất danh sách các thể loại duy nhất trong tập dữ liệu:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">all_genres</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">movies</span><span class="o">.</span><span class="n">genres</span><span class="p">:</span>
+    <span class="n">all_genres</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">))</span>
+<span class="n">genres</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">all_genres</span><span class="p">)</span>
+<span class="n">genres</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;Animation&#39;</span><span class="p">,</span> <span class="s2">&quot;Children&#39;s&quot;</span><span class="p">,</span> <span class="s1">&#39;Comedy&#39;</span><span class="p">,</span> <span class="s1">&#39;Adventure&#39;</span><span class="p">,</span> <span class="s1">&#39;Fantasy&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;Romance&#39;</span><span class="p">,</span> <span class="s1">&#39;Drama&#39;</span><span class="p">,</span> <span class="s1">&#39;Action&#39;</span><span class="p">,</span> <span class="s1">&#39;Crime&#39;</span><span class="p">,</span> <span class="s1">&#39;Thriller&#39;</span><span class="p">,</span> <span class="s1">&#39;Horror&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;Sci-Fi&#39;</span><span class="p">,</span> <span class="s1">&#39;Documentary&#39;</span><span class="p">,</span> <span class="s1">&#39;War&#39;</span><span class="p">,</span> <span class="s1">&#39;Musical&#39;</span><span class="p">,</span> <span class="s1">&#39;Mystery&#39;</span><span class="p">,</span> <span class="s1">&#39;Film-Noir&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;Western&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Một cách để tạo DataFrame chỉ thị là bắt đầu với một DataFrame toàn bộ là số 0:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">zero_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">movies</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">genres</span><span class="p">)))</span>
+<span class="n">dummies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">zero_matrix</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">genres</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Bây giờ, lặp qua từng bộ phim và đặt các giá trị trong mỗi hàng của dummies thành 1. Để làm điều này, sử dụng dummies.columns để tính toán các chỉ mục cột cho từng thể loại:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gen</span> <span class="o">=</span> <span class="n">movies</span><span class="o">.</span><span class="n">genres</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">gen</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)</span>
+<span class="n">dummies</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_indexer</span><span class="p">(</span><span class="n">gen</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Sau đó, có thể sử dụng .iloc để đặt các giá trị dựa trên các chỉ mục này:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">gen</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">movies</span><span class="o">.</span><span class="n">genres</span><span class="p">):</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="n">dummies</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_indexer</span><span class="p">(</span><span class="n">gen</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">))</span>
+    <span class="n">dummies</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">indices</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Sau đó, như trước đây, có thể kết hợp điều này với movies:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">movies_windic</span> <span class="o">=</span> <span class="n">movies</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dummies</span><span class="o">.</span><span class="n">add_prefix</span><span class="p">(</span><span class="s1">&#39;Genre_&#39;</span><span class="p">))</span>
+<span class="n">movies_windic</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">movie_id</span>                                 <span class="mi">1</span>
+<span class="n">title</span>                   <span class="n">Toy</span> <span class="n">Story</span> <span class="p">(</span><span class="mi">1995</span><span class="p">)</span>
+<span class="n">genres</span>        <span class="n">Animation</span><span class="o">|</span><span class="n">Children</span><span class="s1">&#39;s|Comedy</span>
+<span class="n">Genre_Animation</span>                          <span class="mi">1</span>
+<span class="n">Genre_Children</span><span class="s1">&#39;s                         1</span>
+<span class="n">Genre_Comedy</span>                             <span class="mi">1</span>
+<span class="n">Genre_Adventure</span>                          <span class="mi">0</span>
+<span class="n">Genre_Fantasy</span>                            <span class="mi">0</span>
+<span class="n">Genre_Romance</span>                            <span class="mi">0</span>
+<span class="n">Genre_Drama</span>                              <span class="mi">0</span>
+<span class="o">...</span>
+<span class="n">Genre_Crime</span>                              <span class="mi">0</span>
+<span class="n">Genre_Thriller</span>                           <span class="mi">0</span>
+<span class="n">Genre_Horror</span>                             <span class="mi">0</span>
+<span class="n">Genre_Sci</span><span class="o">-</span><span class="n">Fi</span>                             <span class="mi">0</span>
+<span class="n">Genre_Documentary</span>                        <span class="mi">0</span>
+<span class="n">Genre_War</span>                                <span class="mi">0</span>
+<span class="n">Genre_Musical</span>                            <span class="mi">0</span>
+<span class="n">Genre_Mystery</span>                            <span class="mi">0</span>
+<span class="n">Genre_Film</span><span class="o">-</span><span class="n">Noir</span>                          <span class="mi">0</span>
+<span class="n">Genre_Western</span>                            <span class="mi">0</span>
+<span class="n">Name</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Length</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
+</pre></div>
+</div>
+<p>Với dữ liệu lớn hơn nhiều, phương pháp này không đặc biệt nhanh chóng. Tốt hơn là viết một hàm cấp thấp hơn viết trực tiếp vào một mảng NumPy và sau đó bao quanh kết quả trong một DataFrame.</p>
+<p>Một công thức hữu ích cho các ứng dụng thống kê là kết hợp get_dummies với một hàm phân loại như cut:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">12345</span><span class="p">)</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">values</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>   <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]</span>  <span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]</span>  <span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">]</span>  <span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">]</span>  <span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+<span class="mi">0</span>           <span class="mi">0</span>          <span class="mi">0</span>          <span class="mi">0</span>          <span class="mi">0</span>          <span class="mi">1</span>
+<span class="mi">1</span>           <span class="mi">0</span>          <span class="mi">1</span>          <span class="mi">0</span>          <span class="mi">0</span>          <span class="mi">0</span>
+<span class="mi">2</span>           <span class="mi">1</span>          <span class="mi">0</span>          <span class="mi">0</span>          <span class="mi">0</span>          <span class="mi">0</span>
+<span class="mi">3</span>           <span class="mi">0</span>          <span class="mi">1</span>          <span class="mi">0</span>          <span class="mi">0</span>          <span class="mi">0</span>
+<span class="mi">4</span>           <span class="mi">0</span>          <span class="mi">0</span>          <span class="mi">1</span>          <span class="mi">0</span>          <span class="mi">0</span>
+<span class="mi">5</span>           <span class="mi">0</span>          <span class="mi">0</span>          <span class="mi">1</span>          <span class="mi">0</span>          <span class="mi">0</span>
+<span class="mi">6</span>           <span class="mi">0</span>          <span class="mi">0</span>          <span class="mi">0</span>          <span class="mi">0</span>          <span class="mi">1</span>
+<span class="mi">7</span>           <span class="mi">0</span>          <span class="mi">0</span>          <span class="mi">0</span>          <span class="mi">1</span>          <span class="mi">0</span>
+<span class="mi">8</span>           <span class="mi">0</span>          <span class="mi">0</span>          <span class="mi">0</span>          <span class="mi">1</span>          <span class="mi">0</span>
+<span class="mi">9</span>           <span class="mi">0</span>          <span class="mi">0</span>          <span class="mi">0</span>          <span class="mi">1</span>          <span class="mi">0</span>
+</pre></div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Handling.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Xử Lý Dữ Liệu Thiếu</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="DataWrangling.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Biến Đổi và Kết Hợp Dữ Liệu</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Biến Đổi Dữ Liệu</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loai-bo-du-lieu-trung-lap">Loại Bỏ Dữ Liệu Trùng Lặp</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bien-doi-du-lieu-su-dung-ham-hoac-anh-xa">Biến Đổi Dữ Liệu Sử Dụng Hàm hoặc Ánh Xạ</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#thay-the-gia-tri">Thay Thế Giá Trị</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#phan-loai-va-dua-du-lieu-vao-cac-khoang">Phân Loại và Đưa Dữ Liệu Vào Các Khoảng</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#phat-hien-va-loc-ngoai-le">Phát Hiện và Lọc Ngoại Lệ</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hoan-vi-va-lay-mau-ngau-nhien">Hoán Vị và Lấy Mẫu Ngẫu Nhiên</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tinh-toan-bien-chi-thi-bien-gia">Tính Toán Biến Chỉ Thị/Biến Giả</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

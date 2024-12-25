@@ -1,0 +1,800 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Đối Tượng Mảng N Chiều NumPy: Một Đối Tượng Mảng Đa Chiều &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ndarray';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Phép toán với Mảng NumPy" href="Arithmetic.html" />
+    <link rel="prev" title="Cơ Bản Về NumPy: Mảng và Tính Toán Vector hóa" href="Numpy.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="My sample book - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="tongquan.html">Tổng quan về NumPy và Pandas</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Numpy.html">NumPy Cơ Bản Mảng và Tính Toán Vector</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Đối Tượng Mảng N Chiều NumPy: Một Đối Tượng Mảng Đa Chiều</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="Arithmetic.html">Các Phép Toán trên Mảng</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UniversalFunctions.html">Hàm Toàn Cục: Các Hàm Mảng Nhanh Theo Phần Tử</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="InputOutput.html">Nhập/Xuất Dữ Liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Khac.html">Đại Số Tuyến Tính với NumPy</a></li>
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Pandas.html">Pandas cơ bản</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures.html">Giới Thiệu Cấu Trúc Dữ Liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EssentialFunctionality.html">Các Chức Năng Cơ Bản</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="DataCleaning.html">Làm Sạch và Chuẩn Bị Dữ Liệu</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Handling.html">Xử Lý Dữ Liệu Thiếu</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="DataWrangling.html">Biến Đổi và Kết Hợp Dữ Liệu</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Indexing.html">Đánh Chỉ Mục Phân Cấp</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="Combining.html">Kết Hợp Dữ Liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Reshaping.html">Biến Đổi Dữ Liệu</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fndarray.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ndarray.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Đối Tượng Mảng N Chiều NumPy: Một Đối Tượng Mảng Đa Chiều</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Đối Tượng Mảng N Chiều NumPy: Một Đối Tượng Mảng Đa Chiều</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-du-co-ban-ve-mang-numpy">Ví Dụ Cơ Bản Về Mảng NumPy</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tao-ndarrays">Tạo ndarrays</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-ham-tao-mang">Các Hàm Tạo Mảng</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-kieu-du-lieu-cho-ndarrays">Các Kiểu Dữ Liệu cho ndarrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-4-2-cac-kieu-du-lieu-cua-numpy">Bảng 4-2. Các Kiểu Dữ Liệu của NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chuyen-doi-kieu-du-lieu">Chuyển Đổi Kiểu Dữ Liệu</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="doi-tuong-mang-n-chieu-numpy-mot-doi-tuong-mang-da-chieu">
+<h1>Đối Tượng Mảng N Chiều NumPy: Một Đối Tượng Mảng Đa Chiều<a class="headerlink" href="#doi-tuong-mang-n-chieu-numpy-mot-doi-tuong-mang-da-chieu" title="Link to this heading">#</a></h1>
+<p>Một trong những tính năng chính của <strong>NumPy</strong> là đối tượng mảng N chiều, hay <strong>ndarray</strong>, là một container nhanh chóng và linh hoạt cho các tập dữ liệu lớn trong Python. Các mảng cho phép bạn thực hiện các phép toán toán học trên toàn bộ khối dữ liệu bằng cách sử dụng cú pháp tương tự như các phép toán tương đương giữa các phần tử vô hướng.</p>
+<section id="vi-du-co-ban-ve-mang-numpy">
+<h2>Ví Dụ Cơ Bản Về Mảng NumPy<a class="headerlink" href="#vi-du-co-ban-ve-mang-numpy" title="Link to this heading">#</a></h2>
+<p>Để cung cấp cho bạn một cái nhìn tổng quan về cách <strong>NumPy</strong> cho phép thực hiện các phép toán theo lô với cú pháp tương tự như các giá trị vô hướng trên các đối tượng tích hợp sẵn của Python, tôi sẽ nhập <strong>NumPy</strong> và tạo ra một mảng nhỏ dữ liệu ngẫu nhiên:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Tạo một số dữ liệu ngẫu nhiên</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">(</span><span class="s">[[-0.2047,  0.4789, -0.5194],</span>
+<span class="s">       [-0.5557,  1.9658,  1.3934]]</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nhân tất cả các phần tử với 10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Cộng các phần tử tương ứng trong mỗi hàng</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span> <span class="o">+</span> <span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">(</span><span class="s">[[-2.0471,  4.7894, -5.1944],</span>
+<span class="s">       [-5.5573, 19.6578, 13.9341]]</span><span class="p">)</span>
+
+<span class="n">array</span><span class="p">(</span><span class="s">[[-0.4094,  0.9579, -1.0389],</span>
+<span class="s">       [-1.1115,  3.9316,  2.7868]]</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Trong ví dụ đầu tiên, tất cả các phần tử trong mảng đã được nhân với 10. Trong ví dụ thứ hai, các giá trị tương ứng trong mỗi “ô” trong mảng đã được cộng lại với nhau.</p>
+<p>Một ndarray là một container đa chiều tổng quát cho dữ liệu đồng nhất, tức là tất cả các phần tử phải cùng loại. Mỗi mảng có:</p>
+<p><strong>shape</strong>: Một tuple chỉ ra kích thước của mỗi chiều.</p>
+<p><strong>dtype</strong>: Một đối tượng mô tả kiểu dữ liệu của mảng.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># (2, 3)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>  <span class="c1"># dtype(&#39;float64&#39;)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="tao-ndarrays">
+<h1>Tạo ndarrays<a class="headerlink" href="#tao-ndarrays" title="Link to this heading">#</a></h1>
+<p>Cách dễ nhất để tạo một mảng là sử dụng hàm <code class="docutils literal notranslate"><span class="pre">array</span></code>. Hàm này chấp nhận bất kỳ đối tượng giống như chuỗi nào (bao gồm cả các mảng khác) và tạo ra một mảng <strong>NumPy</strong> mới chứa dữ liệu đã được truyền vào.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arr1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span> <span class="mf">6.</span> <span class="p">,</span> <span class="mf">7.5</span><span class="p">,</span> <span class="mf">8.</span> <span class="p">,</span> <span class="mf">0.</span> <span class="p">,</span> <span class="mf">1.</span> <span class="p">])</span>
+</pre></div>
+</div>
+<p>Các chuỗi lồng nhau, như một danh sách các danh sách có chiều dài bằng nhau, sẽ được chuyển đổi thành một mảng đa chiều:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data2</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]]</span>
+<span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arr2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">(</span><span class="s">[[1, 2, 3, 4],</span>
+<span class="s">       [5, 6, 7, 8]]</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Vì data2 là một danh sách các danh sách, mảng NumPy arr2 có hai chiều với hình dạng được suy diễn từ dữ liệu. Chúng ta có thể xác nhận điều này bằng cách kiểm tra các thuộc tính ndim và shape:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">arr2</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>  <span class="c1"># Số chiều của mảng</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arr2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># Hình dạng của mảng</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-scss notranslate"><div class="highlight"><pre><span></span><span class="nt">2</span>
+<span class="o">(</span><span class="nt">2</span><span class="o">,</span><span class="w"> </span><span class="nt">4</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Trừ khi được chỉ định rõ ràng (sẽ được đề cập sau), np.array cố gắng suy diễn một kiểu dữ liệu tốt cho mảng mà nó tạo ra. Kiểu dữ liệu được lưu trữ trong một đối tượng metadata dtype đặc biệt; ví dụ, trong hai ví dụ trên, chúng ta có:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">arr1</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>  <span class="c1"># dtype(&#39;float64&#39;)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arr2</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>  <span class="c1"># dtype(&#39;int64&#39;)</span>
+</pre></div>
+</div>
+<p>Ngoài np.array, còn có một số hàm khác để tạo ra các mảng mới. Ví dụ, zeros và ones tạo ra các mảng chứa toàn số 0 hoặc 1, tương ứng, với một chiều dài hoặc hình dạng nhất định. empty tạo ra một mảng mà không khởi tạo các giá trị của nó thành bất kỳ giá trị cụ thể nào. Để tạo ra một mảng có chiều cao hơn với các phương pháp này, hãy truyền một tuple cho hình dạng:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1"># Output: array([ 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="c1"># Output: array([[ 0., 0., 0., 0., 0., 0.],</span>
+<span class="c1">#                  [ 0., 0., 0., 0., 0., 0.],</span>
+<span class="c1">#                  [ 0., 0., 0., 0., 0., 0.]])</span>
+                  
+<span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="c1"># Output: array([[[ 0., 0.],</span>
+<span class="c1">#                   [ 0., 0.],</span>
+<span class="c1">#                   [ 0., 0.]],</span>
+<span class="c1">#                  [[ 0., 0.],</span>
+<span class="c1">#                   [ 0., 0.],</span>
+<span class="c1">#                   [ 0., 0.]]])</span>
+</pre></div>
+</div>
+<p>Lưu ý: Không an toàn khi giả định rằng np.empty sẽ trả về một mảng toàn số 0. Trong một số trường hợp, nó có thể trả về các giá trị “rác” chưa được khởi tạo.</p>
+<p>arange là một phiên bản mảng của hàm range tích hợp sẵn trong Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<span class="c1"># Output: array([ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14])</span>
+</pre></div>
+</div>
+<section id="cac-ham-tao-mang">
+<h2>Các Hàm Tạo Mảng<a class="headerlink" href="#cac-ham-tao-mang" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Hàm</p></th>
+<th class="head"><p>Mô tả</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">array</span></code></p></td>
+<td><p>Chuyển đổi dữ liệu đầu vào (danh sách, tuple, mảng hoặc loại chuỗi khác) thành một <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> bằng cách suy diễn một <code class="docutils literal notranslate"><span class="pre">dtype</span></code> hoặc chỉ định rõ ràng một <code class="docutils literal notranslate"><span class="pre">dtype</span></code>; sao chép dữ liệu đầu vào theo mặc định.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">asarray</span></code></p></td>
+<td><p>Chuyển đổi đầu vào thành <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>, nhưng không sao chép nếu đầu vào đã là một <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">arange</span></code></p></td>
+<td><p>Giống như hàm <code class="docutils literal notranslate"><span class="pre">range</span></code> tích hợp nhưng trả về một <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> thay vì một danh sách.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ones</span></code>, <code class="docutils literal notranslate"><span class="pre">ones_like</span></code></p></td>
+<td><p>Tạo ra một mảng chứa toàn số 1 với hình dạng và <code class="docutils literal notranslate"><span class="pre">dtype</span></code> đã cho; <code class="docutils literal notranslate"><span class="pre">ones_like</span></code> nhận một mảng khác và tạo ra một mảng chứa toàn số 1 có cùng hình dạng và <code class="docutils literal notranslate"><span class="pre">dtype</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">zeros</span></code>, <code class="docutils literal notranslate"><span class="pre">zeros_like</span></code></p></td>
+<td><p>Giống như <code class="docutils literal notranslate"><span class="pre">ones</span></code> và <code class="docutils literal notranslate"><span class="pre">ones_like</span></code> nhưng tạo ra các mảng chứa toàn số 0.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">empty</span></code>, <code class="docutils literal notranslate"><span class="pre">empty_like</span></code></p></td>
+<td><p>Tạo ra các mảng mới bằng cách cấp phát bộ nhớ mới, nhưng không điền vào bất kỳ giá trị nào như <code class="docutils literal notranslate"><span class="pre">ones</span></code> và <code class="docutils literal notranslate"><span class="pre">zeros</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">full</span></code>, <code class="docutils literal notranslate"><span class="pre">full_like</span></code></p></td>
+<td><p>Tạo ra một mảng có hình dạng và <code class="docutils literal notranslate"><span class="pre">dtype</span></code> đã cho với tất cả các giá trị được đặt thành “giá trị điền” đã chỉ định; <code class="docutils literal notranslate"><span class="pre">full_like</span></code> nhận một mảng khác và tạo ra một mảng đã điền có cùng hình dạng và <code class="docutils literal notranslate"><span class="pre">dtype</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">eye</span></code>, <code class="docutils literal notranslate"><span class="pre">identity</span></code></p></td>
+<td><p>Tạo ra một ma trận đơn vị vuông N × N (1s trên đường chéo và 0s ở những nơi khác).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>dịch theo phong cách học thuật để tôi có thể viết vào tài liệu
+Chắc chắn rồi! Dưới đây là bản dịch theo phong cách học thuật:</p>
+</section>
+<section id="cac-kieu-du-lieu-cho-ndarrays">
+<h2>Các Kiểu Dữ Liệu cho ndarrays<a class="headerlink" href="#cac-kieu-du-lieu-cho-ndarrays" title="Link to this heading">#</a></h2>
+<p>Kiểu dữ liệu (hay dtype) là một đối tượng đặc biệt trong NumPy chứa thông tin cần thiết để diễn giải một khối bộ nhớ dưới dạng một loại dữ liệu cụ thể. Ví dụ:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">33</span><span class="p">]:</span> <span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">34</span><span class="p">]:</span> <span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">35</span><span class="p">]:</span> <span class="n">arr1</span><span class="o">.</span><span class="n">dtype</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">35</span><span class="p">]:</span> <span class="n">dtype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">36</span><span class="p">]:</span> <span class="n">arr2</span><span class="o">.</span><span class="n">dtype</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">36</span><span class="p">]:</span> <span class="n">dtype</span><span class="p">(</span><span class="s1">&#39;int32&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>dtypes là yếu tố quan trọng cho sự linh hoạt của NumPy trong việc tương tác với dữ liệu từ các hệ thống khác nhau. Chúng cung cấp một ánh xạ trực tiếp đến đại diện đĩa hoặc bộ nhớ cơ bản, giúp dễ dàng đọc và ghi các luồng dữ liệu nhị phân vào đĩa và kết nối với mã viết bằng các ngôn ngữ cấp thấp như C hoặc Fortran.</p>
+<p>Các kiểu dữ liệu số được đặt tên theo cách bao gồm tên kiểu như float hoặc int, tiếp theo là số bit mỗi phần tử chiếm dụng. Ví dụ, giá trị số thực với độ chính xác kép chuẩn (được sử dụng trong đối tượng float của Python) chiếm 8 byte hoặc 64 bit, được biết đến trong NumPy là float64.</p>
+</section>
+<section id="bang-4-2-cac-kieu-du-lieu-cua-numpy">
+<h2>Bảng 4-2. Các Kiểu Dữ Liệu của NumPy<a class="headerlink" href="#bang-4-2-cac-kieu-du-lieu-cua-numpy" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Kiểu</p></th>
+<th class="head"><p>Mã Kiểu</p></th>
+<th class="head"><p>Mô Tả</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">int8</span></code>, <code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">i1</span></code>, <code class="docutils literal notranslate"><span class="pre">u1</span></code></p></td>
+<td><p>Số nguyên 8-bit có dấu và không dấu (1 byte)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">int16</span></code>, <code class="docutils literal notranslate"><span class="pre">uint16</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">i2</span></code>, <code class="docutils literal notranslate"><span class="pre">u2</span></code></p></td>
+<td><p>Số nguyên 16-bit có dấu và không dấu</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">int32</span></code>, <code class="docutils literal notranslate"><span class="pre">uint32</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">i4</span></code>, <code class="docutils literal notranslate"><span class="pre">u4</span></code></p></td>
+<td><p>Số nguyên 32-bit có dấu và không dấu</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">int64</span></code>, <code class="docutils literal notranslate"><span class="pre">uint64</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">i8</span></code>, <code class="docutils literal notranslate"><span class="pre">u8</span></code></p></td>
+<td><p>Số nguyên 64-bit có dấu và không dấu</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">float16</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">f2</span></code></p></td>
+<td><p>Số thực độ chính xác nửa</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">f4</span></code>, <code class="docutils literal notranslate"><span class="pre">f</span></code></p></td>
+<td><p>Số thực độ chính xác đơn (tương thích với <code class="docutils literal notranslate"><span class="pre">float</span></code> trong C)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">f8</span></code>, <code class="docutils literal notranslate"><span class="pre">d</span></code></p></td>
+<td><p>Số thực độ chính xác gấp đôi (tương thích với <code class="docutils literal notranslate"><span class="pre">double</span></code> trong C) và <code class="docutils literal notranslate"><span class="pre">float</span></code> trong Python</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">float128</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">f16</span></code>, <code class="docutils literal notranslate"><span class="pre">g</span></code></p></td>
+<td><p>Số thực độ chính xác mở rộng</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">complex64</span></code>, <code class="docutils literal notranslate"><span class="pre">complex128</span></code>, <code class="docutils literal notranslate"><span class="pre">complex256</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">c8</span></code>, <code class="docutils literal notranslate"><span class="pre">c16</span></code>, <code class="docutils literal notranslate"><span class="pre">c32</span></code></p></td>
+<td><p>Số phức với hai số thực 32, 64, hoặc 128 bit</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">?</span></code></p></td>
+<td><p>Kiểu boolean, lưu trữ giá trị <code class="docutils literal notranslate"><span class="pre">True</span></code> và <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">object</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">O</span></code></p></td>
+<td><p>Kiểu đối tượng Python, có thể lưu bất kỳ đối tượng Python nào</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">string_</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">S</span></code></p></td>
+<td><p>Kiểu chuỗi ASCII cố định (1 byte mỗi ký tự); ví dụ, để tạo một kiểu chuỗi với độ dài 10, sử dụng <code class="docutils literal notranslate"><span class="pre">'S10'</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">unicode_</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">U</span></code></p></td>
+<td><p>Kiểu Unicode cố định, số byte phụ thuộc vào nền tảng; cách xác định giống như <code class="docutils literal notranslate"><span class="pre">string_</span></code> (ví dụ, <code class="docutils literal notranslate"><span class="pre">'U10'</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="chuyen-doi-kieu-du-lieu">
+<h2>Chuyển Đổi Kiểu Dữ Liệu<a class="headerlink" href="#chuyen-doi-kieu-du-lieu" title="Link to this heading">#</a></h2>
+<p>Có thể chuyển đổi hoặc ép kiểu một mảng từ kiểu này sang kiểu khác bằng cách sử dụng phương thức <code class="docutils literal notranslate"><span class="pre">astype</span></code> của <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">37</span><span class="p">]:</span> <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">38</span><span class="p">]:</span> <span class="n">arr</span><span class="o">.</span><span class="n">dtype</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">38</span><span class="p">]:</span> <span class="n">dtype</span><span class="p">(</span><span class="s1">&#39;int64&#39;</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">39</span><span class="p">]:</span> <span class="n">float_arr</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">40</span><span class="p">]:</span> <span class="n">float_arr</span><span class="o">.</span><span class="n">dtype</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">40</span><span class="p">]:</span> <span class="n">dtype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+
+<span class="n">Trong</span> <span class="n">ví</span> <span class="n">dụ</span> <span class="n">trên</span><span class="p">,</span> <span class="n">các</span> <span class="n">số</span> <span class="n">nguyên</span> <span class="n">được</span> <span class="n">chuyển</span> <span class="n">đổi</span> <span class="n">thành</span> <span class="n">số</span> <span class="n">thực</span><span class="o">.</span> <span class="n">Nếu</span> <span class="n">chuyển</span> <span class="n">đổi</span> <span class="n">số</span> <span class="n">thực</span> <span class="n">thành</span> <span class="n">số</span> <span class="n">nguyên</span><span class="p">,</span> <span class="n">phần</span> <span class="n">thập</span> <span class="n">phân</span> <span class="n">sẽ</span> <span class="n">bị</span> <span class="n">cắt</span><span class="p">:</span>
+
+<span class="err">```</span><span class="n">python</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">41</span><span class="p">]:</span> <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.7</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.6</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">12.9</span><span class="p">,</span> <span class="mf">10.1</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">42</span><span class="p">]:</span> <span class="n">arr</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">42</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span> <span class="mf">3.7</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.6</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">12.9</span><span class="p">,</span> <span class="mf">10.1</span><span class="p">])</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">43</span><span class="p">]:</span> <span class="n">arr</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">43</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int32</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Nếu có một mảng chuỗi đại diện cho các số, có thể dùng astype để chuyển đổi chúng thành dạng số:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">44</span><span class="p">]:</span> <span class="n">numeric_strings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;1.25&#39;</span><span class="p">,</span> <span class="s1">&#39;-9.6&#39;</span><span class="p">,</span> <span class="s1">&#39;42&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">string_</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">45</span><span class="p">]:</span> <span class="n">numeric_strings</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">45</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span> <span class="mf">1.25</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.6</span> <span class="p">,</span> <span class="mf">42.</span> <span class="p">])</span>
+</pre></div>
+</div>
+<p>Quan trọng cần lưu ý khi sử dụng kiểu numpy.string_, vì dữ liệu chuỗi trong NumPy có kích thước cố định và có thể bị cắt mà không có cảnh báo. pandas có hành vi trực quan hơn khi xử lý dữ liệu không phải số.</p>
+<p>Nếu việc ép kiểu thất bại (ví dụ, chuỗi không thể chuyển đổi thành float64), một lỗi ValueError sẽ được ném ra.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Numpy.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Cơ Bản Về NumPy: Mảng và Tính Toán Vector hóa</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Arithmetic.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Phép toán với Mảng NumPy</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Đối Tượng Mảng N Chiều NumPy: Một Đối Tượng Mảng Đa Chiều</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-du-co-ban-ve-mang-numpy">Ví Dụ Cơ Bản Về Mảng NumPy</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tao-ndarrays">Tạo ndarrays</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-ham-tao-mang">Các Hàm Tạo Mảng</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-kieu-du-lieu-cho-ndarrays">Các Kiểu Dữ Liệu cho ndarrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-4-2-cac-kieu-du-lieu-cua-numpy">Bảng 4-2. Các Kiểu Dữ Liệu của NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chuyen-doi-kieu-du-lieu">Chuyển Đổi Kiểu Dữ Liệu</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
