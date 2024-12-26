@@ -1,8 +1,8 @@
-## Biến Đổi Dữ Liệu
+# Biến Đổi Dữ Liệu
 
 Cho đến nay trong chương này, chúng ta đã quan tâm đến việc sắp xếp lại dữ liệu. Lọc, làm sạch và các biến đổi khác cũng là một loại thao tác quan trọng.
 
-### Loại Bỏ Dữ Liệu Trùng Lặp
+## Loại Bỏ Dữ Liệu Trùng Lặp
 
 Các hàng trùng lặp có thể được tìm thấy trong một DataFrame vì nhiều lý do khác nhau. Đây là một ví dụ:
 

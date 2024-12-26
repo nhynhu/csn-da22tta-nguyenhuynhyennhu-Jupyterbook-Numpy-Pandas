@@ -1,4 +1,4 @@
-## Đánh Chỉ Mục Phân Cấp
+# Đánh Chỉ Mục Phân Cấp
 
 Đánh chỉ mục phân cấp là một tính năng quan trọng của pandas cho phép bạn có nhiều (hai hoặc nhiều hơn) mức chỉ mục trên một trục. Về mặt trừu tượng, nó cung cấp một cách để làm việc với dữ liệu có chiều cao hơn dưới dạng có chiều thấp hơn. Hãy bắt đầu với một ví dụ đơn giản; tạo một Series với danh sách các danh sách (hoặc mảng) làm chỉ mục:
 

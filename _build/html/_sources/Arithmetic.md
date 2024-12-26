@@ -1,4 +1,4 @@
-## Phép toán với Mảng NumPy
+# Phép toán với Mảng NumPy
 
 Mảng NumPy đóng vai trò quan trọng bởi chúng cho phép thực hiện các phép toán theo lô trên dữ liệu mà không cần viết bất kỳ vòng lặp nào. Người dùng NumPy thường gọi quá trình này là vector hóa. Các phép toán số học giữa các mảng có kích thước tương đương sẽ áp dụng phép toán đó lên từng phần tử:
 
@@ -64,7 +64,7 @@ arr2 > arr
 array([[False,  True, False],
        [ True, False,  True]], dtype=bool)
 ```
-### Chỉ mục cơ bản và Cắt lát
+## Chỉ mục cơ bản và Cắt lát
 
 Chỉ mục mảng NumPy là một chủ đề phong phú, vì có nhiều cách để bạn chọn một tập con của dữ liệu hoặc các phần tử riêng lẻ. Mảng một chiều rất đơn giản; bề ngoài, chúng hoạt động tương tự như danh sách Python:
 
@@ -224,10 +224,10 @@ Kết quả:
 array([7, 8, 9])
 ```
 Lưu ý, trong tất cả các trường hợp trên, các lát cắt đều là dạng xem, không phải bản sao.
-### Lập chỉ mục bằng cách cắt
+## Lập chỉ mục bằng cách cắt
 NumPy cung cấp khả năng thao tác mạnh mẽ với dữ liệu nhờ tính năng lập chỉ mục và cắt lát (slicing). Phương pháp này tương tự như thao tác với danh sách Python, nhưng mạnh mẽ hơn vì hỗ trợ mảng nhiều chiều.
 
-#### Lập chỉ mục trên mảng một chiều
+### Lập chỉ mục trên mảng một chiều
 Với mảng một chiều, việc lập chỉ mục và cắt lát tương tự như trong danh sách Python. Phép cắt lát cho phép truy xuất một dải phần tử từ mảng.
 
 Ví dụ:
@@ -243,7 +243,7 @@ array([ 1, 2, 3, 4, 64])
 ```
 Trong ví dụ trên, cú pháp arr[1:6] chọn các phần tử từ chỉ số 1 đến chỉ số 5.
 
-#### Lập chỉ mục trên mảng hai chiều
+### Lập chỉ mục trên mảng hai chiều
 Mảng hai chiều (2D) yêu cầu cách lập chỉ mục khác, vì cần chỉ định cả trục hàng (trục 0) và trục cột (trục 1). Ví dụ:
 
 ```python
@@ -329,11 +329,11 @@ array([[1, 0, 0],
        [4, 0, 0],
        [7, 8, 9]])
 ```
-### Lập Chỉ Mục Boolean trong NumPy
+## Lập Chỉ Mục Boolean trong NumPy
 
 Lập chỉ mục Boolean là một kỹ thuật mạnh mẽ trong NumPy, cho phép chọn và thao tác với dữ liệu trong mảng dựa trên các điều kiện cụ thể. Trong chương này, sẽ tìm hiểu cách sử dụng mảng Boolean để lọc và thay đổi dữ liệu trong mảng.
 
-#### Tạo Dữ Liệu Ngẫu Nhiên với NumPy
+### Tạo Dữ Liệu Ngẫu Nhiên với NumPy
 
 Giả sử có một mảng tên và một mảng dữ liệu với các giá trị ngẫu nhiên. Các mảng này sẽ được tạo ra từ hàm `randn` trong `numpy.random`.
 
@@ -363,7 +363,7 @@ array([[ 0.0929,  0.2817,  0.769 ,  1.2464],
 ```
 Trong ví dụ trên, mảng names chứa các tên và mảng data chứa các giá trị ngẫu nhiên.
 
-#### Sử Dụng Mảng Boolean để Lập Chỉ Mục Mảng
+### Sử Dụng Mảng Boolean để Lập Chỉ Mục Mảng
 Để chọn tất cả các hàng có tên là "Bob", có thể so sánh mảng names với chuỗi 'Bob'. Kết quả sẽ là một mảng boolean.
 
 ```python
@@ -388,7 +388,7 @@ Kết quả:
 array([[ 0.0929,  0.2817,  0.769 ,  1.2464],
        [ 1.669 , -0.4386, -0.5397,  0.477 ]])
 ```
-#### Kết Hợp Nhiều Điều Kiện Boolean
+### Kết Hợp Nhiều Điều Kiện Boolean
 Nhiều điều kiện boolean có thể được kết hợp bằng cách sử dụng toán tử & (và) hoặc | (hoặc). Ví dụ, để chọn các hàng có tên là "Bob" hoặc "Will", có thể làm như sau:
 
 ```python
@@ -403,7 +403,7 @@ array([[ 0.0929,  0.2817,  0.769 ,  1.2464],
        [ 1.669 , -0.4386, -0.5397,  0.477 ],
        [ 3.2489, -1.0212, -0.5771,  0.1241]])
 ```
-#### Sử Dụng Toán Tử ~ để Phủ Định Điều Kiện
+### Sử Dụng Toán Tử ~ để Phủ Định Điều Kiện
 Toán tử ~ có thể được sử dụng để phủ định điều kiện. Ví dụ, để chọn tất cả các phần tử không phải là "Bob", có thể làm như sau:
 
 ```python
@@ -418,7 +418,7 @@ array([[ 1.0072, -1.2962,  0.275 ,  0.2289],
        [ 0.3026,  0.5238,  0.0009,  1.3438],
        [-0.7135, -0.8312, -2.3702, -1.8608]])
 ```
-#### Gán Giá Trị với Mảng Boolean
+### Gán Giá Trị với Mảng Boolean
 Một trong những ứng dụng mạnh mẽ của lập chỉ mục boolean là việc gán giá trị cho các phần tử trong mảng thỏa mãn điều kiện. Ví dụ, để thay thế tất cả các giá trị âm trong mảng data thành 0, có thể làm như sau:
 
 ```python
@@ -436,7 +436,7 @@ array([[ 0.0929,  0.2817,  0.769 ,  1.2464],
        [ 0.3026,  0.5238,  0.0009,  1.3438],
        [ 0.    ,  0.    ,  0.    ,  0.    ]])
 ```
-#### Gán Giá Trị Cho Hàng hoặc Cột với Boolean
+### Gán Giá Trị Cho Hàng hoặc Cột với Boolean
 Có thể dễ dàng gán giá trị cho toàn bộ hàng hoặc cột bằng cách sử dụng một mảng boolean. Ví dụ, để thay thế tất cả các giá trị trong mảng data của những người không tên là "Joe" thành 7, có thể làm như sau:
 
 ```python
@@ -455,11 +455,11 @@ array([[ 7. ,  7. ,  7. ,  7. ],
        [ 0. ,  0. ,  0. ,  0. ]])
 
 ```
-### Fancy Indexing trong NumPy
+## Fancy Indexing trong NumPy
 
 Fancy indexing là một thuật ngữ được NumPy sử dụng để mô tả quá trình lập chỉ mục bằng cách sử dụng các mảng số nguyên. Điều này cho phép người dùng truy cập và thao tác với các phần tử của mảng thông qua chỉ số được xác định trước, thay vì phải sử dụng các phép toán hay chỉ mục theo kiểu mặc định.
 
-#### Tạo Mảng 8 × 4
+### Tạo Mảng 8 × 4
 
 Giả sử có một mảng 8 × 4. Mảng này có thể được tạo ra và điền các giá trị theo cách sau:
 
@@ -484,7 +484,7 @@ array([[ 0., 0., 0., 0.],
        [ 6., 6., 6., 6.],
        [ 7., 7., 7., 7.]])
 ```
-#### Lập Chỉ Mục Một Tập Con Các Hàng
+### Lập Chỉ Mục Một Tập Con Các Hàng
 Để chọn một tập hợp con của các hàng theo một thứ tự cụ thể, có thể truyền một danh sách hoặc ndarray các số nguyên để chỉ định thứ tự mong muốn. Ví dụ:
 
 ```python
@@ -511,7 +511,7 @@ array([[ 5., 5., 5., 5.],
        [ 3., 3., 3., 3.],
        [ 1., 1., 1., 1.]])
 ```
-#### Lập Chỉ Mục Với Nhiều Mảng Chỉ Số
+### Lập Chỉ Mục Với Nhiều Mảng Chỉ Số
 Khi truyền nhiều mảng chỉ số, quá trình sẽ chọn một mảng một chiều của các phần tử tương ứng với từng bộ chỉ số:
 
 ```python
@@ -542,7 +542,7 @@ array([ 4, 23, 29, 10])
 ```
 Các phần tử (1, 0), (5, 3), (7, 1), và (2, 2) đã được chọn.
 
-#### Lập Chỉ Mục Fancy với Lát Cắt
+### Lập Chỉ Mục Fancy với Lát Cắt
 Hành vi của lập chỉ mục fancy có thể khác với những gì một số người dùng mong đợi. Để chọn một tập hợp con của các hàng và cột trong ma trận, có thể làm như sau:
 
 ```python
@@ -556,15 +556,15 @@ array([[ 4,  7,  5,  6],
        [28, 31, 29, 30],
        [ 8, 11,  9, 10]])
 ```
-#### Lưu Ý về Fancy Indexing
+### Lưu Ý về Fancy Indexing
 
 Cần lưu ý rằng, khác với việc cắt (slicing), fancy indexing luôn sao chép dữ liệu vào một mảng mới. Điều này có nghĩa là kết quả của việc lập chỉ mục fancy không ảnh hưởng đến mảng gốc và sẽ được lưu trữ như một bản sao.
 
-### Chuyển Vị Mảng và Hoán Đổi Trục trong NumPy
+## Chuyển Vị Mảng và Hoán Đổi Trục trong NumPy
 
 Chuyển vị mảng và hoán đổi trục là hai thao tác quan trọng trong NumPy giúp thay đổi cấu trúc mảng mà không cần phải sao chép dữ liệu. Chúng hỗ trợ việc thao tác với mảng đa chiều một cách hiệu quả.
 
-#### Chuyển Vị Mảng
+### Chuyển Vị Mảng
 
 Chuyển vị mảng là phép thay đổi cấu trúc của mảng mà không sao chép dữ liệu, giúp tiết kiệm bộ nhớ và tăng hiệu suất. NumPy cung cấp phương thức `transpose()` và thuộc tính `T` để thực hiện chuyển vị.
 
@@ -600,7 +600,7 @@ array([[ 0,  5, 10],
        [ 3,  8, 13],
        [ 4,  9, 14]])
 ```
-#### Tính Toán Ma Trận
+### Tính Toán Ma Trận
 Chuyển vị rất hữu ích khi thực hiện các phép toán ma trận, chẳng hạn như tính toán tích ma trận. Ví dụ, sử dụng np.dot() để tính tích của mảng và chuyển vị của mảng:
 
 ```python
@@ -614,7 +614,7 @@ array([[ 9.2291,  0.9394,  4.948 ],
        [ 0.9394,  3.7662, -1.3622],
        [ 4.948 , -1.3622,  4.3437]])
 ```
-#### Hoán Đổi Trục
+### Hoán Đổi Trục
 Đối với các mảng có nhiều chiều hơn, NumPy cho phép hoán đổi các trục của mảng bằng phương thức transpose(). Phương thức này nhận một bộ số trục và thay đổi thứ tự các trục.
 
 Ví Dụ về Hoán Đổi Trục:
@@ -649,7 +649,7 @@ array([[[ 0,  1,  2,  3],
 ```
 Trong ví dụ này, các trục đã được thay đổi thứ tự: trục thứ hai (axis 1) chuyển lên vị trí đầu tiên, trục đầu tiên (axis 0) xuống vị trí thứ hai, và trục cuối cùng (axis 2) không thay đổi.
 
-#### Hoán Đổi Trục với swapaxes()
+### Hoán Đổi Trục với swapaxes()
 Phương thức swapaxes() cho phép hoán đổi hai trục trong mảng mà không sao chép dữ liệu. Đây là một cách hiệu quả để thay đổi trục mà không tốn thêm bộ nhớ.
 
 Ví Dụ về swapaxes():
@@ -674,46 +674,11 @@ array([[[ 0,  4],
 ```
 Phương thức swapaxes() trả về một chế độ xem trên dữ liệu, tức là nó không tạo ra một bản sao mới mà thay đổi thứ tự các trục trực tiếp.
 
-### Bảng 4-3. Ufunc đơn
-
-| **Hàm**                       | **Mô tả**                                                                 |
-|-------------------------------|---------------------------------------------------------------------------|
-| `abs`, `fabs`                 | Tính giá trị tuyệt đối theo phần tử cho các giá trị số nguyên, số thực hoặc số phức |
-| `sqrt`                        | Tính căn bậc hai của mỗi phần tử (tương đương với `arr ** 0.5`)         |
-| `square`                      | Tính bình phương của mỗi phần tử (tương đương với `arr ** 2`)           |
-| `exp`                         | Tính lũy thừa của `e` cho mỗi phần tử                                    |
-| `log`, `log10`, `log2`, `log1p`| Log tự nhiên (cơ sở `e`), log cơ sở 10, log cơ sở 2 và `log(1 + x)`, tương ứng |
-| `sign`                        | Tính dấu của mỗi phần tử: 1 (dương), 0 (không) hoặc -1 (âm)              |
-| `ceil`                        | Tính trần của mỗi phần tử (tức là, số nguyên nhỏ nhất lớn hơn hoặc bằng số đó) |
-| `floor`                       | Tính sàn của mỗi phần tử (tức là, số nguyên lớn nhất nhỏ hơn hoặc bằng mỗi phần tử) |
-| `rint`                        | Làm tròn các phần tử về số nguyên gần nhất, giữ nguyên kiểu dữ liệu      |
-| `modf`                        | Trả về các phần thập phân và nguyên của mảng dưới dạng một mảng riêng biệt |
-| `isnan`                       | Trả về mảng boolean chỉ ra xem mỗi giá trị có phải là NaN (Not a Number) hay không |
-| `isfinite`, `isinf`           | Trả về mảng boolean chỉ ra xem mỗi phần tử có hữu hạn (không phải vô cùng, không phải NaN) hoặc vô cùng, tương ứng |
-| `cos`, `cosh`, `sin`, `sinh`, `tan`, `tanh` | Các công thức lượng giác thường và hyperbolic |
-| `arccos`, `arccosh`, `arcsin`, `arcsinh`, `arctan`, `arctanh` | Các công thức lượng giác ngược |
-| `logical_not`                 | Tính giá trị sự thật của `not x` theo phần tử (tương đương với `~arr`)   |
-
-### Bảng 4-4. Hàm toàn cầu nhị phân
-
-| **Hàm**                       | **Mô tả**                                                                 |
-|-------------------------------|---------------------------------------------------------------------------|
-| `add`                          | Cộng các phần tử tương ứng trong các mảng                                 |
-| `subtract`                     | Trừ các phần tử trong mảng thứ hai từ mảng đầu tiên                       |
-| `multiply`                     | Nhân các phần tử trong mảng                                              |
-| `divide`, `floor_divide`       | Chia hoặc chia nguyên (cắt bỏ phần dư)                                   |
-| `power`                        | Nâng các phần tử trong mảng đầu tiên lên các lũy thừa được chỉ định trong mảng thứ hai |
-| `maximum`, `fmax`              | Giá trị lớn nhất theo phần tử; `fmax` bỏ qua NaN                        |
-| `minimum`, `fmin`              | Giá trị nhỏ nhất theo phần tử; `fmin` bỏ qua NaN                        |
-| `mod`                          | Phép chia theo phần tử (số dư của phép chia)                              |
-| `copysign`                     | Sao chép dấu của các giá trị trong đối số thứ hai cho các giá trị trong đối số đầu tiên |
-| `greater`, `greater_equal`, `less`, `less_equal`, `equal`, `not_equal` | Thực hiện so sánh theo phần tử, tạo ra mảng boolean (tương đương với các toán tử infix `>`, `>=`, `<`, `<=`, `==`, `!=`) |
-| `logical_and`, `logical_or`, `logical_xor` | Tính giá trị sự thật theo phần tử của phép toán logic (tương đương với các toán tử infix `&`, `|`, `^`) |
-### 4.3 Lập Trình Hướng Mảng với các Mảng
+## Lập Trình Hướng Mảng với các Mảng
 
 Việc sử dụng các mảng NumPy giúp biểu diễn nhiều tác vụ xử lý dữ liệu một cách ngắn gọn thông qua các biểu thức mảng, thay vì phải viết các vòng lặp phức tạp. Thực hành thay thế vòng lặp rõ ràng bằng các biểu thức mảng thường được gọi là **vector hóa**. Các phép toán mảng vector hóa thường nhanh hơn so với các phiên bản thuần Python, đặc biệt trong các phép toán số học, và có thể nhanh hơn nhiều lần.
 
-#### Ví dụ về Vector hóa
+## Ví dụ về Vector hóa
 
 Giả sử, ta muốn đánh giá hàm \(\sqrt{x^2 + y^2}\) trên một lưới giá trị đều. Để thực hiện điều này, ta có thể sử dụng hàm `np.meshgrid`, một hàm trong NumPy giúp tạo ra hai ma trận 2D từ hai mảng 1D, tương ứng với tất cả các cặp giá trị (x, y).
 
@@ -779,7 +744,7 @@ plt.show()
 Kết quả sẽ là một hình ảnh biểu thị giá trị của 
 \(\sqrt{x^2 + y^2}\) tại mỗi điểm trong lưới. Hình ảnh này giúp hình dung rõ ràng sự thay đổi giá trị của hàm theo không gian 2D.
 
-### Biểu diễn Logic Điều kiện dưới dạng Các Phép Toán Mảng
+## Biểu diễn Logic Điều kiện dưới dạng Các Phép Toán Mảng
 
 Hàm `numpy.where` là phiên bản vector hóa của biểu thức ba ngôi, có cấu trúc `x if condition else y`. Giả sử ta có một mảng boolean và hai mảng giá trị sau:
 
@@ -870,7 +835,7 @@ array([[-0.5031, -0.6223, -0.9212, -0.7262],
        [ 2. ,   -0.1316, 2. ,    2. ]])
 ```
 Các mảng được truyền vào np.where có thể không chỉ là các mảng có kích thước bằng nhau hoặc hằng số.
-### Phương pháp Toán học và Thống kê
+## Phương pháp Toán học và Thống kê
 
 Một tập hợp các hàm toán học tính toán thống kê cho toàn bộ mảng hoặc cho dữ liệu theo một trục có sẵn, như các phương pháp của lớp mảng. Các phép toán tổng hợp (thường được gọi là giảm thiểu) như tổng, trung bình và độ lệch chuẩn có thể được tính toán bằng cách gọi phương thức của thể hiện mảng hoặc sử dụng hàm NumPy cấp cao.
 
@@ -979,7 +944,7 @@ array([[  0,   0,   0],
        [  3,  12,  60],
        [  6,  42, 336]])
 ```
-### Bảng 4-5. Các phương pháp thống kê mảng cơ bản
+## Bảng 2-3. Các phương pháp thống kê mảng cơ bản
 
 
 | Phương pháp     | Mô tả                                                                 |
@@ -992,7 +957,7 @@ array([[  0,   0,   0],
 | `cumsum`        | Tổng tích lũy của các phần tử bắt đầu từ 0                           |
 | `cumprod`       | Tích tích lũy của các phần tử bắt đầu từ 1                           |
       
-### Phương pháp cho Mảng Boolean
+## Phương pháp cho Mảng Boolean
 
 Các giá trị boolean được chuyển đổi thành 1 (Đúng) và 0 (Sai) trong các phương pháp trước đó. Do đó, hàm tổng thường được sử dụng như một phương tiện để đếm các giá trị Đúng trong mảng boolean:
 
@@ -1026,7 +991,7 @@ Kết quả:
 ```
 Các phương pháp này cũng hoạt động với các mảng không phải boolean, trong đó các phần tử khác không bằng 0 được đánh giá là Đúng.
 
-### Sắp xếp
+## Sắp xếp
 
 Giống như kiểu danh sách tích hợp trong Python, mảng NumPy có thể được sắp xếp tại chỗ bằng phương thức `sort`:
 
@@ -1090,7 +1055,7 @@ Kết quả:
 
 Để biết thêm chi tiết về cách sử dụng các phương thức sắp xếp của NumPy, cùng với các kỹ thuật nâng cao hơn như sắp xếp gián tiếp, hãy xem Phụ lục A. Một số loại thao tác dữ liệu khác liên quan đến việc sắp xếp (ví dụ, sắp xếp một bảng dữ liệu theo một hoặc nhiều cột) cũng có thể được tìm thấy trong pandas.
 
-### Logic Tập Hợp Đặc Biệt và Khác
+## Logic Tập Hợp Đặc Biệt và Khác
 
 NumPy có một số thao tác tập hợp cơ bản cho các ndarray một chiều. Một trong những thao tác thường được sử dụng là `np.unique`, trả về các giá trị duy nhất đã được sắp xếp trong một mảng:
 
@@ -1133,7 +1098,7 @@ Kết quả:
 ```python
 array([ True, False, False, True, True, False, True], dtype=bool)
 ```
-### Bảng 4-6. Các thao tác tập hợp mảng
+## Bảng 2-4. Các thao tác tập hợp mảng
 
 | Phương pháp          | Mô tả                                                                 |
 |----------------------|-----------------------------------------------------------------------|

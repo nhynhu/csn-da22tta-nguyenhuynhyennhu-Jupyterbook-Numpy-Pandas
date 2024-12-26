@@ -1,6 +1,7 @@
 # Đọc và Ghi Dữ liệu ở Định dạng Văn bản
 
 **pandas** cung cấp nhiều hàm để đọc dữ liệu dạng bảng vào đối tượng DataFrame. Trong số này, **read_csv** và **read_table** là hai hàm thường được sử dụng nhất. Dưới đây là một số hàm đọc dữ liệu trong pandas:
+## Bảng 4-1.
 
 | **Hàm**            | **Mô tả**                                                                                  |
 |---------------------|-------------------------------------------------------------------------------------------|
@@ -111,7 +112,7 @@ sentinels = {'message': ['foo', 'NA'], 'something': ['two']}
 pd.read_csv('examples/ex5.csv', na_values=sentinels)
 ```
 
-### Bảng 6-2. Một số tham số của hàm `read_csv`/`read_table` 
+## Bảng 4-2. Một số tham số của hàm `read_csv`/`read_table` 
 | Tham số         | Mô tả                                                                                                                                                           |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `path`          | Chuỗi chỉ định vị trí tệp trong hệ thống tệp, URL, hoặc đối tượng giống tệp.                                                                                  |
@@ -135,7 +136,7 @@ pd.read_csv('examples/ex5.csv', na_values=sentinels)
 | `encoding`      | Mã hóa văn bản cho Unicode (ví dụ: 'utf-8' cho văn bản được mã hóa UTF-8).                                                                                     |
 | `squeeze`       | Nếu dữ liệu được phân tích chỉ chứa một cột, trả về một Series.                                                                                               |
 | `thousands`     | Dấu phân cách cho hàng nghìn (ví dụ: ',' hoặc '.').                                                                                                            |
-### Đọc Tệp Văn Bản Từng Phần
+## Đọc Tệp Văn Bản Từng Phần
 
 Khi xử lý các tệp rất lớn hoặc tìm ra bộ tham số đúng để xử lý một tệp lớn, bạn có thể chỉ muốn đọc một phần nhỏ của tệp hoặc lặp qua các phần nhỏ hơn của tệp.
 
@@ -216,7 +217,7 @@ dtype: float64
 ```
 TextParser cũng được trang bị phương thức get_chunk cho phép bạn đọc các phần có kích thước tùy ý.
 
-### Ghi Dữ Liệu ra Định Dạng Văn Bản
+## Ghi Dữ Liệu ra Định Dạng Văn Bản
 
 Dữ liệu cũng có thể được xuất ra định dạng phân cách. Hãy xem xét một trong các tệp CSV đã đọc trước đó:
 
@@ -351,7 +352,7 @@ reader = csv.reader(f, delimiter='|')
 Các tùy chọn có thể có (thuộc tính của csv.Dialect) và công dụng của chúng có thể được tìm thấy trong Bảng 6-3.
 ```
 
-### Bảng 6-3. Tùy chọn của dial CSV
+## Bảng 4-3. Tùy chọn của dial CSV
 
 | Tham số            | Mô tả                                                                                                                   |
 |--------------------|-------------------------------------------------------------------------------------------------------------------------|
@@ -487,7 +488,7 @@ failures.head()
 ```
 Kết quả:
 
-```plaintext
+```
  Bank Name City ST CERT
 0 Allied Bank Mulberry AR 91
 1 The Woodbury Banking Company Woodbury GA 11297
@@ -509,7 +510,7 @@ close_timestamps.dt.year.value_counts()
 ```
 Kết quả:
 
-```plaintext
+```
 2010    157
 2009    140
 2011     92
@@ -521,7 +522,6 @@ Kết quả:
 2007      3
 2003      3
 2000      2
-```
 Name: Closing Date, Length: 15, dtype: int64
 ```
 Phân tích cú pháp XML với lxml.objectify
@@ -580,7 +580,7 @@ perf.head()
 ```
 Kết quả:
 
-```plaintext
+```
 Empty DataFrame
 Columns: []
 Index: []

@@ -369,7 +369,7 @@ four   2001  Nevada  2.4  -1.5    False
 five   2002  Nevada  2.9  -1.7    False
 six    2003  Nevada 3.2
 ```
-### Các Kiểu Dữ Liệu Đầu Vào Có Thể Sử Dụng Cho Constructor của DataFrame
+## Bảng 3-1. Các Kiểu Dữ Liệu Đầu Vào Có Thể Sử Dụng Cho Constructor của DataFrame
 
 | Type                    | Notes                                                                                  |
 |-------------------------|----------------------------------------------------------------------------------------|
@@ -449,7 +449,7 @@ Việc chọn các nhãn trùng lặp sẽ chọn tất cả các lần xuất h
 
 Mỗi Index có một số phương thức và thuộc tính để thực hiện logic tập hợp, trả lời các câu hỏi phổ biến khác về dữ liệu mà nó chứa. Một số phương thức hữu ích được tóm tắt trong Bảng 5-2.
 
-### Bảng 5-2. Một Số Phương Thức và Thuộc Tính của Index
+## Bảng 3-2. Một Số Phương Thức và Thuộc Tính của Index
 
 | Method         | Description                                                                        |
 |----------------|------------------------------------------------------------------------------------|

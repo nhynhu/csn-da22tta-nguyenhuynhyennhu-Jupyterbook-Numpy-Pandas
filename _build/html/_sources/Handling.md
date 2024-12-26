@@ -38,7 +38,7 @@ dtype: bool
 ```
 Có công việc đang diễn ra trong dự án pandas để cải thiện các chi tiết nội bộ của cách dữ liệu thiếu được xử lý, nhưng các hàm API người dùng, như pandas.isnull, trừu tượng hóa nhiều chi tiết phiền phức. Xem Bảng 7-1 để biết danh sách một số hàm liên quan đến xử lý dữ liệu thiếu.
 
-### Bảng 7-1. Các phương thức xử lý NA
+## Bảng 5-1. Các phương thức xử lý NA
 
 | Tham số  | Mô tả                                                                                                         |
 |----------|---------------------------------------------------------------------------------------------------------------|
@@ -233,7 +233,7 @@ Kết quả:
 dtype: float64
 ```
 
-### Bảng 7-2. Các tham số của hàm fillna
+## Bảng 5-2. Các tham số của hàm fillna
 
 | Tham số   | Mô tả                                                                                                 |
 |-----------|-------------------------------------------------------------------------------------------------------|

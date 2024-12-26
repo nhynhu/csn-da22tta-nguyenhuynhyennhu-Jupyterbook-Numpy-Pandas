@@ -63,7 +63,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Transformation';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Biến Đổi và Kết Hợp Dữ Liệu" href="DataWrangling.html" />
+    <link rel="next" title="String Manipulation" href="StringManipulation.html" />
     <link rel="prev" title="Xử Lý Dữ Liệu Thiếu" href="Handling.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -171,12 +171,9 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="tongquan.html">Tổng quan về NumPy và Pandas</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="Numpy.html">NumPy Cơ Bản Mảng và Tính Toán Vector</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="ndarray.html">Đối Tượng Mảng N Chiều NumPy: Một Đối Tượng Mảng Đa Chiều</a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="ndarray.html">Đối tượng ndarray Mảng Nhiều Chiều</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Arithmetic.html">Các Phép Toán trên Mảng</a></li>
 <li class="toctree-l2"><a class="reference internal" href="UniversalFunctions.html">Hàm Toàn Cục: Các Hàm Mảng Nhanh Theo Phần Tử</a></li>
-
-
 
 
 <li class="toctree-l2"><a class="reference internal" href="InputOutput.html">Nhập/Xuất Dữ Liệu</a></li>
@@ -192,26 +189,26 @@
 <li class="toctree-l2"><a class="reference internal" href="DescriptiveStatistics.html">Thống Kê và Phân Tích Dữ Liệu</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Format.html">Nạp, Lưu Trữ và Định Dạng Dữ Liệu</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="TextFormat.html">Đọc và Ghi Dữ Liệu Văn Bản</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataFormat.html">Định Dạng Dữ Liệu Nhị Phân</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="DataCleaning.html">Làm Sạch và Chuẩn Bị Dữ Liệu</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Handling.html">Xử Lý Dữ Liệu Thiếu</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Biến Đổi Dữ Liệu</a></li>
-
-
-
-
-
-
+<li class="toctree-l2"><a class="reference internal" href="StringManipulation.html">Xử Lý Chuỗi Ký Tự</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="DataWrangling.html">Biến Đổi và Kết Hợp Dữ Liệu</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="Indexing.html">Đánh Chỉ Mục Phân Cấp</a></li>
-
-
-
+<li class="toctree-l2"><a class="reference internal" href="Indexing.html">Indexing Phân Cấp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Combining.html">Kết Hợp Dữ Liệu</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Reshaping.html">Biến Đổi Dữ Liệu</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="BTNumpy.html">Bài tập Numpy cơ bản</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BTPandas.html">Cài đặt và tải dữ liệu</a></li>
+
 </ul>
 
     </div>
@@ -399,18 +396,14 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Biến Đổi Dữ Liệu</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loai-bo-du-lieu-trung-lap">Loại Bỏ Dữ Liệu Trùng Lặp</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bien-doi-du-lieu-su-dung-ham-hoac-anh-xa">Biến Đổi Dữ Liệu Sử Dụng Hàm hoặc Ánh Xạ</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thay-the-gia-tri">Thay Thế Giá Trị</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phan-loai-va-dua-du-lieu-vao-cac-khoang">Phân Loại và Đưa Dữ Liệu Vào Các Khoảng</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phat-hien-va-loc-ngoai-le">Phát Hiện và Lọc Ngoại Lệ</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hoan-vi-va-lay-mau-ngau-nhien">Hoán Vị và Lấy Mẫu Ngẫu Nhiên</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tinh-toan-bien-chi-thi-bien-gia">Tính Toán Biến Chỉ Thị/Biến Giả</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bien-doi-du-lieu-su-dung-ham-hoac-anh-xa">Biến Đổi Dữ Liệu Sử Dụng Hàm hoặc Ánh Xạ</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#thay-the-gia-tri">Thay Thế Giá Trị</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#phan-loai-va-dua-du-lieu-vao-cac-khoang">Phân Loại và Đưa Dữ Liệu Vào Các Khoảng</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#phat-hien-va-loc-ngoai-le">Phát Hiện và Lọc Ngoại Lệ</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hoan-vi-va-lay-mau-ngau-nhien">Hoán Vị và Lấy Mẫu Ngẫu Nhiên</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tinh-toan-bien-chi-thi-bien-gia">Tính Toán Biến Chỉ Thị/Biến Giả</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -421,7 +414,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="bien-doi-du-lieu">
+  <section class="tex2jax_ignore mathjax_ignore" id="bien-doi-du-lieu">
 <h1>Biến Đổi Dữ Liệu<a class="headerlink" href="#bien-doi-du-lieu" title="Link to this heading">#</a></h1>
 <p>Cho đến nay trong chương này, chúng ta đã quan tâm đến việc sắp xếp lại dữ liệu. Lọc, làm sạch và các biến đổi khác cũng là một loại thao tác quan trọng.</p>
 <section id="loai-bo-du-lieu-trung-lap">
@@ -498,9 +491,8 @@
 </pre></div>
 </div>
 </section>
-</section>
 <section id="bien-doi-du-lieu-su-dung-ham-hoac-anh-xa">
-<h1>Biến Đổi Dữ Liệu Sử Dụng Hàm hoặc Ánh Xạ<a class="headerlink" href="#bien-doi-du-lieu-su-dung-ham-hoac-anh-xa" title="Link to this heading">#</a></h1>
+<h2>Biến Đổi Dữ Liệu Sử Dụng Hàm hoặc Ánh Xạ<a class="headerlink" href="#bien-doi-du-lieu-su-dung-ham-hoac-anh-xa" title="Link to this heading">#</a></h2>
 <p>Đối với nhiều tập dữ liệu, bạn có thể muốn thực hiện một số biến đổi dựa trên các giá trị trong một mảng, Series hoặc cột trong DataFrame. Hãy xem xét dữ liệu giả định sau đây được thu thập về các loại thịt khác nhau:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;food&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;bacon&#39;</span><span class="p">,</span> <span class="s1">&#39;pulled pork&#39;</span><span class="p">,</span> <span class="s1">&#39;bacon&#39;</span><span class="p">,</span>
                               <span class="s1">&#39;Pastrami&#39;</span><span class="p">,</span> <span class="s1">&#39;corned beef&#39;</span><span class="p">,</span> <span class="s1">&#39;Bacon&#39;</span><span class="p">,</span>
@@ -589,7 +581,7 @@
 <p>Sử dụng map là một cách thuận tiện để thực hiện các biến đổi theo từng phần tử và các thao tác làm sạch dữ liệu khác.</p>
 </section>
 <section id="thay-the-gia-tri">
-<h1>Thay Thế Giá Trị<a class="headerlink" href="#thay-the-gia-tri" title="Link to this heading">#</a></h1>
+<h2>Thay Thế Giá Trị<a class="headerlink" href="#thay-the-gia-tri" title="Link to this heading">#</a></h2>
 <p>Điền vào dữ liệu thiếu bằng phương thức <code class="docutils literal notranslate"><span class="pre">fillna</span></code> là một trường hợp đặc biệt của việc thay thế giá trị tổng quát hơn. Như đã thấy, <code class="docutils literal notranslate"><span class="pre">map</span></code> có thể được sử dụng để thay đổi một tập hợp con các giá trị trong một đối tượng, nhưng <code class="docutils literal notranslate"><span class="pre">replace</span></code> cung cấp một cách đơn giản và linh hoạt hơn để làm điều đó. Hãy xem xét Series sau:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">999.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="o">-</span><span class="mf">999.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1000.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">])</span>
 <span class="n">data</span>
@@ -726,7 +718,7 @@ Như các giá trị trong một Series, các nhãn trục cũng có thể đư�
 </div>
 </section>
 <section id="phan-loai-va-dua-du-lieu-vao-cac-khoang">
-<h1>Phân Loại và Đưa Dữ Liệu Vào Các Khoảng<a class="headerlink" href="#phan-loai-va-dua-du-lieu-vao-cac-khoang" title="Link to this heading">#</a></h1>
+<h2>Phân Loại và Đưa Dữ Liệu Vào Các Khoảng<a class="headerlink" href="#phan-loai-va-dua-du-lieu-vao-cac-khoang" title="Link to this heading">#</a></h2>
 <p>Dữ liệu liên tục thường được phân loại hoặc chia thành các “khoảng” để phân tích. Giả sử bạn có dữ liệu về một nhóm người trong một nghiên cứu và muốn chia họ thành các nhóm tuổi rời rạc:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">32</span><span class="p">]</span>
 </pre></div>
@@ -824,7 +816,7 @@ Như các giá trị trong một Series, các nhãn trục cũng có thể đư�
 <p>Sẽ quay lại với cut và qcut sau trong chương khi thảo luận về tổng hợp và các thao tác nhóm, vì các hàm phân loại này đặc biệt hữu ích cho phân tích phân vị và nhóm.</p>
 </section>
 <section id="phat-hien-va-loc-ngoai-le">
-<h1>Phát Hiện và Lọc Ngoại Lệ<a class="headerlink" href="#phat-hien-va-loc-ngoai-le" title="Link to this heading">#</a></h1>
+<h2>Phát Hiện và Lọc Ngoại Lệ<a class="headerlink" href="#phat-hien-va-loc-ngoai-le" title="Link to this heading">#</a></h2>
 <p>Lọc hoặc biến đổi ngoại lệ chủ yếu là việc áp dụng các thao tác trên mảng. Hãy xem xét một DataFrame với một số dữ liệu phân phối chuẩn:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -903,7 +895,7 @@ Như các giá trị trong một Series, các nhãn trục cũng có thể đư�
 </div>
 </section>
 <section id="hoan-vi-va-lay-mau-ngau-nhien">
-<h1>Hoán Vị và Lấy Mẫu Ngẫu Nhiên<a class="headerlink" href="#hoan-vi-va-lay-mau-ngau-nhien" title="Link to this heading">#</a></h1>
+<h2>Hoán Vị và Lấy Mẫu Ngẫu Nhiên<a class="headerlink" href="#hoan-vi-va-lay-mau-ngau-nhien" title="Link to this heading">#</a></h2>
 <p>Hoán vị (xáo trộn ngẫu nhiên) một Series hoặc các hàng trong DataFrame rất dễ dàng bằng cách sử dụng hàm <code class="docutils literal notranslate"><span class="pre">numpy.random.permutation</span></code>. Gọi hàm permutation với chiều dài của trục bạn muốn hoán vị sẽ tạo ra một mảng số nguyên chỉ định thứ tự mới:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)))</span>
 <span class="n">sampler</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -968,7 +960,7 @@ Như các giá trị trong một Series, các nhãn trục cũng có thể đư�
 </div>
 </section>
 <section id="tinh-toan-bien-chi-thi-bien-gia">
-<h1>Tính Toán Biến Chỉ Thị/Biến Giả<a class="headerlink" href="#tinh-toan-bien-chi-thi-bien-gia" title="Link to this heading">#</a></h1>
+<h2>Tính Toán Biến Chỉ Thị/Biến Giả<a class="headerlink" href="#tinh-toan-bien-chi-thi-bien-gia" title="Link to this heading">#</a></h2>
 <p>Một loại biến đổi khác cho các ứng dụng mô hình hóa thống kê hoặc học máy là chuyển đổi biến phân loại thành ma trận “giả” hoặc “chỉ thị”. Nếu một cột trong DataFrame có k giá trị khác nhau, bạn sẽ tạo ra một ma trận hoặc DataFrame với k cột chứa toàn bộ các giá trị 1 và 0. pandas có hàm <code class="docutils literal notranslate"><span class="pre">get_dummies</span></code> để làm điều này, mặc dù việc tự viết một hàm không khó. Hãy quay lại một ví dụ DataFrame trước đây:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span>
                    <span class="s1">&#39;data1&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)})</span>
@@ -1111,6 +1103,7 @@ Như các giá trị trong một Series, các nhãn trục cũng có thể đư�
 </pre></div>
 </div>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1152,11 +1145,11 @@ Như các giá trị trong một Series, các nhãn trục cũng có thể đư�
       </div>
     </a>
     <a class="right-next"
-       href="DataWrangling.html"
+       href="StringManipulation.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Biến Đổi và Kết Hợp Dữ Liệu</p>
+        <p class="prev-next-title">String Manipulation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1177,18 +1170,14 @@ Như các giá trị trong một Series, các nhãn trục cũng có thể đư�
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Biến Đổi Dữ Liệu</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loai-bo-du-lieu-trung-lap">Loại Bỏ Dữ Liệu Trùng Lặp</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bien-doi-du-lieu-su-dung-ham-hoac-anh-xa">Biến Đổi Dữ Liệu Sử Dụng Hàm hoặc Ánh Xạ</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thay-the-gia-tri">Thay Thế Giá Trị</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phan-loai-va-dua-du-lieu-vao-cac-khoang">Phân Loại và Đưa Dữ Liệu Vào Các Khoảng</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phat-hien-va-loc-ngoai-le">Phát Hiện và Lọc Ngoại Lệ</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hoan-vi-va-lay-mau-ngau-nhien">Hoán Vị và Lấy Mẫu Ngẫu Nhiên</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tinh-toan-bien-chi-thi-bien-gia">Tính Toán Biến Chỉ Thị/Biến Giả</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bien-doi-du-lieu-su-dung-ham-hoac-anh-xa">Biến Đổi Dữ Liệu Sử Dụng Hàm hoặc Ánh Xạ</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#thay-the-gia-tri">Thay Thế Giá Trị</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#phan-loai-va-dua-du-lieu-vao-cac-khoang">Phân Loại và Đưa Dữ Liệu Vào Các Khoảng</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#phat-hien-va-loc-ngoai-le">Phát Hiện và Lọc Ngoại Lệ</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hoan-vi-va-lay-mau-ngau-nhien">Hoán Vị và Lấy Mẫu Ngẫu Nhiên</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tinh-toan-bien-chi-thi-bien-gia">Tính Toán Biến Chỉ Thị/Biến Giả</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>

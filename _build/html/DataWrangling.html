@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Biến Đổi và Kết Hợp Dữ Liệu &#8212; My sample book</title>
+    <title>Chương 6: Biến Đổi và Kết Hợp Dữ Liệu &#8212; My sample book</title>
   
   
   
@@ -64,7 +64,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Đánh Chỉ Mục Phân Cấp" href="Indexing.html" />
-    <link rel="prev" title="Xử Lý Dữ Liệu Thiếu" href="Handling.html" />
+    <link rel="prev" title="String Manipulation" href="StringManipulation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -171,12 +171,9 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="tongquan.html">Tổng quan về NumPy và Pandas</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="Numpy.html">NumPy Cơ Bản Mảng và Tính Toán Vector</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="ndarray.html">Đối Tượng Mảng N Chiều NumPy: Một Đối Tượng Mảng Đa Chiều</a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="ndarray.html">Đối tượng ndarray Mảng Nhiều Chiều</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Arithmetic.html">Các Phép Toán trên Mảng</a></li>
 <li class="toctree-l2"><a class="reference internal" href="UniversalFunctions.html">Hàm Toàn Cục: Các Hàm Mảng Nhanh Theo Phần Tử</a></li>
-
-
 
 
 <li class="toctree-l2"><a class="reference internal" href="InputOutput.html">Nhập/Xuất Dữ Liệu</a></li>
@@ -189,21 +186,29 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="Pandas.html">Pandas cơ bản</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="DataStructures.html">Giới Thiệu Cấu Trúc Dữ Liệu</a></li>
 <li class="toctree-l2"><a class="reference internal" href="EssentialFunctionality.html">Các Chức Năng Cơ Bản</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DescriptiveStatistics.html">Thống Kê và Phân Tích Dữ Liệu</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Format.html">Nạp, Lưu Trữ và Định Dạng Dữ Liệu</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="TextFormat.html">Đọc và Ghi Dữ Liệu Văn Bản</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataFormat.html">Định Dạng Dữ Liệu Nhị Phân</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="DataCleaning.html">Làm Sạch và Chuẩn Bị Dữ Liệu</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Handling.html">Xử Lý Dữ Liệu Thiếu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Transformation.html">Biến Đổi Dữ Liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StringManipulation.html">Xử Lý Chuỗi Ký Tự</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Biến Đổi và Kết Hợp Dữ Liệu</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="Indexing.html">Đánh Chỉ Mục Phân Cấp</a></li>
-
-
-
+<li class="toctree-l2"><a class="reference internal" href="Indexing.html">Indexing Phân Cấp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Combining.html">Kết Hợp Dữ Liệu</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Reshaping.html">Biến Đổi Dữ Liệu</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="BTNumpy.html">Bài tập Numpy cơ bản</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BTPandas.html">Cài đặt và tải dữ liệu</a></li>
+
 </ul>
 
     </div>
@@ -381,7 +386,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Biến Đổi và Kết Hợp Dữ Liệu</h1>
+    <h1>Chương 6: Biến Đổi và Kết Hợp Dữ Liệu</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -405,8 +410,8 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="bien-doi-va-ket-hop-du-lieu">
-<h1>Biến Đổi và Kết Hợp Dữ Liệu<a class="headerlink" href="#bien-doi-va-ket-hop-du-lieu" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="chuong-6-bien-doi-va-ket-hop-du-lieu">
+<h1>Chương 6: Biến Đổi và Kết Hợp Dữ Liệu<a class="headerlink" href="#chuong-6-bien-doi-va-ket-hop-du-lieu" title="Link to this heading">#</a></h1>
 <p>Trong quá trình phân tích và xử lý dữ liệu, biến đổi và kết hợp dữ liệu là những nhiệm vụ quan trọng và thường xuyên phải thực hiện. Pandas cung cấp nhiều công cụ mạnh mẽ để thực hiện các nhiệm vụ này một cách hiệu quả và linh hoạt. Dưới đây là một số khía cạnh chính của biến đổi và kết hợp dữ liệu:</p>
 <section id="indexing-phan-cap">
 <h2>Indexing Phân Cấp<a class="headerlink" href="#indexing-phan-cap" title="Link to this heading">#</a></h2>
@@ -472,12 +477,12 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Handling.html"
+       href="StringManipulation.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Xử Lý Dữ Liệu Thiếu</p>
+        <p class="prev-next-title">String Manipulation</p>
       </div>
     </a>
     <a class="right-next"

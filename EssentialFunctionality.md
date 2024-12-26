@@ -96,7 +96,7 @@ c    4.0   NaN         5.0
 d    7.0   NaN         8.0
 ```
 
-### Bảng 5-3. Các Tham Số của Hàm reindex
+### Bảng 3-3. Các Tham Số của Hàm reindex
 
 | Argument    | Description                                                                                                                   |
 |-------------|-------------------------------------------------------------------------------------------------------------------------------|
@@ -391,7 +391,7 @@ Bảng 5-4 cung cấp một tóm tắt ngắn về nhiều phương pháp này. 
 
 Khi thiết kế ban đầu pandas, việc phải gõ frame[:, col] để chọn một cột được cho là quá dài dòng và dễ sai sót, vì việc chọn cột là một trong những thao tác phổ biến nhất. Quyết định đã được đưa ra để chuyển tất cả hành vi lập chỉ mục phức tạp (cả nhãn và số nguyên) vào toán tử ix. Trong thực tế, điều này dẫn đến nhiều trường hợp ngoại lệ trong dữ liệu có nhãn trục là số nguyên, vì vậy đội ngũ pandas đã quyết định tạo ra các toán tử loc và iloc để xử lý lần lượt lập chỉ mục dựa trên nhãn và số nguyên. Toán tử lập chỉ mục ix vẫn tồn tại, nhưng đã bị loại bỏ và không được khuyến nghị sử dụng.
 
-### Bảng 5-4. Các Tùy Chọn Lập Chỉ Mục với DataFrame
+### Bảng 3-4. Các Tùy Chọn Lập Chỉ Mục với DataFrame
 
 | Type                        | Notes                                                                                                                   |
 |-----------------------------|-------------------------------------------------------------------------------------------------------------------------|
@@ -619,7 +619,7 @@ Out[174]:
 1  4.0  5.0  6.0  7.0  0
 2  8.0  9.0  10.0 11.0  0
 ```
-### Bảng 5-5. Các Phương Thức Số Học Linh Hoạt
+### Bảng 3-5. Các Phương Thức Số Học Linh Hoạt
 
 | Method       | Description                                      |
 |--------------|--------------------------------------------------|
@@ -939,7 +939,7 @@ Out[221]:
 2   2.0  1.0  3.0
 3   2.0  3.0  1.0
 ```
-### Bảng 5-6. Các Phương Pháp Phá Vỡ Ràng Buộc Với Rank
+### Bảng 3-6. Các Phương Pháp Phá Vỡ Ràng Buộc Với Rank
 
 | Method   | Description                                                                                                           |
 |----------|-----------------------------------------------------------------------------------------------------------------------|

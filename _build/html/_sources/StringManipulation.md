@@ -1,4 +1,4 @@
-## String Manipulation
+# String Manipulation
 Python từ lâu đã là một ngôn ngữ phổ biến cho việc thao tác dữ liệu thô, phần nào nhờ vào tính dễ sử dụng trong việc xử lý chuỗi và văn bản. Hầu hết các thao tác văn bản được thực hiện dễ dàng với các phương thức có sẵn của đối tượng chuỗi. Đối với các thao tác phức tạp hơn về mẫu và thao tác văn bản, có thể cần sử dụng biểu thức chính quy (regular expressions). Pandas bổ sung vào danh sách này bằng cách cho phép áp dụng chuỗi và biểu thức chính quy một cách ngắn gọn trên toàn bộ mảng dữ liệu, đồng thời xử lý vấn đề dữ liệu bị thiếu.
 
 ## String Object Methods
@@ -92,7 +92,7 @@ Kết quả lần lượt:
 'ab guido'
 ```
 Xem bảng dưới đây để biết danh sách một số phương thức chuỗi tích hợp của Python:
-# Bảng 7-3: Các phương thức chuỗi tích hợp của Python
+## Bảng 5-3: Các phương thức chuỗi tích hợp của Python
 
 | **Phương thức**       | **Mô tả**                                                                                     |
 |-----------------------|---------------------------------------------------------------------------------------------|
@@ -259,7 +259,7 @@ Rob Username: rob, Domain: gmail, Suffix: com
 Ryan Username: ryan, Domain: yahoo, Suffix: com
 ```
 Có nhiều hơn nữa về biểu thức chính quy trong Python, phần lớn trong đó nằm ngoài phạm vi của cuốn sách. Bảng 7-4 cung cấp một tóm tắt ngắn gọn.
-# Bảng 7-4: Các phương thức Regular Expression (Regex) trong Python
+## Bảng 5-4: Các phương thức Regular Expression (Regex) trong Python
 
 | **Phương thức**         | **Mô tả**                                                                                                  |
 |-------------------------|----------------------------------------------------------------------------------------------------------|
@@ -385,8 +385,8 @@ Steve    steve
 Wes       NaN
 dtype: object
 ```
-Xem Bảng 7-5 để biết thêm các phương thức chuỗi trong pandas.
-# Bảng 7-5: Một số phương thức chuỗi vector hóa trong Python
+Xem Bảng 5-5 để biết thêm các phương thức chuỗi trong pandas.
+## Bảng 5-5: Một số phương thức chuỗi vector hóa trong Python
 
 | **Phương thức**      | **Mô tả**                                                                                                  |
 |----------------------|----------------------------------------------------------------------------------------------------------|

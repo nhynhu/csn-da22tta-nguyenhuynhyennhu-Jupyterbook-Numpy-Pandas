@@ -57,3 +57,10 @@ chapters:
         title: Kết Hợp Dữ Liệu
       - file: Reshaping.md
         title: Biến Đổi Dữ Liệu
+  - file: bt.md
+    title: Bài tập củng cố 
+    sections:
+      - file:  BTNumpy.md 
+        title: Bài tập Numpy cơ bản 
+      - file:  BTPandas.md 
+        title: Bài tập Pandas cơ bản

@@ -1,4 +1,4 @@
- # Nạp Dữ liệu, Lưu trữ và Định dạng Tệp
+ # Chương 4 Nạp Dữ liệu, Lưu trữ và Định dạng Tệp
 
 Việc truy cập dữ liệu là bước đầu tiên cần thiết để sử dụng hầu hết các công cụ được giới thiệu trong cuốn sách này. Chương này tập trung vào việc nhập (input) và xuất (output) dữ liệu bằng thư viện pandas, mặc dù còn có nhiều công cụ khác trong các thư viện khác hỗ trợ việc đọc và ghi dữ liệu với nhiều định dạng khác nhau.
 

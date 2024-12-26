@@ -45,7 +45,7 @@ c       NaN
 d   -0.275
 dtype: float64
 ```
-### Bảng 5-7. Các Tùy Chọn cho Phương Thức Giảm
+### Bảng 3-7. Các Tùy Chọn cho Phương Thức Giảm
 
 | Method   | Description                                                                      |
 |----------|----------------------------------------------------------------------------------|
@@ -102,7 +102,7 @@ freq         8
 dtype:  object
 ```
 
-### Bảng 5-8. Các Phương Pháp Thống Kê Tóm Tắt và Liên Quan
+### Bảng 3-8. Các Phương Pháp Thống Kê Tóm Tắt và Liên Quan
 
 | Phương pháp        | Mô tả                                                                                 |
 |--------------------|---------------------------------------------------------------------------------------|
@@ -300,7 +300,7 @@ In [261]: unique_vals = pd.Series(['c', 'b', 'a'])
 In [262]: pd.Index(unique_vals).get_indexer(to_match)
 Out[262]: array([0, 2, 1, 1, 0, 2])
 ```
-### Bảng 5-9. Các Phương Pháp Giá Trị Duy Nhất, Tần Số Giá Trị, và Kiểm Tra Thành Viên
+### Bảng 3-9. Các Phương Pháp Giá Trị Duy Nhất, Tần Số Giá Trị, và Kiểm Tra Thành Viên
 
 | Phương pháp      | Mô tả                                                                                           |
 |------------------|-------------------------------------------------------------------------------------------------|

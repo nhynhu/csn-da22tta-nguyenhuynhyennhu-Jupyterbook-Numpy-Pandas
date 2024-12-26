@@ -63,7 +63,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Khac';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Giới Thiệu Về pandas" href="Pandas.html" />
+    <link rel="next" title="Chương 3 Giới thiệu về Pandas" href="Pandas.html" />
     <link rel="prev" title="Nhập và Xuất Tệp với Mảng NumPy" href="InputOutput.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -169,13 +169,11 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="tongquan.html">Tổng quan về NumPy và Pandas</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Numpy.html">NumPy Cơ Bản Mảng và Tính Toán Vector</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="ndarray.html">4.1 Đối Tượng Mảng N Chiều NumPy: Một Đối Tượng Mảng Đa Chiều</a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="ndarray.html">Đối tượng ndarray Mảng Nhiều Chiều</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Arithmetic.html">Các Phép Toán trên Mảng</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UniversalFunctions.html">4.2 Hàm Toàn Cụcục: Các Hàm Mảng Nhanh Theo Phần Tử</a></li>
-
-
+<li class="toctree-l2"><a class="reference internal" href="UniversalFunctions.html">Hàm Toàn Cục: Các Hàm Mảng Nhanh Theo Phần Tử</a></li>
 
 
 <li class="toctree-l2"><a class="reference internal" href="InputOutput.html">Nhập/Xuất Dữ Liệu</a></li>
@@ -188,13 +186,28 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="Pandas.html">Pandas cơ bản</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="DataStructures.html">Giới Thiệu Cấu Trúc Dữ Liệu</a></li>
 <li class="toctree-l2"><a class="reference internal" href="EssentialFunctionality.html">Các Chức Năng Cơ Bản</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DescriptiveStatistics.html">Thống Kê và Phân Tích Dữ Liệu</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Format.html">Nạp, Lưu Trữ và Định Dạng Dữ Liệu</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="TextFormat.html">Đọc và Ghi Dữ Liệu Văn Bản</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataFormat.html">Định Dạng Dữ Liệu Nhị Phân</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="DataCleaning.html">Làm Sạch và Chuẩn Bị Dữ Liệu</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Handling.html">Xử Lý Dữ Liệu Thiếu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Transformation.html">Biến Đổi Dữ Liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StringManipulation.html">Xử Lý Chuỗi Ký Tự</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="DataWrangling.html">CHƯƠNG 8</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="DataWrangling.html">Biến Đổi và Kết Hợp Dữ Liệu</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Indexing.html">Indexing Phân Cấp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Combining.html">Kết Hợp Dữ Liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Reshaping.html">Biến Đổi Dữ Liệu</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="BTNumpy.html">Bài tập Numpy cơ bản</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BTPandas.html">Cài đặt và tải dữ liệu</a></li>
 
 </ul>
 
@@ -393,7 +406,7 @@
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sinh-so-ngau-nhien-gia-pseudorandom-number-generation">Sinh Số Ngẫu Nhiên Giả (Pseudorandom Number Generation)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-ham-trong-numpy-random">Các Hàm Trong <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-2-7-cac-ham-trong-numpy-random">Bảng 2-7. Các Hàm Trong <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-du-cac-buoc-ngau-nhien-random-walks">Ví Dụ: Các Bước Ngẫu Nhiên (Random Walks)</a></li>
@@ -585,8 +598,8 @@
 <span class="w">       </span><span class="nt">-0</span><span class="nc">.6365</span><span class="o">,</span><span class="w">  </span><span class="nt">0</span><span class="nc">.0157</span><span class="o">,</span><span class="w"> </span><span class="nt">-2</span><span class="nc">.2427</span><span class="o">])</span>
 </pre></div>
 </div>
-<section id="cac-ham-trong-numpy-random">
-<h2>Các Hàm Trong <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code><a class="headerlink" href="#cac-ham-trong-numpy-random" title="Link to this heading">#</a></h2>
+<section id="bang-2-7-cac-ham-trong-numpy-random">
+<h2>Bảng 2-7. Các Hàm Trong <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code><a class="headerlink" href="#bang-2-7-cac-ham-trong-numpy-random" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Hàm</p></th>
@@ -813,7 +826,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Giới Thiệu Về pandas</p>
+        <p class="prev-next-title">Chương 3 Giới thiệu về Pandas</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -844,7 +857,7 @@
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sinh-so-ngau-nhien-gia-pseudorandom-number-generation">Sinh Số Ngẫu Nhiên Giả (Pseudorandom Number Generation)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-ham-trong-numpy-random">Các Hàm Trong <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-2-7-cac-ham-trong-numpy-random">Bảng 2-7. Các Hàm Trong <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-du-cac-buoc-ngau-nhien-random-walks">Ví Dụ: Các Bước Ngẫu Nhiên (Random Walks)</a></li>

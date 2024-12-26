@@ -1,8 +1,8 @@
-## Đối Tượng Mảng N Chiều NumPy: Một Đối Tượng Mảng Đa Chiều
+# Đối Tượng Mảng N Chiều NumPy: Một Đối Tượng Mảng Đa Chiều
 
 Một trong những tính năng chính của **NumPy** là đối tượng mảng N chiều, hay **ndarray**, là một container nhanh chóng và linh hoạt cho các tập dữ liệu lớn trong Python. Các mảng cho phép bạn thực hiện các phép toán toán học trên toàn bộ khối dữ liệu bằng cách sử dụng cú pháp tương tự như các phép toán tương đương giữa các phần tử vô hướng.
 
-### Ví Dụ Cơ Bản Về Mảng NumPy
+## Ví Dụ Cơ Bản Về Mảng NumPy
 
 Để cung cấp cho bạn một cái nhìn tổng quan về cách **NumPy** cho phép thực hiện các phép toán theo lô với cú pháp tương tự như các giá trị vô hướng trên các đối tượng tích hợp sẵn của Python, tôi sẽ nhập **NumPy** và tạo ra một mảng nhỏ dữ liệu ngẫu nhiên:
 
@@ -113,7 +113,7 @@ arange là một phiên bản mảng của hàm range tích hợp sẵn trong Py
 np.arange(15)
 # Output: array([ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14])
 ```
-### Các Hàm Tạo Mảng
+## Bảng 2-1. Các Hàm Tạo Mảng
 
 | Hàm               | Mô tả                                                                 |
 |-------------------|-----------------------------------------------------------------------|
@@ -129,7 +129,7 @@ np.arange(15)
 dịch theo phong cách học thuật để tôi có thể viết vào tài liệu
 Chắc chắn rồi! Dưới đây là bản dịch theo phong cách học thuật:
 
-### Các Kiểu Dữ Liệu cho ndarrays
+## Các Kiểu Dữ Liệu cho ndarrays
 Kiểu dữ liệu (hay dtype) là một đối tượng đặc biệt trong NumPy chứa thông tin cần thiết để diễn giải một khối bộ nhớ dưới dạng một loại dữ liệu cụ thể. Ví dụ:
 
 ```python
@@ -144,7 +144,7 @@ dtypes là yếu tố quan trọng cho sự linh hoạt của NumPy trong việc
 
 Các kiểu dữ liệu số được đặt tên theo cách bao gồm tên kiểu như float hoặc int, tiếp theo là số bit mỗi phần tử chiếm dụng. Ví dụ, giá trị số thực với độ chính xác kép chuẩn (được sử dụng trong đối tượng float của Python) chiếm 8 byte hoặc 64 bit, được biết đến trong NumPy là float64.
 
-### Bảng 4-2. Các Kiểu Dữ Liệu của NumPy
+## Bảng 22-2. Các Kiểu Dữ Liệu của NumPy
 
 | Kiểu            | Mã Kiểu  | Mô Tả                                                                          |
 |-----------------|----------|----------------------------------------------------------------------------------|
@@ -162,7 +162,7 @@ Các kiểu dữ liệu số được đặt tên theo cách bao gồm tên ki�
 | `string_`        | `S`        | Kiểu chuỗi ASCII cố định (1 byte mỗi ký tự); ví dụ, để tạo một kiểu chuỗi với độ dài 10, sử dụng `'S10'` |
 | `unicode_`       | `U`        | Kiểu Unicode cố định, số byte phụ thuộc vào nền tảng; cách xác định giống như `string_` (ví dụ, `'U10'`) |
 
-### Chuyển Đổi Kiểu Dữ Liệu
+## Chuyển Đổi Kiểu Dữ Liệu
 
 Có thể chuyển đổi hoặc ép kiểu một mảng từ kiểu này sang kiểu khác bằng cách sử dụng phương thức `astype` của `ndarray`:
 

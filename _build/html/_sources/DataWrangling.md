@@ -1,5 +1,5 @@
 
-# Biến Đổi và Kết Hợp Dữ Liệu
+# Chương 6: Biến Đổi và Kết Hợp Dữ Liệu
 Trong quá trình phân tích và xử lý dữ liệu, biến đổi và kết hợp dữ liệu là những nhiệm vụ quan trọng và thường xuyên phải thực hiện. Pandas cung cấp nhiều công cụ mạnh mẽ để thực hiện các nhiệm vụ này một cách hiệu quả và linh hoạt. Dưới đây là một số khía cạnh chính của biến đổi và kết hợp dữ liệu:
 
 ## Indexing Phân Cấp

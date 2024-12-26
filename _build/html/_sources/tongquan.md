@@ -1,4 +1,4 @@
-# Tổng Quan về NumPy và Pandas
+# Chương 1: Tổng Quan về NumPy và Pandas
 NumPy và Pandas là hai thư viện mạnh mẽ trong Python, rất quan trọng cho việc phân tích dữ liệu, xử lý số liệu và khoa học dữ liệu. Cả hai đều được sử dụng rộng rãi trong cộng đồng khoa học dữ liệu và cung cấp các công cụ và hàm mạnh mẽ để làm việc với dữ liệu một cách hiệu quả và linh hoạt.
 
 ## NumPy

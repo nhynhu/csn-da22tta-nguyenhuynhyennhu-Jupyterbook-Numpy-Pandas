@@ -1,4 +1,4 @@
-# Làm sạch và Chuẩn bị Dữ liệu
+# Chương 5 Làm sạch và Chuẩn bị Dữ liệu
 
 Làm sạch và chuẩn bị dữ liệu là một bước quan trọng trong quá trình phân tích dữ liệu và khoa học dữ liệu. Quá trình này bao gồm việc xử lý dữ liệu thiếu, biến đổi dữ liệu, và xử lý chuỗi ký tự để đảm bảo dữ liệu đủ chất lượng cho các phân tích và mô hình hóa tiếp theo. Dưới đây là một số khía cạnh chính của việc làm sạch và chuẩn bị dữ liệu:
 

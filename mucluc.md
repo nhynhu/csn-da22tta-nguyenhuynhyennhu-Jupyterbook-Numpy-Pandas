@@ -33,3 +33,6 @@
   - [Indexing Phân Cấp](Indexing.md)
   - [Kết Hợp Dữ Liệu](Combining.md)
   - [Biến Đổi Dữ Liệu](Reshaping.md)
+### Bài tập củng cố
+1. [Bài tập Numpy cơ bản](BTNumpy.md)
+2. [Bài tập Pandas cơ bản](BTPandas.md)

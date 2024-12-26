@@ -1,4 +1,4 @@
-# Giới Thiệu Về pandas
+# Chương 3 Giới thiệu về Pandas
 
 **pandas** là một công cụ quan trọng trong việc làm sạch và phân tích dữ liệu, được sử dụng rộng rãi trong Python. Thư viện này cung cấp các cấu trúc dữ liệu và công cụ xử lý dữ liệu giúp việc phân tích trở nên nhanh chóng và hiệu quả. **pandas** thường được kết hợp với các công cụ tính toán số học như **NumPy** và **SciPy**, các thư viện phân tích như **statsmodels** và **scikit-learn**, cũng như các thư viện trực quan hóa dữ liệu như **matplotlib**. 
 

@@ -1,4 +1,4 @@
-## Định Dạng Dữ Liệu Nhị Phân
+# Định Dạng Dữ Liệu Nhị Phân
 
 Một trong những cách dễ dàng nhất để lưu trữ dữ liệu (còn được gọi là tuần tự hóa) hiệu quả trong định dạng nhị phân là sử dụng tuần tự hóa pickle tích hợp của Python. Các đối tượng pandas đều có phương thức `to_pickle` để ghi dữ liệu ra đĩa dưới định dạng pickle:
 
@@ -30,7 +30,7 @@ bcolz: Một định dạng nhị phân hướng cột có khả năng nén dự
 
 Feather: Một định dạng tệp hướng cột ngôn ngữ chéo được tôi thiết kế cùng với cộng đồng lập trình R của Hadley Wickham. Feather sử dụng định dạng bộ nhớ cột Apache Arrow.
 
-### Sử dụng Định Dạng HDF5
+## Sử dụng Định Dạng HDF5
 
 HDF5 là một định dạng tệp được đánh giá cao, được thiết kế để lưu trữ lượng lớn dữ liệu mảng khoa học. Đây là một thư viện C có các giao diện sẵn có ở nhiều ngôn ngữ khác, bao gồm Java, Julia, MATLAB và Python. "HDF" trong HDF5 là viết tắt của định dạng dữ liệu phân cấp. Mỗi tệp HDF5 có thể lưu trữ nhiều tập dữ liệu và siêu dữ liệu hỗ trợ. So với các định dạng đơn giản hơn, HDF5 hỗ trợ nén tại chỗ với nhiều chế độ nén khác nhau, cho phép lưu trữ dữ liệu với các mẫu lặp lại một cách hiệu quả hơn. HDF5 có thể là một lựa chọn tốt cho việc làm việc với các tập dữ liệu rất lớn không phù hợp với bộ nhớ, vì bạn có thể đọc và ghi các phần nhỏ của các mảng lớn hơn một cách hiệu quả.
 

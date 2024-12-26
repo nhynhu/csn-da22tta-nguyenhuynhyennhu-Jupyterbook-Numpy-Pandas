@@ -78,7 +78,7 @@ array([   nan,    nan,    nan,    2.318 ,   1.9022,   1.8574,   2.2378])
 ```
 Ở đây, np.sqrt tính toán căn bậc hai của các phần tử trong arr và gán trực tiếp vào chính mảng đó.
 
-# Bảng 4-3. Ufunc đơn
+# Bảng 2-5. Ufunc đơn
 
 | **Hàm**        | **Mô tả**                                                                 |
 |----------------|---------------------------------------------------------------------------|
@@ -99,42 +99,7 @@ array([   nan,    nan,    nan,    2.318 ,   1.9022,   1.8574,   2.2378])
 | `logical_not`  | Tính giá trị sự thật của `not x` theo phần tử (tương đương với `~arr`)   |
 
 
-# Bảng 4-4. Hàm toàn cầu nhị phân
-
-| **Hàm**        | **Mô tả**                                                                 |
-|----------------|---------------------------------------------------------------------------|
-| `add`          | Cộng các phần tử tương ứng trong các mảng                                 |
-| `subtract`     | Trừ các phần tử trong mảng thứ hai từ mảng đầu tiên                       |
-| `multiply`     | Nhân các phần tử trong mảng                                              |
-| `divide`, `floor_divide` | Chia hoặc chia nguyên (cắt bỏ phần dư)                                   |
-| `power`        | Nâng các phần tử trong mảng đầu tiên lên các lũy thừa được chỉ định trong mảng thứ hai |
-| `maximum`, `fmax` | Giá trị lớn nhất theo phần tử; `fmax` bỏ qua NaN                        |
-| `minimum`, `fmin` | Giá trị nhỏ nhất theo phần tử; `fmin` bỏ qua NaN                        |
-| `mod`          | Phép chia theo phần tử (số dư của phép chia)                              |
-| `copysign`     | Sao chép dấu của các giá trị trong đối số thứ hai cho các giá trị trong đối số đầu tiên |
-| `greater`, `greater_equal`, `less`, `less_equal`, `equal`, `not_equal` | Thực hiện so sánh theo phần tử, tạo ra mảng boolean (tương đương với các toán tử infix `>`, `>=`, `<`, `<=`, `==`, `!=`) |
-| `logical_and`, `logical_or`, `logical_xor` | Tính giá trị sự thật theo phần tử của phép toán logic (tương đương với các toán tử infix `&`, `|`, `^`) |
-# Bảng 4-3. Ufunc đơn
-
-| **Hàm**        | **Mô tả**                                                                 |
-|----------------|---------------------------------------------------------------------------|
-| `abs`, `fabs`  | Tính giá trị tuyệt đối theo phần tử cho các giá trị số nguyên, số thực hoặc số phức |
-| `sqrt`         | Tính căn bậc hai của mỗi phần tử (tương đương với `arr ** 0.5`)         |
-| `square`       | Tính bình phương của mỗi phần tử (tương đương với `arr ** 2`)           |
-| `exp`          | Tính lũy thừa của `e` cho mỗi phần tử                                    |
-| `log`, `log10`, `log2`, `log1p` | Log tự nhiên (cơ sở `e`), log cơ sở 10, log cơ sở 2 và `log(1 + x)`, tương ứng |
-| `sign`         | Tính dấu của mỗi phần tử: 1 (dương), 0 (không) hoặc -1 (âm)              |
-| `ceil`         | Tính trần của mỗi phần tử (tức là, số nguyên nhỏ nhất lớn hơn hoặc bằng số đó) |
-| `floor`        | Tính sàn của mỗi phần tử (tức là, số nguyên lớn nhất nhỏ hơn hoặc bằng mỗi phần tử) |
-| `rint`         | Làm tròn các phần tử về số nguyên gần nhất, giữ nguyên kiểu dữ liệu      |
-| `modf`         | Trả về các phần thập phân và nguyên của mảng dưới dạng một mảng riêng biệt |
-| `isnan`        | Trả về mảng boolean chỉ ra xem mỗi giá trị có phải là NaN (Not a Number) hay không |
-| `isfinite`, `isinf` | Trả về mảng boolean chỉ ra xem mỗi phần tử có hữu hạn (không phải vô cùng, không phải NaN) hoặc vô cùng, tương ứng |
-| `cos`, `cosh`, `sin`, `sinh`, `tan`, `tanh` | Các công thức lượng giác thường và hyperbolic |
-| `arccos`, `arccosh`, `arcsin`, `arcsinh`, `arctan`, `arctanh` | Các công thức lượng giác ngược |
-| `logical_not`  | Tính giá trị sự thật của `not x` theo phần tử (tương đương với `~arr`)   |
-
-# Bảng 4-4. Hàm toàn cầu nhị phân
+# Bảng 2-6.. Hàm toàn cục nhị phân
 
 | **Hàm**        | **Mô tả**                                                                 |
 |----------------|---------------------------------------------------------------------------|

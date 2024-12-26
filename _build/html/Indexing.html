@@ -64,7 +64,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Kết Hợp và Ghép Nối Các Tập Dữ Liệu" href="Combining.html" />
-    <link rel="prev" title="Biến Đổi và Kết Hợp Dữ Liệu" href="DataWrangling.html" />
+    <link rel="prev" title="Chương 6: Biến Đổi và Kết Hợp Dữ Liệu" href="DataWrangling.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -171,12 +171,9 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="tongquan.html">Tổng quan về NumPy và Pandas</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="Numpy.html">NumPy Cơ Bản Mảng và Tính Toán Vector</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="ndarray.html">Đối Tượng Mảng N Chiều NumPy: Một Đối Tượng Mảng Đa Chiều</a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="ndarray.html">Đối tượng ndarray Mảng Nhiều Chiều</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Arithmetic.html">Các Phép Toán trên Mảng</a></li>
 <li class="toctree-l2"><a class="reference internal" href="UniversalFunctions.html">Hàm Toàn Cục: Các Hàm Mảng Nhanh Theo Phần Tử</a></li>
-
-
 
 
 <li class="toctree-l2"><a class="reference internal" href="InputOutput.html">Nhập/Xuất Dữ Liệu</a></li>
@@ -189,21 +186,29 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="Pandas.html">Pandas cơ bản</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="DataStructures.html">Giới Thiệu Cấu Trúc Dữ Liệu</a></li>
 <li class="toctree-l2"><a class="reference internal" href="EssentialFunctionality.html">Các Chức Năng Cơ Bản</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DescriptiveStatistics.html">Thống Kê và Phân Tích Dữ Liệu</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Format.html">Nạp, Lưu Trữ và Định Dạng Dữ Liệu</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="TextFormat.html">Đọc và Ghi Dữ Liệu Văn Bản</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataFormat.html">Định Dạng Dữ Liệu Nhị Phân</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="DataCleaning.html">Làm Sạch và Chuẩn Bị Dữ Liệu</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Handling.html">Xử Lý Dữ Liệu Thiếu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Transformation.html">Biến Đổi Dữ Liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StringManipulation.html">Xử Lý Chuỗi Ký Tự</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="DataWrangling.html">Biến Đổi và Kết Hợp Dữ Liệu</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Đánh Chỉ Mục Phân Cấp</a></li>
-
-
-
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Indexing Phân Cấp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Combining.html">Kết Hợp Dữ Liệu</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Reshaping.html">Biến Đổi Dữ Liệu</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="BTNumpy.html">Bài tập Numpy cơ bản</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BTPandas.html">Cài đặt và tải dữ liệu</a></li>
+
 </ul>
 
     </div>
@@ -391,12 +396,10 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Đánh Chỉ Mục Phân Cấp</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sap-xep-lai-va-sap-xep-cac-muc">Sắp Xếp Lại và Sắp Xếp Các Mức</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#thong-ke-tong-hop-theo-muc">Thống Kê Tổng Hợp Theo Mức</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lap-chi-muc-bang-cac-cot-cua-dataframe">Lập Chỉ Mục Bằng Các Cột Của DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sap-xep-lai-va-sap-xep-cac-muc">Sắp Xếp Lại và Sắp Xếp Các Mức</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thong-ke-tong-hop-theo-muc">Thống Kê Tổng Hợp Theo Mức</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lap-chi-muc-bang-cac-cot-cua-dataframe">Lập Chỉ Mục Bằng Các Cột Của DataFrame</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -407,7 +410,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="danh-chi-muc-phan-cap">
+  <section class="tex2jax_ignore mathjax_ignore" id="danh-chi-muc-phan-cap">
 <h1>Đánh Chỉ Mục Phân Cấp<a class="headerlink" href="#danh-chi-muc-phan-cap" title="Link to this heading">#</a></h1>
 <p>Đánh chỉ mục phân cấp là một tính năng quan trọng của pandas cho phép bạn có nhiều (hai hoặc nhiều hơn) mức chỉ mục trên một trục. Về mặt trừu tượng, nó cung cấp một cách để làm việc với dữ liệu có chiều cao hơn dưới dạng có chiều thấp hơn. Hãy bắt đầu với một ví dụ đơn giản; tạo một Series với danh sách các danh sách (hoặc mảng) làm chỉ mục:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span>
@@ -549,9 +552,8 @@
                        <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
-</section>
 <section id="sap-xep-lai-va-sap-xep-cac-muc">
-<h1>Sắp Xếp Lại và Sắp Xếp Các Mức<a class="headerlink" href="#sap-xep-lai-va-sap-xep-cac-muc" title="Link to this heading">#</a></h1>
+<h2>Sắp Xếp Lại và Sắp Xếp Các Mức<a class="headerlink" href="#sap-xep-lai-va-sap-xep-cac-muc" title="Link to this heading">#</a></h2>
 <p>Đôi khi bạn sẽ cần sắp xếp lại thứ tự của các mức trên một trục hoặc sắp xếp dữ liệu theo các giá trị trong một mức cụ thể. Hàm <code class="docutils literal notranslate"><span class="pre">swaplevel</span></code> nhận hai số mức hoặc tên mức và trả về một đối tượng mới với các mức được hoán đổi (nhưng dữ liệu không thay đổi):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">swaplevel</span><span class="p">(</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">)</span>
 </pre></div>
@@ -596,7 +598,7 @@
 <p>Hiệu suất lựa chọn dữ liệu tốt hơn nhiều trên các đối tượng có chỉ mục phân cấp nếu chỉ mục được sắp xếp theo thứ tự từ điển học bắt đầu từ mức ngoài cùng—đó là kết quả của việc gọi sort_index(level=0) hoặc sort_index().</p>
 </section>
 <section id="thong-ke-tong-hop-theo-muc">
-<h1>Thống Kê Tổng Hợp Theo Mức<a class="headerlink" href="#thong-ke-tong-hop-theo-muc" title="Link to this heading">#</a></h1>
+<h2>Thống Kê Tổng Hợp Theo Mức<a class="headerlink" href="#thong-ke-tong-hop-theo-muc" title="Link to this heading">#</a></h2>
 <p>Nhiều thống kê mô tả và tổng hợp trên DataFrame và Series có tùy chọn <code class="docutils literal notranslate"><span class="pre">level</span></code> trong đó bạn có thể chỉ định mức bạn muốn tổng hợp theo trên một trục cụ thể. Hãy xem xét DataFrame ở trên; chúng ta có thể tổng hợp theo mức trên cả hàng hoặc cột như sau:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;key2&#39;</span><span class="p">)</span>
 </pre></div>
@@ -623,7 +625,7 @@
 </div>
 </section>
 <section id="lap-chi-muc-bang-cac-cot-cua-dataframe">
-<h1>Lập Chỉ Mục Bằng Các Cột Của DataFrame<a class="headerlink" href="#lap-chi-muc-bang-cac-cot-cua-dataframe" title="Link to this heading">#</a></h1>
+<h2>Lập Chỉ Mục Bằng Các Cột Của DataFrame<a class="headerlink" href="#lap-chi-muc-bang-cac-cot-cua-dataframe" title="Link to this heading">#</a></h2>
 <p>Không hiếm khi bạn muốn sử dụng một hoặc nhiều cột từ một DataFrame làm chỉ mục hàng; hoặc ngược lại, bạn có thể muốn di chuyển chỉ mục hàng vào các cột của DataFrame. Dưới đây là một ví dụ về DataFrame:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
                       <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">],</span>
@@ -691,6 +693,7 @@
 </pre></div>
 </div>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -728,7 +731,7 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Biến Đổi và Kết Hợp Dữ Liệu</p>
+        <p class="prev-next-title">Chương 6: Biến Đổi và Kết Hợp Dữ Liệu</p>
       </div>
     </a>
     <a class="right-next"
@@ -757,12 +760,10 @@
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Đánh Chỉ Mục Phân Cấp</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sap-xep-lai-va-sap-xep-cac-muc">Sắp Xếp Lại và Sắp Xếp Các Mức</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#thong-ke-tong-hop-theo-muc">Thống Kê Tổng Hợp Theo Mức</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lap-chi-muc-bang-cac-cot-cua-dataframe">Lập Chỉ Mục Bằng Các Cột Của DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sap-xep-lai-va-sap-xep-cac-muc">Sắp Xếp Lại và Sắp Xếp Các Mức</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thong-ke-tong-hop-theo-muc">Thống Kê Tổng Hợp Theo Mức</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lap-chi-muc-bang-cac-cot-cua-dataframe">Lập Chỉ Mục Bằng Các Cột Của DataFrame</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
