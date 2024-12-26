@@ -144,7 +144,7 @@ dtypes là yếu tố quan trọng cho sự linh hoạt của NumPy trong việc
 
 Các kiểu dữ liệu số được đặt tên theo cách bao gồm tên kiểu như float hoặc int, tiếp theo là số bit mỗi phần tử chiếm dụng. Ví dụ, giá trị số thực với độ chính xác kép chuẩn (được sử dụng trong đối tượng float của Python) chiếm 8 byte hoặc 64 bit, được biết đến trong NumPy là float64.
 
-## Bảng 22-2. Các Kiểu Dữ Liệu của NumPy
+## Bảng 2-2. Các Kiểu Dữ Liệu của NumPy
 
 | Kiểu            | Mã Kiểu  | Mô Tả                                                                          |
 |-----------------|----------|----------------------------------------------------------------------------------|

@@ -225,6 +225,7 @@ array([7, 8, 9])
 ```
 Lưu ý, trong tất cả các trường hợp trên, các lát cắt đều là dạng xem, không phải bản sao.
 ## Lập chỉ mục bằng cách cắt
+
 NumPy cung cấp khả năng thao tác mạnh mẽ với dữ liệu nhờ tính năng lập chỉ mục và cắt lát (slicing). Phương pháp này tương tự như thao tác với danh sách Python, nhưng mạnh mẽ hơn vì hỗ trợ mảng nhiều chiều.
 
 ### Lập chỉ mục trên mảng một chiều

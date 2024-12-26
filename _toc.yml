@@ -64,3 +64,5 @@ chapters:
         title: Bài tập Numpy cơ bản 
       - file:  BTPandas.md 
         title: Bài tập Pandas cơ bản
+      - file:  BTPTDL.md  
+        title: Bài tập Phân tích dữ liệu
